@@ -1,0 +1,3158 @@
+1 Anhui
+>淮南市 Huainan
+>>凤台县 Fengtai
+>>Huainan Huainan
+
+>阜阳市 Fuyang
+>>阜南县 Funan
+>>阜阳市 Fuyang
+>>界首市 Jieshou
+>>临泉县 Linquan
+>>太和县 Taihe
+>>瑶海区 Yaohai
+
+>池州市 Chizhou
+>>东至县 Dongzhi
+>>贵池区 Guichi
+>>青阳县 Qingyang
+>>石台县 Shitai
+
+>淮北市 Huaibei
+>>Huaibei Huaibei
+>>濉溪县 Suixi
+
+>马鞍山市 Ma'anshan
+>>当涂县 Dangtu
+>>Maanshan Maanshan
+
+>六安市 Lu'an
+>>霍邱县 Huoqiu
+>>霍山县 Huoshan
+>>金寨县 Jinzhai
+>>Lu An Lu An
+>>寿县 Shou
+>>舒城县 Shucheng
+
+>黄山市 Huangshan
+>>祁门县 Qimen
+>>歙县 She
+>>Taiping Taiping
+>>屯溪区 Tunxi
+>>休宁县 Xiuning
+>>黟县 Yi
+
+>蚌埠市 Bengbu
+>>Bengbu Bengbu
+>>固镇县 Guzhen
+>>怀远县 Huaiyuan
+>>五河县 Wuhe
+
+>芜湖市 Wuhu
+>>繁昌县 Fanchang
+>>南陵县 Nanling
+>>Wuhu Wuhu
+
+>巢湖市 Chaohu
+>>Chao Chao
+>>含山县 Hanshan
+>>和县 He
+>>庐江县 Lujiang
+>>无为县 Wuwei
+
+>铜陵市 Tongling
+>>铜陵县 Tongling
+
+>安庆市 Anqing
+>>Anqing Anqing
+>>怀宁县 Huaining
+>>潜山县 Qianshan
+>>宿松县 Susong
+>>太湖县 Taihu
+>>桐城市 Tongcheng
+>>望江县 Wangjiang
+>>岳西县 Yuexi
+>>枞阳县 Zongyang
+
+>宣城市 Xuancheng
+>>广德县 Guangde
+>>旌德县 Jingde
+>>泾县 Jing
+>>绩溪县 Jixi
+>>郎溪县 Langxi
+>>宁国市 Ningguo
+>>宣州区 Xuanzhou
+
+>宿州市 Suzhou
+>>砀山区 Dangshan
+>>灵璧县 Lingbi
+>>泗县 Si
+>>萧县 Xiao
+>>埇桥区 Yongqiao
+
+>滁州市 Chuzhou
+>>Chuxian Chuxian
+>>定远县 Dingyuan
+>>凤阳县 Fengyang
+>>Jiashan Jiashan
+>>来安县 Lai'an
+>>全椒县 Quanjiao
+>>天长市 Tianchang
+
+>合肥市 Hefei
+>>长丰县 Changfeng
+>>肥东县 Feidong
+>>肥西县 Feixi
+>>Hefei Hefei
+
+>亳州市 Bozhou
+>>Boxian Boxian
+>>Guoyang Guoyang
+>>利辛县 Lixin
+>>蒙城县 Mengcheng
+
+
+2 Beijing
+>北京 Beijing
+>>北京|北京 Beijing
+>>昌平区 Changping
+>>大兴区 Daxing
+>>房山区 Fangshan
+>>怀柔区 Huairou
+>>门头沟区 Mentougou
+>>密云县 Miyun
+>>平谷区 Pinggu
+>>顺义区 Shunyi
+>>通州区 Tongzhou
+>>延庆县 Yanqing
+
+
+3 Chongqing
+>重庆 Chongqing
+>>Ba Ba
+>>Bishan Bishan
+>>Changshou Changshou
+>>Chengkou Chengkou
+>>Chongqing Chongqing
+>>Dazu Dazu
+>>Dianjiang Dianjiang
+>>Fengdu Fengdu
+>>Fengjie Fengjie
+>>Fuling Fuling
+>>Hechuan Hechuan
+>>Jiangbei Jiangbei
+>>Jiangjin Jiangjin
+>>Kai Kai
+>>Liangping Liangping
+>>Nanchuan Nanchuan
+>>Pengshui Pengshui
+>>Qianjiang Qianjiang
+>>Qijiang Qijiang
+>>Rongchang Rongchang
+>>Shizhu Shizhu
+>>Tongliang Tongliang
+>>Tongnan Tongnan
+>>Wan Wan
+>>Wulong Wulong
+>>Wushan Wushan
+>>Wuxi Wuxi
+>>Xiushan Xiushan
+>>Yongchuan Yongchuan
+>>Youyang Youyang
+>>Yunyang Yunyang
+>>Zhong Zhong
+
+
+4 Fujian
+>龙岩市 Longyan
+>>长汀县 Changting
+>>连城县 Liancheng
+>>洛江区 Luojiang
+>>上杭县 Shanghang
+>>武平县 Wuping
+>>永定县 Yongding
+>>漳平市 Zhangping
+
+>南平市 Nanping
+>>Chongan Chongan
+>>光泽县 Guangze
+>>建瓯市 Jian'ou
+>>建阳市 Jianyang
+>>Nanping Nanping
+>>浦城县 Pucheng
+>>邵武市 Shaowu
+>>顺昌县 Shunchang
+>>松溪县 Songxi
+>>政和县 Zhenghe
+
+>厦门市 Xiamen
+>>同安区 Tong'an
+>>Xiamen Xiamen
+
+>莆田市 Putian
+>>莆田市 Putian County
+>>莆田市 Putian
+>>仙游县 Xianyou
+
+>宁德市 Ningde
+>>福安市 Fu'an
+>>福鼎市 Fuding
+>>古田县 Gutian
+>>蕉城区 Jiaocheng
+>>屏南县 Pingnan
+>>寿宁县 Shouning
+>>霞浦县 Xiapu
+>>柘荣县 Zherong
+>>周宁县 Zhouning
+
+>泉州市 Quanzhou
+>>安溪县 Anxi
+>>德化县 Dehua
+>>惠安县 Hui'an
+>>晋江市 Jinjiang
+>>南安市 Nan'an
+>>三元区 Sanyuan
+>>石狮市 Shishi
+>>永春县 Yongchun
+
+>福州市 Fuzhou
+>>长乐市 Changle
+>>福清市 Fuqing
+>>Fuzhou Fuzhou
+>>连江县 Lianjiang
+>>罗源县 Luoyuan
+>>闽侯县 Minhou
+>>闽清县 Minqing
+>>永泰县 Yongtai
+
+>漳州市 Zhangzhou
+>>长泰县 Changtai
+>>东山县 Dongshan
+>>华安县 Hua'an
+>>龙海市 Longhai
+>>南靖县 Nanjing
+>>平和县 Pinghe
+>>漳浦县 Zhangpu
+>>Zhangzhou Zhangzhou
+>>诏安县 Zhao'an
+
+>三明市 Sanming
+>>大田县 Datian
+>>将乐县 Jiangle
+>>建宁县 Jianning
+>>明溪县 Mingxi
+>>宁化县 Ninghua
+>>清流县 Qingliu
+>>Shanming Shanming
+>>沙县 Sha
+>>泰宁县 Taining
+>>永安市 Yong'an
+>>尤溪县 Youxi
+
+
+5 Gansu
+>白银市 Baiyin
+>>白银区 Baiyin
+>>会宁县 Huining
+>>景泰县 Jingtai
+>>靖远县 Jingyuan
+>>平川区 Pingchuan
+
+>天水市 Tianshui
+>>甘谷县 Gangu
+>>秦安县 Qin'an
+>>庆城县 Qingcheng
+>>Tianshui Tianshui
+>>武山县 Wushan
+>>张家川回族自治县 Zhangjiachuan Hui
+
+>金昌市 Jinchang
+>>金川区 Jinchuan
+>>永昌县 Yongchang
+
+>庆阳市 Qingyang
+>>和政县 Hezheng
+>>华池县 Huachi
+>>环县 Huan
+>>宁县 Ning
+>>Qingyang Qingyang
+>>西峰区 Xifeng
+>>正宁县 Zhengning
+>>镇原县 Zhenyuan
+
+>陇南市 Longnan
+>>成县 Cheng
+>>宕昌县 Dangchang
+>>徽县 Hui
+>>康县 Kang
+>>两当县 Liangdang
+>>礼县 Li
+>>文县 Wen
+>>武都区 Wudu
+>>西和县 Xihe
+
+>嘉峪关市 Jiayuguan
+>>Jiayuguan Jiayuguan
+
+>定西市 Dingxi
+>>Dingxi Dingxi
+>>临洮县 Lintao
+>>陇西县 Longxi
+>>岷县 Min
+>>通渭县 Tongwei
+>>渭源县 Weiyuan
+>>漳县 Zhang
+
+>武威市 Wuwei
+>>合水县 Heshui
+>>民勤县 Minqin
+>>天祝藏族自治县 Tianzhu Tibetan
+>>Wuwei Wuwei
+
+>甘南藏族自治州 Gannan Tibetan
+>>卓尼县 Jonê
+>>临潭县 Lintan
+>>碌曲县 Luqu
+>>玛曲县 Maqu
+>>迭部县 Têwo
+>>夏河县 Xiahe
+>>舟曲县 Zhugqu
+
+>张掖市 Zhangye
+>>高台县 Gaotai
+>>临泽县 Linze
+>>民乐县 Minle
+>>山丹县 Shandan
+>>肃南裕固族自治县 Sunan Yugur
+>>Zhangye Zhangye
+
+>酒泉市 Jiuquan
+>>阿克塞哈萨克族自治县 Aksai Kazakh
+>>Anxi Anxi
+>>敦煌市 Dunhuang
+>>金塔县 Jinta
+>>肃北蒙古族自治县 Subei Mongol
+>>肃州区 Suzhou
+>>Yumen Yumen
+
+>平凉市 Pingliang
+>>崇信县 Chongxin
+>>华亭县 Huating
+>>泾川县 Jingchuan
+>>静宁县 Jingning
+>>灵台县 Lingtai
+>>Pingliang Pingliang
+>>庄浪县 Zhuanglang
+
+>临夏回族自治州 Linxia Hui
+>>东乡族自治县 Dongxiang
+>>广河县 Guanghe
+>>和政县 Hezheng
+>>积石山保安族东乡族撒拉族自治县 Jishishan Bonan, Dongxiang and Salar
+>>康乐县 Kangle
+>>临夏市 Linxia Shi
+>>临夏市 Linxia
+>>永靖县 Yongjing
+
+>兰州市 Lanzhou
+>>皋兰县 Gaolan
+>>凉州区 Liangzhou
+>>永登县 Yongdeng
+>>榆中县 Yuzhong
+
+
+6 Guangdong
+>河源市 Heyuan
+>>东源县 Dongyuan
+>>和平县 Heping
+>>连平县 Lianping
+>>龙川县 Lungchuan
+>>源城区 Yuancheng
+>>紫金县 Zijin
+
+>阳江市 Yangjiang
+>>阳春市 Yangchun
+>>阳东县 Yangdong
+>>阳江市 Yangjiang
+>>阳西县 Yangxi
+
+>肇庆市 Zhaoqing
+>>德庆县 Deqing
+>>封开县 Fengkai
+>>高要市 Gaoyao
+>>广宁县 Guangning
+>>怀集县 Huaiji
+>>四会市 Sihui
+>>Zhaoqing Zhaoqing
+
+>汕尾市 Shanwei
+>>海丰县 Haifeng
+>>陆丰市 Lufeng
+>>陆河县 Luhe
+>>汕尾市 Shanwei
+
+>潮州市 Chaozhou
+>>潮南区 Chaonan
+>>Chaozhou Chaozhou
+>>饶平县 Raoping
+
+>珠海市 Zhuhai
+>>斗门区 Doumen
+>>Zhuhai Zhuhai
+
+>江门市 Jiangmen
+>>恩平市 Enping
+>>鹤山市 Heshan
+>>Jiangmen Jiangmen
+>>开平市 Kaiping
+>>台山市 Taishan
+>>新会区 Xinhui
+
+>揭阳市 Jieyang
+>>惠来县 Huilai
+>>揭东县 Jiedong
+>>揭西县 Jiexi
+>>普宁市 Puning
+>>榕城区 Rongcheng
+
+>中山市 Zhongshan
+>>中山市 Zhongshan
+
+>梅州市 Meizhou
+>>大埔县 Dapu
+>>丰顺县 Fengshun
+>>蕉岭县 Jiaoling
+>>梅县 Mei
+>>Meizhou Meizhou
+>>平远县 Pingyuan
+>>五华县 Wuhua
+>>兴宁市 Xingning
+
+>湛江市 Zhanjiang
+>>雷州市 Leizhou
+>>廉江市 Lianjiang
+>>遂溪县 Suixi
+>>吴川市 Wuchuan
+>>徐闻县 Xuwen
+>>浈江区 Zhenjiang
+
+>茂名市 Maoming
+>>电白县 Dianbai
+>>高州市 Gaozhou
+>>化州市 Huazhou
+>>Maoming Maoming
+>>信宜市 Xinyi
+
+>深圳市 Shenzhen
+>>宝安区 Bao'an
+>>深圳 Shenzhen
+
+>佛山市 Foshan
+>>福田区 Futian
+>>高明区 Gaoming
+>>南海区 Nanhai
+>>三水区 Sanshui
+>>顺德区 Shunde
+
+>惠州市 Huizhou
+>>博罗县 Boluo
+>>惠东县 Huidong
+>>惠阳区 Huiyang
+>>Huizhou Huizhou
+>>龙门县 Longmen
+
+>清远市 Qingyuan
+>>佛冈县 Fogang
+>>连南瑶族自治县 Liannan Yao
+>>连山壮族|瑶族自治县 Lianshan Zhuang and Yao
+>>连州市 Lianzhou
+>>清城区 Qingcheng
+>>清新县 Qingxin
+>>阳山县 Yangshan
+>>英德市 Yingde
+
+>东莞市 Dongguan
+>>东源县 Dongyuan
+
+>广州市 Guangzhou
+>>从化市 Conghua
+>>Guangzhou Guangzhou
+>>Huaxian Huaxian
+>>南沙区 Nansha
+>>番禺区 Panyu
+>>增城市 Zengcheng
+
+>云浮市 Yunfu
+>>罗定市 Luoding
+>>新兴县 Xinxing
+>>云安县 Yun'an
+>>郁南县 Yunan
+>>云城区 Yuncheng
+
+>汕头市 Shantou
+>>潮阳区 Chaoyang
+>>澄海区 Chenghai
+>>Shantou Shantou
+
+>韶关市 Shaoguan
+>>乐昌市 Lechang
+>>南雄市 Nanxiong
+>>曲江区 Qujiang
+>>仁化县 Renhua
+>>乳源瑶族自治县 Ruyuan Yao
+>>Shaoguan Shaoguan
+>>始兴县 Shixing
+>>翁源县 Wengyuan
+>>新丰县 Xinfeng
+
+
+7 Guangxi
+>百色市 Baise
+>>百色市 Baise
+>>德保县 Debao
+>>靖西县 Jingxi
+>>乐业县 Leye
+>>凌云县 Lingyun
+>>隆林各族自治县 Longlin Various Nationalities
+>>那坡县 Napo
+>>平果县 Pingguo
+>>田东县 Tiandong
+>>田林县 Tianlin
+>>田阳县 Tianyang
+>>西林县 Xilin
+
+>来宾市 Laibin
+>>合山市 Heshan
+>>金秀瑶族自治县 Jinxiu Yao
+>>Laibin Laibin
+>>武宣县 Wuxuan
+>>象州县 Xiangzhou
+>>忻城县 Xincheng
+
+>南宁市 Nanning
+>>宾阳县 Binyang
+>>横县 Heng
+>>隆安县 Long'an
+>>马山县 Mashan
+>>Nanning Nanning
+>>上林县 Shanglin
+>>武鸣县 Wuming
+>>邕宁区 Yongning
+
+>玉林市 Yulin
+>>北流市 Beiliu
+>>博白县 Bobai
+>>陆川县 Luchuan
+>>容县 Rong
+>>鱼峰区 Yufeng
+
+>梧州市 Wuzhou
+>>苍梧县 Cangwu
+>>岑溪市 Cenxi
+>>蒙山县 Mengshan
+>>藤县 Teng
+>>梧州市 Wuzhou
+
+>河池市 Hechi
+>>巴马瑶族自治县 Bama Yao
+>>大化瑶族自治县 Dahua Yao
+>>东兰县 Donglan
+>>都安瑶族自治县 Du’an Yao
+>>凤山县 Fengshan
+>>Hechi Hechi
+>>环江毛南族自治县 Huanjiang Maonan
+>>罗城仫佬族自治县 Luocheng Mulao
+>>南丹县 Nandan
+>>天峨县 Tian'e
+>>雁山区 Yanshan
+
+>桂林市 Guilin
+>>恭城瑶族自治县 Gongcheng Yao
+>>灌阳县 Guanyang
+>>Guilin Guilin
+>>灵川县 Lingchuan
+>>临桂县 Lingui
+>>荔浦县 Lipu
+>>龙胜各族自治县 Longsheng Various Nationalities
+>>平乐县 Pingle
+>>全州县 Quanzhou
+>>兴安县 Xing’an
+>>阳朔县 Yangshuo
+>>永福县 Yongfu
+>>资源县 Ziyuan
+
+>贵港市 Guigang
+>>桂平市 Guiping
+>>Gui Gui
+>>平南县 Pingnan
+
+>钦州市 Qinzhou
+>>灵山县 Lingshan
+>>浦北县 Pubei
+>>Qinzhou Qinzhou
+
+>北海市 Beihai
+>>Beihai Beihai
+>>合浦县 Hepu
+
+>防城港市 Fangchenggang
+>>防城区 Fangcheng
+>>上思县 Shangsi
+
+>崇左市 Chongzuo
+>>长洲区 Changzhou
+>>大新县 Daxin
+>>扶绥县 Fusui
+>>龙州县 Longzhou
+>>宁明县 Ningming
+>>凭祥市 Pingxiang
+>>天等县 Tiandeng
+
+>贺州市 Hezhou
+>>富川瑶族自治县 Fuchuan Yao
+>>He He
+>>昭平县 Zhaoping
+>>钟山县 Zhongshan
+
+>柳州市 Liuzhou
+>>柳城县 Liucheng
+>>柳江县 Liujiang
+>>Liuzhou Liuzhou
+>>鹿寨县 Luzhai
+>>融安县 Rong'an
+>>融水苗族自治县 Rongshui Miao
+>>三江侗族自治县 Sanjiang Dong
+
+
+8 Guizhou
+>黔东南苗族侗族自治州 Qiandongnan Miao and Dong
+>>岑巩县 Cengong
+>>从江县 Congjiang
+>>丹寨县 Danzhai
+>>黄平县 Huangping
+>>剑河县 Jianhe
+>>锦屏县 Jinping
+>>凯里市 Kaili
+>>雷山县 Leishan
+>>黎平县 Liping
+>>麻江县 Majiang
+>>榕江县 Rongjiang
+>>三穗县 Sansui
+>>施秉县 Shibing
+>>台江县 Taijiang
+>>天柱县 Tianzhu
+>>镇远县 Zhenyuan
+
+>六盘水市 Liupanshui
+>>六枝特区 Liuzhi
+>>盘县 Pan
+>>水城县 Shuicheng
+>>钟山区 Zhongshan
+
+>贵阳市 Guiyang
+>>Guiyang Guiyang
+>>开阳县 Kaiyang
+>>清镇市 Qingzhen
+>>息烽县 Xifeng
+>>修文县 Xiuwen
+
+>安顺市 Anshun
+>>Anshun Anshun
+>>关岭布依族|苗族自治县 Guanling Buyei and Miao
+>>平坝县 Pingba
+>>普定县 Puding
+>>镇宁布依族|苗族自治县 Zhenning Buyei and Miao
+>>紫云苗族|布依族自治县 Ziyun Miao and Buyei
+
+>遵义市 Zunyi
+>>赤水市 Chishui
+>>道真仡佬族|苗族自治县 Daozhen Gelao and Miao
+>>凤冈县 Fenggang
+>>湄潭县 Meitan
+>>仁怀市 Renhuai
+>>绥阳县 Suiyang
+>>桐梓县 Tongzi
+>>务川仡佬族|苗族自治县 Wuchuan Gelao and Miao
+>>习水县 Xishui
+>>余庆县 Yuqing
+>>正安县 Zheng'an
+>>遵义市 Zunyi Shì
+>>遵义县 Zunyi Xiàn
+
+>铜仁地区 Tongren
+>>德江县 Dejiang
+>>江口县 Jiangkou
+>>石阡县 Shiqian
+>>思南县 Sinan
+>>松桃苗族自治县 Songtao Miao
+>>铜仁市 Tongren
+>>万山特区 Wanshan Special
+>>沿河土家族自治县 Yanhe Tujia
+>>印江土家族|苗族自治县 Yinjiang Tujia and Miao
+>>玉屏侗族自治县 Yuping Dong
+
+>黔南布依族苗族自治州 Qiannan Buyei and Miao
+>>长顺县 Changshun
+>>独山县 Dushan
+>>都匀市 Duyun
+>>福泉市 Fuquan
+>>贵定县 Guiding
+>>花溪区 Huaxi
+>>荔波县 Libo
+>>龙里县 Longli
+>>罗甸县 Luodian
+>>平塘县 Pingtang
+>>三都水族自治县 Sandu Shui
+>>瓮安县 Weng'an
+
+>毕节地区 Bijie
+>>毕节市 Bijie
+>>大方县 Dafang
+>>赫章县 Hezhang
+>>金沙县 Jinsha
+>>纳雍县 Nayong
+>>黔西县 Qianxi
+>>威宁彝族回族苗族自治县 Weining Yi, Hui and Miao
+>>织金县 Zhijin
+
+>黔西南布依族苗族自治州 Qianxinan Buyei and Miao
+>>安龙县 Anlong
+>>册亨县 Ceheng
+>>普安县 Pu'an
+>>晴隆县 Qinglong
+>>望谟县 Wangmo
+>>兴仁县 Xingren
+>>兴义市 Xingyi
+>>贞丰县 Zhenfeng
+
+
+9 Hainan
+>三亚市 Sanya
+>>三亚市 Sanya
+
+>海南 Hainan
+>>白沙黎族自治县 Baisha Li
+>>保亭黎族苗族自治县 Baoting Li
+>>昌江黎族自治县 Changjiang Li
+>>澄迈县 Chengmai
+>>儋州市 Danzhou
+>>定安县 Ding An
+>>东方市 Dongfang
+>>乐东黎族自治县 Ledong Li
+>>Lingao Lingao
+>>陵水黎族自治县 Lingshui Li
+>>Qionghai Qionghai
+>>琼中黎族苗族自治县 Qiongzhong Li and Miao
+>>Tunchang Tunchang
+>>万宁市 Wanning
+>>文昌市 Wenchang
+
+>海口市 Haikou
+>>海口市 Haikou
+>>琼山区 Qiongshan
+
+
+10 Hebei
+>衡水市 Hengshui
+>>安平县 Anping
+>>阜城县 Fucheng
+>>故城县 Gucheng
+>>Hengshui Hengshui
+>>景县 Jing
+>>Ji Ji
+>>饶阳县 Raoyang
+>>Shen Shen
+>>武强县 Wuqiang
+>>武邑县 Wuyi
+>>枣强县 Zaoqiang
+
+>邯郸市 Handan
+>>成安县 Cheng'an
+>>磁县 Ci
+>>大名县 Daming
+>>肥乡县 Feixiang
+>>峰峰矿区 Fengfengkuang
+>>广平县 Guangping
+>>馆陶县 Guantao
+>>邯郸市 Handan shì
+>>邯郸县 Handan Xiàn
+>>鸡泽县 Jize
+>>临漳县 Linzhang
+>>邱县 Qiu
+>>曲周县 Quzhou
+>>涉县 She
+>>魏县 Wei
+>>武安市 Wu'an
+>>永年县 Yongnian
+
+>秦皇岛市 Qinhuangdao
+>>昌黎县 Changli
+>>抚宁县 Funing
+>>卢龙县 Lulong
+>>Qinglong Qinglong
+>>Qinhuangdao Qinhuangdao
+
+>保定市 Baoding
+>>安国市 Anguo
+>>安新县 Anxin
+>>Baoding Baoding
+>>博野县 Boye
+>>Ding Ding
+>>定兴县 Dingxing
+>>阜平县 Fuping
+>>高阳县 Gaoyang
+>>涞水县 Laishui
+>>涞源县 Laiyuan
+>>蠡县 Li
+>>满城县 Mancheng
+>>Qing Yuan Qing Yuan
+>>曲阳县 Quyang
+>>容城县 Rongcheng
+>>唐县 Tang
+>>望都县 Wangdu
+>>Wan Wan
+>>Xincheng Xincheng
+>>雄县 Xiong
+>>徐水县 Xushui
+>>易县 Yi
+>>Zhuo Zhuo
+
+>沧州市 Cangzhou
+>>沧县 Cang
+>>Cangzhou Cangzhou
+>>东光县 Dongguang
+>>海兴县 Haixing
+>>河间市 Hejian
+>>黄骅市 Huanghua
+>>Jiaohe Jiaohe
+>>孟村回族自治县 Mengcun Hui
+>>南皮县 Nanpi
+>>Qing Qing
+>>任丘市 Renqiu
+>>肃宁县 Suning
+>>吴桥县 Wuqiao
+>>献县 Xian
+>>盐山县 Yanshan
+
+>邢台市 Xingtai
+>>柏乡县 Baixiang
+>>广宗县 Guangzong
+>>巨鹿县 Julu
+>>临城县 Lincheng
+>>临西县 Linxi
+>>隆尧县 Longyao
+>>南宫市 Nangong
+>>南和县 Nanhe
+>>内丘县 Neiqiu
+>>宁晋县 Ningjin
+>>平乡县 Pingxiang
+>>Qinghe Qinghe
+>>任县 Ren
+>>沙河市 Shahe
+>>魏县 Wei
+>>邢台县 Xingtai shì
+>>邢台县 Xingtai Xiàn
+>>新河县 Xinhe
+
+>石家庄市 Shijiazhuang
+>>藳城市 Gaocheng
+>>高邑县 Gaoyi
+>>Huelu Huelu
+>>井陉县 Jingjing
+>>Ji Ji
+>>灵寿县 Lingshou
+>>栾城县 Luancheng
+>>平山县 Pingshan
+>>深泽县 Shenze
+>>Shijiazhuang Shijiazhuang
+>>Shulu Shulu
+>>无极县 Wuji
+>>行唐县 Xingtang
+>>新乐市 Xinle
+>>元氏县 Yuanshi
+>>赞皇县 Zanhuang
+>>赵县 Zhao
+>>正定县 Zhengding
+
+>张家口市 Zhangjiakou
+>>赤城县 Chicheng
+>>崇礼县 Chongli
+>>沽源县 Guyuan
+>>怀安县 Huai'an
+>>怀来县 Huailai
+>>康保县 Kangbao
+>>尚义县 Shangyi
+>>万全县 Wanquan
+>>宣化县 Xuanhua
+>>阳原县 Yangyuan
+>>蔚县 Yu
+>>张北县 Zhangbei
+>>Zhangjiakou Zhangjiakou
+>>涿鹿县 Zhuolu
+
+>唐山市 Tangshan
+>>丰南区 Fengnan
+>>丰润区 Fengrun
+>>乐亭县 Leting
+>>滦南县 Luannan
+>>滦县 Luan
+>>迁安市 Qian'an
+>>迁西县 Qianxi
+>>唐海县 Tanghai
+>>唐山市 Tangshan
+>>玉田县 Yutian
+>>遵化市 Zunhua
+
+>承德市 Chengde
+>>承德市 Chengde Shì
+>>承德县 Chengde Xiàn
+>>丰宁满族自治县 Fengning Manchu
+>>宽城满族自治县 Kuancheng Manchu
+>>隆化县 Longhua
+>>滦平县 Luanping
+>>平泉县 Pingquan
+>>围场满族|蒙古族自治县 Weichang Manchu and Mongol
+>>兴隆县 Xinglong
+>>鹰手营子矿区 Yingshouyingzikuang
+
+>廊坊市 Langfang
+>>Ba Ba
+>>大厂回族自治县 Dachang Hui
+>>大城县 Daicheng
+>>固安县 Gu'an
+>>Longfang Longfang
+>>三河市 Sanhe
+>>文安县 Wen'an
+>>香河县 Xianghe
+>>永清县 Yongqing
+
+
+11 Heilongjiang
+>黑河市 Heihe
+>>北安市 Bei'an
+>>Dedu Dedu
+>>Heihe Heihe
+>>嫩江县 Nenjiang
+>>孙吴县 Sunwu
+>>五大连池市 Wudalianchi
+>>逊克县 Xunke
+
+>大庆市 Daqing
+>>Daqina Daqina
+>>杜尔伯特|蒙古族自治县 Dorbod Mongol
+>>林甸县 Lindian
+>>肇源县 Zhaoyuan
+>>肇州县 Zhaozhou
+
+>哈尔滨市 Harbin
+>>阿城区 Acheng
+>>巴彦县 Bayan
+>>宾县 Bin
+>>方正县 Fangzheng
+>>Harbin Harbin
+>>呼兰区 Hulan
+>>木兰县 Mulan
+>>尚志市 Shangzhi
+>>双城市 Shuangcheng
+>>通河县 Tonghe
+>>五常市 Wuchang
+>>延寿县 Yanshou
+>>依兰县 Yilan
+
+>鸡西市 Jixi
+>>虎林市 Hulin
+>>鸡东县 Jidong
+>>Jixi Jixi
+>>密山市 Mishan
+
+>绥化市 Suihua
+>>安达市 Anda
+>>海伦市 Hailun
+>>兰西县 Lanxi
+>>明水县 Mingshui
+>>庆安县 Qing'an
+>>青冈县 Qinggang
+>>Suihua Suihua
+>>绥棱县 Suileng
+>>望奎县 Wangkui
+>>肇东市 Zhaodong
+
+>鹤岗市 Hegang
+>>鹤岗市 Hegang shì
+>>鹤岗区 Hegang
+>>萝北县 Luobei
+>>绥滨县 Suibin
+
+>大兴安岭地区 Daxing'anling
+>>呼玛县 Huma
+>>呼玛县 Huzhong
+>>漠河县 Mohe
+>>塔河县 Tahe
+>>新林区 Xinlin
+
+>佳木斯市 Jiamusi
+>>富锦市 Fujin
+>>抚远县 Fuyuan
+>>桦川县 Huachuan
+>>桦南县 Huanan
+>>Jiamusi Jiamusi
+>>汤原县 Tangyuan
+>>同江市 Tongjiang
+
+>双鸭山市 Shuangyashan
+>>宝清县 Baoqing
+>>集贤县 Jixian
+>>饶河县 Raohe
+>>Shuangyashan Shuangyashan
+>>友谊县 Youyi
+
+>七台河市 Qitaihe
+>>勃利县 Boli
+>>Qitaihe Qitaihe
+
+>伊春市 Yichun
+>>翠峦区 Cuiluan
+>>Jiayin Jiayin
+>>铁力市 Tieli
+>>乌伊岭区 Wuyiling
+>>伊春区 Yichun
+
+>牡丹江市 Mudanjiang
+>>东宁县 Dongning
+>>海林市 Hailin
+>>Linkou Linkou
+>>Mudanjiang Mudanjiang
+>>穆棱市 Muling
+>>宁安市 Ning'an
+>>绥芬河市 Suifenhe
+
+>齐齐哈尔市 Qiqihar
+>>拜泉县 Baiquan
+>>富裕县 Fuyu
+>>甘南县 Gannan
+>>克东县 Kedong
+>>克山县 Keshan
+>>Longjiang Longjiang
+>>讷河市 Nehe
+>>碾子山区 Nianzishan
+>>Qiqihar Qiqihar
+>>泰来县 Tailai
+>>依安县 Yi'an
+
+
+12 Henan
+>南阳市 Nanyang
+>>Deng Deng
+>>方城县 Fangcheng
+>>南阳市 Nanyang Shì
+>>南阳县 Nanyang Xiàn
+>>南召县 Nanzhao
+>>内乡县 Neixiang
+>>社旗县 Sheqi
+>>唐河县 Tanghe
+>>桐柏县 Tongbai
+>>淅川县 Xichuan
+>>新野县 Xinye
+>>西峡县 Xixia
+>>镇平县 Zhenping
+
+>新乡市 Xinxiang
+>>长垣县 Changyuan
+>>封丘县 Fengqiu
+>>Houjia Houjia
+>>辉县市 Huixian
+>>Ji Ji
+>>Xinxiang Shì Xinxiang Shì
+>>Xinxiang Xiàn Xinxiang Xiàn
+>>延津县 Yanjin
+>>原阳县 Yuanyang
+
+>漯河市 Luohe
+>>临颍县 Linying
+>>Luohe Luohe
+>>舞阳县 Wuyang
+>>郾城区 Yancheng
+
+>安阳市 Anyang
+>>Anyang Shì Anyang Shì
+>>Anyang Xiàn Anyang Xiàn
+>>滑县 Hua
+>>Lin Lin
+>>内黄县 Neihuang
+>>汤阴县 Tangyin
+
+>信阳市 Xinyang
+>>光山县 Guangshan
+>>固始县 Gushi
+>>淮滨县 Huaibin
+>>潢川县 Huangchuan
+>>罗山县 Luoshan
+>>山城区 Shancheng
+>>Xinxian Xinxian
+>>信阳市 Xinyang Shì
+>>信阳县 Xinyang Xiàn
+>>息县 Xi
+
+>开封市 Kaifeng
+>>开封县 Kaifeng Xiàn
+>>开封县 Kaifeng
+>>兰考县 Lankao
+>>淇县 Qi
+>>通许县 Tongxu
+>>尉氏县 Weishi
+
+>周口市 Zhoukou
+>>郸城县 Dancheng
+>>扶沟县 Fugou
+>>淮阳县 Huaiyang
+>>鹿邑县 Luyi
+>>商水县 Shangshui
+>>沈丘县 Shenqiu
+>>太康县 Taikang
+>>项城市 Xiangcheng
+>>西华县 Xihua
+>>Zhoukou Zhoukou
+
+>鹤壁市 Hebi
+>>Hebi Hebi
+>>淇县 Qi
+>>Xun Xun
+
+>焦作市 Jiaozuo
+>>博爱县 Bo'ai
+>>Jiaozuo Jiaozuo
+>>Meng Meng
+>>沁阳市 Qinyang
+>>温县 Wen
+>>武陟县 Wuzhi
+>>修武县 Xiuwu
+
+>许昌市 Xuchang
+>>长葛市 Changge
+>>项城市 Xiangcheng
+>>许昌市 Xuchang Shì
+>>许昌县 Xuchang Xiàn
+>>鄢陵县 Yanling
+>>Yu Yu
+
+>三门峡市 Sanmenxia
+>>Lingbao Lingbao
+>>卢氏县 Lushi
+>>渑池县 Mianchi
+>>Sanmenxia Sanmenxia
+>>陕县 Shan
+>>义马市 Yima
+
+>濮阳市 Puyang
+>>Fanxian Fanxian
+>>南乐县 Nanle
+>>濮阳市 Puyang Shì
+>>濮阳县 Puyang Xiàn
+>>清丰县 Qingfeng
+>>台前县 Taiqian
+
+>平顶山市 Pingdingshan
+>>宝丰县 Baofeng
+>>郏县 Jia
+>>Linru Linru
+>>鲁山县 Lushan
+>>Pingdingshan Pingdingshan
+>>舞钢市 Wugang
+>>叶县 Ye
+
+>驻马店市 Zhumadian
+>>Biyang Biyang
+>>平舆县 Pingyu
+>>确山县 Queshan
+>>汝南县 Runan
+>>上蔡县 Shangcai
+>>遂平县 Suiping
+>>新蔡县 Xincai
+>>西平县 Xiping
+>>正阳县 Zhengyang
+>>Zhumadian Zhumadian
+
+>济源市 Jiyuan shi
+>>Jiyuan Jiyuan
+
+>商丘市 Shangqiu
+>>民权县 Minquan
+>>宁陵县 Ningling
+>>睢阳市 Shangqiu Shì
+>>睢县 Sui
+>>睢阳区 Suiyang
+>>夏邑县 Xiayi
+>>永城市 Yongcheng
+>>虞城县 Yucheng
+>>Zhecheng Zhecheng
+
+>洛阳市 Luoyang
+>>栾川县 Luanchuan
+>>洛宁县 Luoning
+>>Luoyang Luoyang
+>>孟津县 Mengjin
+>>汝阳县 Ruyang
+>>嵩县 Song
+>>新安县 Xin'an
+>>偃师市 Yanshi
+>>伊川县 Yichuan
+>>宜阳县 Yiyang
+
+>郑州市 Zhengzhou
+>>登封市 Dengfeng
+>>Gong Gong
+>>Mi Mi
+>>荥阳市 Xingyang
+>>新郑市 Xinzheng
+>>Zhengzhou Zhengzhou
+>>中牟县 Zhongmou
+
+
+13 Hubei
+>十堰市 Shiyan
+>>房县 Fang
+>>Junxian Junxian
+>>Shiyan Shiyan
+>>郧县 Yun
+>>郧西县 Yunxi
+>>竹山县 Zhushan
+>>竹溪县 Zhuxi
+
+>咸宁市 Xianning
+>>崇阳县 Chongyang
+>>嘉鱼县 Jiayu
+>>Puqi Puqi
+>>通城县 Tongcheng
+>>通山县 Tongshan
+>>Xianning Xianning
+
+>潜江市 Qianjiang
+>>潜江市 Qianjiang
+
+>鄂州市 Ezhou
+>>鄂城区 Echeng Qū
+>>鄂城市 Echeng Shì
+
+>武汉市 Wuhan
+>>汉阳区 Hanyang
+>>黄陂区 Huangpi
+>>武昌区 Wuchang
+>>Wuhan Wuhan
+>>新洲区 Xinzhou
+
+>荆门市 Jingmen
+>>Jingmen Jingmen
+>>京山县 Jingshan
+>>沙洋县 Shayang
+>>钟祥市 Zhongxiang
+
+>天门市 Tianmen
+>>天门市 Tianmen
+
+>襄樊市 Xiangfan
+>>保康县 Baokang
+>>谷城县 Gucheng
+>>老河口市 Laohekou
+>>南漳县 Nanzhang
+>>Xiangfan Xiangfan
+>>襄阳区 Xiangyang
+>>宜城市 Yicheng
+>>枣阳市 Zaoyang
+
+>宜昌市 Yichang
+>>长阳土家族自治县 Changyang Tujia
+>>当阳市 Dangyang
+>>五峰土家族自治县 Wufeng Tujia
+>>兴山县 Xingshan
+>>宜昌市 Yichang
+>>Yidu Yidu
+>>夷陵区 Yiling
+>>远安县 Yuan'an
+>>枝江市 Zhijiang
+>>秭归县 Zigui
+
+>神农架林区 Shennongjia
+>>Shennongjia Shennongjia
+
+>仙桃市 Xiantao
+>>Mianyang Mianyang
+
+>孝感市 Xiaogan
+>>安陆市 Anlu
+>>大悟县 Dawu
+>>汉川市 Hanchuan
+>>孝昌县 Xiaochang
+>>Xiaogan Xiaogan
+>>应城区 Yingcheng
+>>云梦县 Yunmeng
+
+>恩施土家族苗族自治州 Enshi Tujia and Miao
+>>巴东县 Badong
+>>恩施土家族苗族自治州 Enshi Tujia and Miao
+>>鹤峰县 Hefeng
+>>建始县 Jianshi
+>>来凤县 Laifeng
+>>利川市 Lichuan
+>>咸丰县 Xianfeng
+>>Xuan En Xuan En
+
+>随州市 Suizhou Shi
+>>Suizhou Suizhou
+>>英山县 Yingshan
+
+>黄冈市 Huanggang
+>>Guangji Guangji
+>>红安县 Hong'an
+>>Huanggang Huanggang
+>>黄梅县 Huangmei
+>>罗田县 Luotian
+>>麻城市 Macheng
+>>蕲春县 Qichun
+>>浠水县 Xishui
+>>英山县 Yingshan
+
+>荆州市 Jingzhou
+>>公安县 Gong'an
+>>洪湖市 Honghu
+>>江陵县 Jiangling
+>>监利县 Jianli
+>>荆州市 Jingzhou
+>>沙市区 Shashi
+>>Shishou Shishou
+>>松滋市 Songzi
+
+>黄石市 Huangshi
+>>大冶市 Daye
+>>Huangshi Huangshi
+>>阳新县 Yangxin
+
+
+14 Hunan
+>湘西土家族苗族自治州 Xiangxi Tujia and Miao
+>>保靖县|保靖縣 Baojing
+>>凤凰县|鳳凰縣 Fenghuang
+>>古丈县|古丈縣 Guzhang
+>>花垣县|花垣縣 Huayuan
+>>吉首市|吉首市 Jishou
+>>龙山县|龍山縣 Longshan
+>>泸溪县|瀘溪縣 Luxi
+>>永顺县|永順縣 Yongshun
+
+>邵陽市 Shaoyang
+>>城步苗族自治县|城步苗族自治縣 Chengbu Miao
+>>大祥区|大祥區 Daxiang
+>>洞口县|洞口縣 Dongkou
+>>隆回县|隆回縣 Longhui
+>>邵东县|邵東縣 Shaodong
+>>邵阳市 Shaoyang Shì
+>>邵阳县 Shaoyang Xiàn
+>>绥宁县|綏寧縣 Suining
+>>武冈市|武岡市 Wugang
+>>新宁县|新寧縣 Xinning
+>>新邵县|新邵縣 Xinshao
+
+>岳陽市 Yueyang
+>>华容县|華容縣 Huarong
+>>临湘市|臨湘市 Linxiang
+>>汨罗市|汨羅市 Miluo
+>>平江县|平江縣 Pingjiang
+>>湘阴县|湘陰縣 Xiangyin
+>>岳阳区 Yueyang Qū
+>>岳阳县 Yueyang Xiàn
+
+>永州市 Yongzhou
+>>道县|道縣 Dao
+>>江华瑶族自治县|江華瑤族自治縣 Jianghua Yao
+>>江永县|江永縣 Jiangyong
+>>蓝山县|藍山縣 Lanshan
+>>冷水滩区 Lengshuitan
+>>零陵区|零陵區 Lingling
+>>宁远县|寧遠縣 Ningyuan
+>>祁阳县|祁陽縣 Qiyang
+>>双牌县|雙牌縣 Shuangpai
+>>新田县|新田縣 Xintian
+
+>長沙市 Changsha
+>>长沙区 Changsha Shì
+>>长沙县 Changsha Xiàn
+>>浏阳市|瀏陽市 Liuyang
+>>宁乡县|寧鄉縣 Ningxiang
+>>望城县|望城縣 Wangcheng
+
+>衡陽市 Hengyang
+>>常宁市|常寧市 Changning
+>>衡东县|衡東縣 Hengdong
+>>衡南县|衡南縣 Hengnan
+>>衡山县|衡山縣 Hengshan
+>>衡阳市 Hengyang Shì
+>>衡阳县 Hengyang Xiàn
+>>Laiyang Laiyang
+>>祁东县|祁東縣 Qidong
+
+>張家界市 Zhangjiajie
+>>慈利县|慈利縣 Cili
+>>Dayong Dayong
+>>桑植县|桑植縣 Sangzhi
+
+>郴州市 Chenzhou
+>>安仁县|安仁縣 Anren
+>>Chen Chen
+>>郴州市 Chenzhou
+>>桂东县|桂東縣 Guidong
+>>桂阳县|桂陽縣 Guiyang
+>>嘉禾县|嘉禾縣 Jiahe
+>>临武县|臨武縣 Linwu
+>>汝城县|汝城縣 Rucheng
+>>宜章县|宜章縣 Yizhang
+>>永兴县|永興縣 Yongxing
+>>资兴市|資興市 Zixing
+
+>湘潭市 Xiangtan
+>>韶山市 Shaoshan
+>>湘潭市 Xiangtan Shì
+>>湘潭县 Xiangtan Xiàn
+>>湘乡市|湘鄉市 Xiangxiang
+
+>常德市 Changde
+>>安乡县|安鄉縣 Anxiang
+>>鼎城区 Dingcheng
+>>汉寿县|漢壽縣 Hanshou
+>>津市市|津市市 Jinshi
+>>临澧县|臨澧縣 Linli
+>>Li Li
+>>石门县|石門縣 Shimen
+>>桃源县|桃源縣 Taoyuan
+>>武陵区 Wuling
+
+>婁底市 Loudi
+>>Lengshuijang Lengshuijang
+>>涟源市|漣源市 Lianyuan
+>>Loudi Loudi
+>>双峰县|雙峰縣 Shuangfeng
+>>新化县|新化縣 Xinhua
+
+>株洲市 Zhuzhou
+>>茶陵县|茶陵縣 Chaling
+>>醴陵市|醴陵市 Liling
+>>Ling Ling
+>>攸县|攸縣 Youxian
+>>株洲市 Zhuzhou Qū
+>>株洲县 Zhuzhou Xiàn
+
+>懷化市 Huaihua
+>>辰溪县|辰溪縣 Chenxi
+>>洪江区 Hóngjiāng Qū
+>>洪江市 Hóngjiāng Shì
+>>Huaihua Huaihua
+>>会同县|會同縣 Huitong
+>>Jing Jing
+>>麻阳苗族自治县 Mayang Miao
+>>通道侗族自治县|通道侗族自治縣 Tongdao Dong
+>>新晃侗族自治县 Xinhuang Dong Dongzu
+>>溆浦县|漵浦縣 Xupu
+>>沅陵县|沅陵縣 Yuanling
+>>芷江侗族自治县|芷江侗族自治縣 Zhijiang Dong Dongzu
+
+>益陽市 Yiyang
+>>安化县|安化縣 Anhua
+>>南县|南縣 Nan
+>>桃江县|桃江縣 Taojiang
+>>益阳市 Yiyang Shì
+>>益阳县 Yiyang Xiàn
+>>沅江市|沅江市 Yuanjiang
+
+
+15 Jiangsu
+>盐城市 Yancheng
+>>滨海县 Binhai
+>>大丰市 Dafeng
+>>东台市 Dongtai
+>>阜宁县 Funing
+>>建湖县 Jianhu
+>>射阳县 Sheyang
+>>响水县 Xiangshui
+>>盐都区 Yandu
+>>Yiancheng Yiancheng
+
+>连云港市 Lianyungang
+>>东海县 Donghai
+>>赣榆县 Ganyu
+>>灌南县 Guannan
+>>灌云县 Guanyun
+>>Lianyungang Lianyungang
+
+>镇江市 Zhenjiang
+>>丹徒区 Dantu
+>>丹阳市 Danyang
+>>句容市 Jurong
+>>扬中市 Yangzhong
+>>Zhenjiang Zhenjiang
+
+>南京市 Nanjing
+>>高淳县 Gaochun
+>>江宁区 Jiangning
+>>Jiangpu Jiangpu
+>>溧水县 Lishui
+>>六合区 Luhe
+>>Nanjing Nanjing
+
+>泰州市 Taizhou
+>>姜堰市 Jiangyan
+>>靖江市 Jingjiang
+>>泰兴市 Taixing
+>>泰州市 Taizhou
+>>兴化市 Xinghua
+
+>苏州市 Suzhou
+>>常熟市 Changshu
+>>昆山市 Kunshan
+>>Shazhou Shazhou
+>>Suzhou Suzhou
+>>太仓市 Taicang
+>>吴江市 Wujiang
+>>Wuxian Wuxian
+
+>淮安市 Huai'an
+>>洪泽县 Hongze
+>>Huaian Huaian
+>>淮阴区 Huaiyin
+>>金湖县 Jinhu
+>>涟水县 Lianshui
+>>Qingjiang Qingjiang
+>>盱眙县 Xuyi
+
+>扬州市 Yangzhou
+>>宝应县 Baoying
+>>高邮市 Gaoyou
+>>邗江区 Hanjiang
+>>江都市 Jiangdu
+>>Yangzhou Yangzhou
+>>仪征市 Yizheng
+
+>无锡市 Wuxi
+>>江阴市 Jiangyin
+>>无锡新区 Wuxi New District
+>>无锡市 Wuxi
+>>锡山区 Xishan
+>>宜兴市 Yixing
+
+>徐州市 Xuzhou
+>>丰县 Feng
+>>沛县 Pei
+>>邳州市 Pizhou
+>>睢宁县 Suining
+>>铜山县 Tongshan
+>>新沂市 Xinyi
+>>Xuzhou Xuzhou
+
+>宿迁市 Suqian
+>>沭阳县 Shuyang
+>>泗洪县 Sihong
+>>泗阳县 Siyang
+>>宿迁市 Suqian
+>>宿豫区 Suyu
+
+>南通市 Nantong
+>>海安县 Hai'an
+>>海门市 Haimen
+>>南通市 Nantong
+>>启东市 Qidong
+>>如东县 Rudong
+>>如皋市 Rugao
+>>通州市 Tongzhou
+
+>常州市 Changzhou
+>>Changzhou Changzhou
+>>金坛市 Jintan
+>>溧阳市 Liyang
+>>武进区 Wujin
+
+
+16 Jiangxi
+>鹰潭市 Yingtan
+>>贵溪市 Guixi
+>>Yingtan Yingtan
+>>余江县 Yujiang
+
+>九江市 Jiujiang
+>>德安县 De'an
+>>都昌县 Duchang
+>>湖口县 Hukou
+>>九江区 Jiujiang Qū
+>>九江县 Jiujiang Xiàn
+>>彭泽县 Pengze
+>>瑞昌市 Ruichang
+>>武宁县 Wuning
+>>星子县 Xingzi
+>>修水县 Xiushui
+>>永修县 Yongxiu
+
+>宜春市 Yichun
+>>丰城市 Fengcheng
+>>奉新县 Fengxin
+>>高安市 Gao'an
+>>靖安县 Jing'an
+>>上高县 Shanggao
+>>铜鼓县 Tonggu
+>>万载县 Wanzai
+>>Yichun Yichun
+>>宜丰县 Yifeng
+>>樟树市 Zhangshu
+
+>萍乡市 Pingxiang
+>>莲花县 Lianhua
+>>Pingxiang Pingxiang
+
+>吉安市 Ji'an
+>>安福县 Anfu
+>>吉安县 Ji'an
+>>Ji An Ji An
+>>井冈山市 Jinggangshan
+>>吉水县 Jishui
+>>Ninggang Ninggang
+>>遂川县 Suichuan
+>>太和县 Taihe
+>>万安县 Wan’an
+>>峡江县 Xiajiang
+>>新干县 Xingan
+>>永丰县 Yongfeng
+>>永新县 Yongxin
+
+>上饶市 Shangrao
+>>Boyang Boyang
+>>德兴市 Dexing
+>>广丰县 Guangfeng
+>>横峰县 Hengfeng
+>>Qianshan Qianshan
+>>上饶市 Shangrao Shì
+>>上饶县 Shangrao Xiàn
+>>万年县 Wannian
+>>婺源县 Wuyuan
+>>弋阳县 Yiyang
+>>余干县 Yugan
+>>玉山县 Yushan
+
+>景德镇市 Jingdezhen
+>>Jingdezhen Jingdezhen
+>>乐平市 Leping
+
+>南昌市 Nanchang
+>>安义县 Anyi
+>>进贤县 Jinxian
+>>南昌区 Nanchang Qū
+>>南昌县 Nanchang Xiàn
+>>新干县 Xingan
+>>新建县 Xinjian
+
+>抚州市 Fuzhou
+>>崇仁县 Chongren
+>>东乡县 Dongxiang
+>>广昌县 Guangchang
+>>金溪县 Jinxi
+>>乐安县 Le'an
+>>黎川县 Lichuan
+>>临川区 Linchuan
+>>南城县 Nancheng
+>>南丰县 Nanfeng
+>>宜黄县 Yihuang
+>>资溪县 Zixi
+
+>赣州市 Ganzhou
+>>安远县 Anyuan
+>>崇义县 Chongyi
+>>大余县 Dayu
+>>定南县 Dingnan
+>>赣县 Gan
+>>Ganzhou Ganzhou
+>>会昌县 Huichang
+>>龙南县 Longnan
+>>南康市 Nankang
+>>宁都县 Ningdu
+>>Quannan Quannan
+>>瑞金市 Ruijin
+>>上犹县 Shangyou
+>>石城县 Shicheng
+>>信丰县 Xinfeng
+>>兴国县 Xingguo
+>>寻乌县 Xunwu
+>>于都县 Yudu
+
+>新余市 Xinyu
+>>分宜县 Fenyi
+>>Xinyu Xinyu
+
+
+17 Jilin
+>长春市 Changchun
+>>长春市 Changchun
+>>德惠市 Dehui
+>>九台市 Jiutai
+>>农安县 Nong'an
+>>双阳区 Shuangyang
+>>榆树市 Yushu
+
+>白山市 Baishan
+>>八道江区 Badaojiang
+>>长白朝鲜族自治县 Changbai Korean
+>>抚松县 Fusong
+>>江源区 Jiangyuan
+>>靖宇县 Jingyu
+>>临江市 Linjiang
+
+>松原市 Songyuan
+>>长岭县 Changling
+>>扶余县 Fuyu
+>>乾安县 Qian'an
+>>前郭尔罗斯蒙古族自治县 Qian Gorlos Mongol
+
+>四平市 Siping
+>>Huaide Huaide
+>>梨树县 Lishu
+>>双辽市 Shuangliao
+>>Siping Siping
+>>伊通满族自治县 Yitong Manchu
+
+>延边朝鲜族自治州 Yanbian Korean
+>>安图县 Antu
+>>敦化市 Dunhua
+>>和龙市 Helong
+>>珲春市 Hunchun
+>>龙井市 Longjing
+>>图们市 Tumen
+>>汪清县 Wangqing
+>>延吉市 Yanji
+
+>白城市 Baicheng
+>>Baicheng Baicheng
+>>大安市 Da'an
+>>洮南市 Taonan
+>>通榆县 Tongyu
+>>镇赉县 Zhenlai
+
+>通化市 Tonghua
+>>东昌区 Dongchang
+>>二道江区 Erdaojiang
+>>辉南县 Huinan
+>>集安市 Ji'an
+>>柳河县 Liuhe
+>>梅河口市 Meihekou
+>>通化县 Tonghua
+
+>吉林市 Jilin
+>>桦甸市 Huadian
+>>蛟河市 Jiaohe
+>>吉林市 Jilin
+>>磐石市 Panshi
+>>舒兰市 Shulan
+>>永吉县 Yongji
+
+>辽源市 Liaoyuan
+>>东风县 Dongfeng
+>>东辽县 Dongliao
+>>Liaoyuan Liaoyuan
+
+
+18 Liaoning
+>本溪市 Benxi
+>>本溪满族自治县 Benxi Manchu
+>>Benxi Benxi
+>>桓仁满族自治县 Huanren Manchu
+
+>鞍山市 Anshan
+>>Anshan Anshan
+>>海城市 Haicheng
+>>台安县 Tai'an
+>>岫岩满族自治县 Xiuyan Manchu
+
+>大连市 Dalian
+>>长海县 Changhai
+>>Dalian Dalian
+>>金州区 Jinzhou
+>>旅顺口区 Lushunkou
+>>瓦房店市 Wafangdian
+>>Xinjin Xinjin
+>>庄河市 Zhuanghe
+
+>沈阳市 Shenyang
+>>法库县 Faku
+>>康平县 Kangping
+>>辽中县 Liaozhong
+>>沈阳市 Shenyang Shì
+>>沈阳县 Shenyang Xiàn
+>>新民市 Xinmin
+
+>辽阳市 Liaoyang
+>>灯塔市 Dengta
+>>辽阳区 Liaoyang
+
+>朝阳市 Chaoyang
+>>北票市 Beipiao
+>>朝阳市 Chaoyang Shì
+>>朝阳县 Chaoyang Xiàn
+>>喀喇沁左翼蒙古族自治县 Harqin Left Mongol
+>>建平县 Jianping
+>>凌源市 Lingyuan
+
+>抚顺市 Fushun
+>>抚顺县 Fushun
+>>清原满族自治县 Qingyuan Manchu
+>>顺城区 Shuncheng
+>>新宾满族自治县 Xinbin Manchu
+
+>丹东市 Dandong
+>>大东区 Dadong
+>>东港市 Donggang
+>>凤城市 Fengcheng
+>>宽甸满族自治县 Kuandian Manchu
+
+>锦州市 Jinzhou
+>>北镇市 Beizhen
+>>黑山县 Heishan
+>>Jin Jin
+>>金州区 Jinzhou
+>>义县 Yi
+
+>阜新市 Fuxin
+>>阜新蒙古族自治县 Fuxin Mongol
+>>Fuxin Fuxin
+>>彰武县 Zhangwu
+
+>葫芦岛市 Huludao
+>>建昌县 Jianchang
+>>Jinxi Jinxi
+>>绥中县 Suizhong
+>>兴城市 Xingcheng
+
+>铁岭市 Tieling
+>>昌图县 Changtu
+>>Gai Gai
+>>开原市 Kaiyuan
+>>Tiefa Tiefa
+>>铁岭市 Tieling Shì
+>>铁岭县 Tieling Xiàn
+>>西丰县 Xifeng
+>>Yingkou Yingkou
+>>银州区 Yinzhou
+
+>盘锦市 Panjin
+>>大洼县 Dawa
+>>盘锦市 Panjin
+>>盘山县 Panshan
+
+
+19 Nei Mongol
+>通辽市 Tongliao
+>>科尔沁左翼后旗 Horqin Left Back
+>>科尔沁左翼中旗 Horqin Left Middle
+>>霍林郭勒市 Huolin Gol
+>>库伦旗 Hure
+>>扎鲁特旗 Jarud
+>>开鲁县 Kailu
+>>奈曼旗 Naiman
+>>Tongliao Tongliao
+
+>锡林郭勒盟 Xilin Gol
+>>Abagnar Qi Abagnar Qi
+>>阿巴嘎旗 Abag
+>>镶黄旗 Bordered Yellow
+>>Dong Ujimqin Dong Ujimqin
+>>多伦县 Duolun
+>>二连浩特市 Erenhot
+>>正镶白旗 Plain and Bordered White
+>>正蓝旗 Plain Blue
+>>苏尼特左旗 Sonid Left
+>>苏尼特右旗 Sonid Right
+>>太仆寺旗 Taibus
+>>西乌珠穆沁旗 West Ujimqin
+
+>阿拉善盟 Alxa
+>>阿拉善左旗 Alxa Left
+>>阿拉善右旗 Alxa Right
+>>额济纳旗 Ejin
+
+>呼和浩特市 Hohhot
+>>Hohhot Hohhot
+>>和林格尔县 Horinger
+>>清水河县 Qingshuihe
+>>托克托县 Togtoh
+>>土默特左旗 Tumd Left
+>>土默特右旗 Tumd Right
+>>武川县 Wuchuan
+
+>乌兰察布市 Ulaan Chab
+>>丰镇市 Fengzhen
+>>化德县 Huade
+>>集宁区 Jining
+>>凉城县 Liangcheng
+>>Qahar Youyi Houqi Qahar Youyi Houqi
+>>Qahar Youyi Qianqi Qahar Youyi Qianqi
+>>Qahar Youyi Zhongqi Qahar Youyi Zhongqi
+>>商都县 Shangdu
+>>四子王旗 Siziwang
+>>兴和县 Xinghe
+>>卓资县 Zhuozi
+
+>乌海市 Wuhai
+>>Wuhai Wuhai
+
+>赤峰市 Chifeng
+>>敖汉旗 Aohan
+>>阿鲁科尔沁旗 Ar Horqin
+>>巴林左旗 Bairin Left
+>>巴林右旗 Bairin Right
+>>Chifeng Chifeng
+>>喀喇沁旗 Harqin
+>>克什克腾旗 Hexigten
+>>林西县 Linxi
+>>宁城县 Ningcheng
+>>翁牛特旗 Ongniud
+
+>巴彦淖尔市 Baynnur
+>>磴口县 Dengkou
+>>海勃湾区 Haibowan
+>>临河区 Linhe
+>>乌拉特后旗 Urad Back
+>>乌拉特前旗 Urad Front
+>>乌拉特中旗 Urad Middle
+>>五原县 Wuyuan
+
+>呼伦贝尔市 Hulunbuir
+>>阿荣旗 Arun
+>>Butha Qi Butha Qi
+>>Chenbarag Qi Chenbarag Qi
+>>额尔古纳市 Ergun
+>>鄂温克族自治旗 Evenk
+>>根河市 Genhe
+>>海拉尔区 Hailar
+>>满洲里市 Manzhouli
+>>莫利达瓦达斡尔族自治旗 Morin Dawa Daur
+>>鄂伦春自治旗 Oroqin
+>>Xinbarag Left Xinbarag Left
+>>Xinbarag Right Xinbarag Right
+>>Xuguit Qi Xuguit Qi
+
+>包头市 Baotou
+>>Baotou Baotou
+>>达尔罕茂明安 Darhan Muminggan Lia
+>>固阳县 Guyang
+
+>鄂尔多斯市 Ordos
+>>达拉特旗 Dalad
+>>东胜区 Dongsheng
+>>伊金霍洛旗 Ejin Horo
+>>杭锦旗 Hanggin
+>>准格尔旗 Jungar
+>>鄂托克前旗 Otog Front
+>>鄂托克旗 Otog
+>>乌审旗 Uxin
+
+>兴安盟 Xing'an
+>>科尔沁右翼前旗 Horqin Right Front
+>>科尔沁右翼中旗 Horqin Right Middle
+>>扎赉特旗 Jalaid
+>>突泉县 Tuquan
+>>乌兰浩特市 Ulan Hot
+
+
+20 Ningxia Hui
+>石嘴山市 Shizuishan
+>>惠农区 Huinong
+>>平罗县 Pingluo
+>>石嘴山区 Shizuishan Qū
+>>石嘴山市 Shizuishan Shì
+>>Taole Taole
+
+>固原市 Guyuan
+>>Guyuan Guyuan
+>>泾源县 Jingyuan
+>>隆德县 Longde
+>>彭阳县 Pengyang
+>>西吉县 Xiji
+
+>中卫市 Zhongwei
+>>海原县 Haiyuan
+>>中宁县 Zhongning
+>>Zhongwei Zhongwei
+
+>吴忠市 Wuzhong
+>>青铜峡市 Qingtongxia
+>>同心县 Tongxin
+>>Wuzhong Wuzhong
+>>盐池县 Yanchi
+
+>银川市 Yinchuan
+>>贺兰县 Helan
+>>灵武市 Lingwu
+>>Yinchuan Yinchuan
+>>永宁县 Yongning
+
+
+21 Qinghai
+>海西蒙古族藏族自治州 Haixi Mongol and Tibetan
+>>德令哈市 Delingha
+>>都兰县 Dulan
+>>格尔木市 Golmud
+>>冷湖行政委员会 Lenghu
+>>天峻县 Tianjun
+>>乌兰县 Wulan
+
+>玉树藏族自治州 Gyêgu Tibetan
+>>称多县 Chindu
+>>格尔木市 Golmud
+>>囊谦县 Nangqên
+>>曲麻莱县 Qumarleb
+>>Yushu Yushu
+>>杂多县 Zadoi
+>>治多县 Zhidoi
+
+>海东地区 Haidong
+>>化隆回族自治县 Hualong Hui
+>>互助土族自治县 Huzhu Tu
+>>乐都县 Ledu
+>>民和回族|土族自治县 Minhe Hui and Tu
+>>平安县 Ping'an
+>>循化撒拉族自治县 Xunhua Salar
+
+>海北藏族自治州 Haibei Tibetan
+>>刚察县 Gangca
+>>海晏县 Haiyan
+>>门源回族自治县 Menyuan Hui
+>>祁连县 Qilian
+
+>西宁市 Xining
+>>大通回族|土族自治县 Datong Hui and Tu
+>>湟源县 Huangyuan
+>>湟中县 Huangzhong
+>>Xining Xining
+
+>果洛藏族自治州 Golog Tibetan
+>>班玛县 Baima
+>>达日县 Darlag
+>>甘德县 Gadê
+>>久治县 Jigzhi
+>>玛多县 Madoi
+>>玛沁县 Maqên
+
+>海南藏族自治州 Hainan Tibetan
+>>共和县 Gonghe
+>>贵德县 Guide
+>>贵南县 Guinan
+>>同德县 Tongde
+>>兴海县 Xinghai
+
+>黄南藏族自治州 Huangnan Tibetan
+>>河南蒙古族自治县 Henan Mongol
+>>尖扎县 Jainca
+>>同仁县 Tongren
+>>泽库县 Zêkog
+
+
+22 Shaanxi
+>汉中市 Hanzhong
+>>城固县 Chenggu
+>>佛坪县 Foping
+>>Hanzhong Hanzhong
+>>留坝县 Liuba
+>>略阳县 Lueyang
+>>勉县 Mian
+>>南郑县 Nanzheng
+>>宁强县 Ningqiang
+>>西乡县 Xixiang
+>>洋县 Yang
+>>镇巴县 Zhenba
+
+>铜川市 Tongchuan
+>>Tongchuan Tongchuan
+>>宜君县 Yijun
+
+>咸阳市 Xianyang
+>>彬县 Bin
+>>长武县 Changwu
+>>淳化县 Chunhua
+>>泾阳县 Jingyang
+>>礼泉县 Liquan
+>>乾县 Qian
+>>三原县 Sanyuan
+>>Wugong Wugong
+>>Xianyang Xianyang
+>>兴平市 Xingping
+>>旬邑县 Xunyi
+>>杨陵区 Yangling
+>>永寿县 Yongshou
+
+>西安市 Xi'an
+>>长安区 Chang'an
+>>高陵县 Gaoling
+>>户县 Hu
+>>蓝田县 Lantian
+>>临潼区 Lintong
+>>新城区 Xincheng
+>>周至县 Zhouzhi
+
+>渭南市 Weinan
+>>白水县 Baishui
+>>陈仓区 Chencang
+>>大荔县 Dali
+>>富平县 Fuping
+>>韩城市 Hancheng
+>>合阳县 Heyang
+>>华县 Hua
+>>华阴市 Huayin
+>>蒲城县 Pucheng
+>>Tongguan Tongguan
+>>Weinan Weinan
+
+>榆林市 Yulin
+>>定边县 Dingbian
+>>府谷县 Fugu
+>>横山县 Hengshan
+>>佳县 Jia
+>>靖边县 Jingbian
+>>米脂县 Mizhi
+>>清涧县 Qingjian
+>>神木县 Shenmu
+>>绥德县 Suide
+>>Wubu Wubu
+>>Yulin Yulin
+>>子洲县 Zizhou
+
+>宝鸡市 Baoji
+>>宝鸡区 Baoji Qū
+>>宝鸡县 Baoji Xiàn
+>>凤县 Feng
+>>凤翔县 Fengxiang
+>>扶风县 Fufeng
+>>麟游县 Linyou
+>>陇县 Long
+>>眉县 Mei
+>>千阳县 Qianyang
+>>岐山县 Qishan
+>>太白县 Taibai
+
+>商洛市 Shangluo
+>>丹凤县 Danfeng
+>>洛南县 Luonan
+>>商南县 Shangnan
+>>Shang Shang
+>>山阳县 Shanyang
+>>柞水县 Zhashui
+>>镇安县 Zhen'an
+
+>延安市 Yan'an
+>>安塞县 Ansai
+>>富县 Fu
+>>甘泉县 Ganquan
+>>黄陵县 Huangling
+>>黄龙县 Huanglong
+>>洛川县 Luochuan
+>>吴起县 Wuqi
+>>Yan An Yan An
+>>延长县 Yanchang
+>>延川县 Yanchuan
+>>宜川县 Yichuan
+>>志丹县 Zhidan
+>>子长县 Zichang
+
+>安康市 Ankang
+>>Ankang Ankang
+>>白河县 Baihe
+>>汉阴县 Hanyin
+>>岚皋县 Langao
+>>宁陕县 Ningshan
+>>平利县 Pingli
+>>石泉县 Shiquan
+>>旬阳县 Xunyang
+>>镇坪县 Zhenping
+>>紫阳县 Ziyang
+
+
+23 Shandong
+>淄博市 Zibo
+>>高青县 Gaoqing
+>>桓台县 Huantai
+>>沂源县 Yiyuan
+>>Zibo Zibo
+>>淄川区 Zichuan
+
+>菏泽市 Heze
+>>曹县 Cao
+>>成武县 Chengwu
+>>定陶县 Dingtao
+>>东明县 Dongming
+>>Heze Heze
+>>Juancheng Juancheng
+>>巨野县 Juye
+>>单县 Shan
+>>禹城市 Yucheng
+
+>潍坊市 Weifang
+>>安丘市 Anqiu
+>>昌乐县 Changle
+>>昌邑市 Changyi
+>>高密市 Gaomi
+>>临朐县 Linqu
+>>青州市 Qingzhou
+>>寿光市 Shouguang
+>>潍坊市 Weifang Shì
+>>潍坊市 Weifang Xiàn
+>>诸城市 Zhucheng
+
+>烟台市 Yantai
+>>长岛县 Changdao
+>>Fushan Fushan
+>>海阳市 Haiyang
+>>莱阳市 Laiyang
+>>莱州市 Laizhou
+>>龙口市 Longkou
+>>牟平区 Muping
+>>蓬莱市 Penglai
+>>栖霞市 Qixia
+>>Yantai Yantai
+>>招远市 Zhaoyuan
+
+>枣庄市 Zaozhuang
+>>Teng Teng
+>>Zhaozhuang Zhaozhuang
+>>Zouxian Zouxian
+
+>青岛市 Qingdao
+>>黄岛区 Huangdao
+>>胶南市 Jiaonan
+>>Jiaoxian Jiaoxian
+>>即墨市 Jimo
+>>莱西市 Laixi
+>>崂山区 Laoshan
+>>平度市 Pingdu
+
+>东营市 Dongying
+>>东营区 Dongying
+>>广饶县 Guangrao
+>>河口区 Hekou
+>>垦利县 Kenli
+>>利津县 Lijin
+
+>威海市 Weihai
+>>任城区 Rencheng
+>>乳山市 Rushan
+>>Weihai Weihai
+>>Wendeng Wendeng
+
+>滨州 Binzhou
+>>Binxian Binxian
+>>博兴县 Boxing
+>>惠民县 Huimin
+>>无棣县 Wudi
+>>阳信县 Yangxin
+>>沾化县 Zhanhua
+>>邹平县 Zouping
+
+>济宁市 Jining
+>>嘉祥县 Jiaxiang
+>>Jining Jining
+>>金乡县 Jinxiang
+>>梁山县 Liangshan
+>>曲阜市 Qufu
+>>泗水县 Sishui
+>>Weishan Weishan
+>>汶上县 Wenshang
+>>兖州市 Yanzhou
+>>鱼台县 Yutai
+
+>聊城市 Liaocheng
+>>Chiping Chiping
+>>东阿县 Dong'e
+>>高唐县 Gaotang
+>>冠县 Guan
+>>Liaocheng Liaocheng
+>>临清市 Linqing
+>>Shenxian Shenxian
+>>阳谷县 Yanggu
+
+>泰安市 Tai'an
+>>东平县 Dongping
+>>肥城市 Feicheng
+>>宁阳县 Ningyang
+>>Tai An Tai An
+>>Xinwen Xinwen
+
+>临沂市 Linyi
+>>苍山县 Cangshan
+>>Feixian Feixian
+>>莒南县 Junan
+>>临沭县 Linshu
+>>临邑县 Linyi
+>>蒙阴县 Mengyin
+>>平邑县 Pingyi
+>>Tancheng Tancheng
+>>沂南县 Yinan
+>>沂水县 Yishui
+
+>日照市 Rizhao
+>>Juxian Juxian
+>>Rizhao Rizhao
+>>五莲县 Wulian
+
+>德州市 Dezhou
+>>Dezhou Dezhou
+>>乐陵市 Leling
+>>陵县 Ling
+>>临邑县 Linyi
+>>宁津县 Ningjin
+>>平原县 Pingyuan
+>>齐河县 Qihe
+>>庆云县 Qingyun
+>>武城县 Wucheng
+>>夏津县 Xiajin
+>>郓城县 Yuncheng
+
+>莱芜市 Laiwu
+>>莱芜市 Laiwu
+
+>济南市 Jinan
+>>长清区 Changqing
+>>济南区 Jinan
+>>济阳县 Jiyang
+>>平阴县 Pingyin
+>>商河县 Shanghe
+>>章丘市 Zhangqiu
+
+
+24 Shanghai
+>上海 Shanghai
+>>宝山区 Baoshan
+>>崇明县 Chongming
+>>奉贤区 Fengxian
+>>嘉定区 Jiading
+>>金山区 Jinshan
+>>闵行区 Minhang
+>>南汇区 Nanhui
+>>浦东新区 Pudong
+>>青浦区 Qingpu
+>>上海市区 Shanghai
+>>嵊泗县 Shengsi
+>>松江区 Songjiang
+
+
+25 Shanxi
+>大同市 Datong
+>>大同市 Datong Shì
+>>大同县 Datong Xiàn
+>>广灵县 Guangling
+>>浑源县 Hunyuan
+>>灵丘县 Lingqiu
+>>天镇县 Tianzhen
+>>阳高县 Yanggao
+>>左云县 Zuoyun
+
+>阳泉市 Yangquan
+>>平定县 Pingding
+>>Yangquan Yangquan
+>>盂县 Yu
+
+>太原市 Taiyuan
+>>古交市 Gujiao
+>>娄烦县 Loufan
+>>清徐县 Qingxu
+>>Taiyuan Taiyuan
+>>阳曲县 Yangqu
+
+>吕梁市 Luliang
+>>方山县 Fangshan
+>>汾阳市 Fenyang
+>>交城县 Jiaocheng
+>>交口县 Jiaokou
+>>岚县 Lan
+>>临县 Lin
+>>离石区 Lishi
+>>柳林县 Liulin
+>>石楼县 Shilou
+>>文水县 Wenshui
+>>孝义市 Xiaoyi
+>>兴县 Xing
+>>中阳县 Zhongyang
+
+>运城县 Yuncheng
+>>河津市 Hejin
+>>绛县 Jiang
+>>稷山县 Jishan
+>>临猗县 Linyi
+>>平陆县 Pinglu
+>>芮城县 Ruicheng
+>>万荣县 Wanrong
+>>闻喜县 Wenxi
+>>夏县 Xia
+>>新绛县 Xinjiang
+>>永济市 Yongji
+>>垣曲县 Yuanqu
+>>Yuncheng Yuncheng
+
+>晋中市 Jinzhong
+>>和顺县 Heshun
+>>介休市 Jiexiu
+>>灵石县 Lingshi
+>>平遥县 Pingyao
+>>祁县 Qi
+>>Shouyang Shouyang
+>>太谷县 Taigu
+>>昔阳县 Xiyang
+>>Yuci Yuci
+>>榆社县 Yushe
+>>左权县 Zuoquan
+
+>忻州市 Xinzhou
+>>保德县 Baode
+>>代县 Dai
+>>定襄县 Dingxiang
+>>繁峙县 Fanshi
+>>河曲县 Hequ
+>>静乐县 Jingle
+>>岢岚县 Kelan
+>>宁武县 Ningwu
+>>偏关县 Pianguan
+>>神池县 Shenchi
+>>五台县 Wutai
+>>五寨县 Wuzhai
+>>忻府区 Xinfu
+>>原平市 Yuanping
+
+>长治市 Changzhi
+>>长治县 Changzhi Shì
+>>长治县 Changzhi Xiàn
+>>壶关县 Huguan
+>>黎城县 Licheng
+>>潞城市 Lucheng
+>>平顺县 Pingshun
+>>沁县 Qin
+>>沁源县 Qinyuan
+>>屯留县 Tunliu
+>>武乡县 Wuxiang
+>>襄垣县 Xiangyuan
+>>长子县 Zhangzi
+
+>临汾市 Linfen
+>>安泽县 Anze
+>>大宁县 Daning
+>>汾西县 Fenxi
+>>浮山县 Fushan
+>>古县 Gu
+>>洪洞县 Hongtong
+>>侯马市 Houma
+>>Huo Huo
+>>吉县 Ji
+>>Linfen Linfen
+>>蒲县 Pu
+>>曲沃县 Quwo
+>>襄汾县 Xiangfen
+>>乡宁县 Xiangning
+>>隰县 Xi
+>>翼城县 Yicheng
+>>Yonghe Yonghe
+
+>晋城市 Jincheng
+>>高平市 Gaoping
+>>Jingcheng Jingcheng
+>>陵川县 Lingchuan
+>>沁水县 Qinshui
+>>阳城县 Yangcheng
+
+>朔州市 Shuozhou
+>>怀仁县 Huairen
+>>平陆县 Pinglu
+>>山阴县 Shanyin
+>>Shuo Shuo
+>>应县 Ying
+>>右玉县 Youyu
+
+
+26 Sichuan
+>南充市 Nanchong
+>>阆中市 Langzhong
+>>南部县 Nanbu
+>>南充市 Nanchong Shì
+>>南充市 Nanchong Xiàn
+>>蓬安县 Peng'an
+>>西充县 Xichong
+>>仪陇县 Yilong
+>>营山县 Yingshan
+
+>乐山市 Leshan
+>>峨边彝族自治县 Ebian Yi
+>>峨眉山市 Emeishan
+>>夹江县 Jiajiang
+>>金口河区 Jinkouhe
+>>马边彝族自治县 Mabian Yi
+>>沐川县 Muchuan
+>>犍为县 Qianwei
+>>沙湾区 Shawan
+>>市中区 Shizhong
+>>五通桥区 Wutongqiao
+
+>雅安市 Ya'an
+>>宝兴县 Baoxing
+>>汉源县 Hanyuan
+>>芦山县 Lushan
+>>名山县 Mingshan
+>>石棉县 Shimian
+>>天全县 Tianquan
+>>雅安市 Ya An
+>>荥经县 Yingjing
+
+>攀枝花市 Panzhihua
+>>东区 East
+>>米易县 Miyi
+>>盐边县 Yanbian
+
+>内江市 Neijiang
+>>东兴区 Dongxing
+>>市中区 Shizhong
+>>威远县 Weiyuan
+
+>遂宁市 Suining
+>>蓬溪县 Pengxi
+>>射洪县 Shehong
+>>Suining Suining
+
+>资阳市 Ziyang
+>>安居区 Anju
+>>江阳区 Jiangyang
+>>乐至县 Lezhi
+>>Ziyang Ziyang
+
+>广元市 Guangyuan
+>>苍溪县 Cangxi
+>>朝天区 Chaotian
+>>剑阁县 Jiange
+>>青川县 Qingchuan
+>>市中区 Shizhong
+>>旺苍县 Wangcang
+>>元坝区 Yuanba
+
+>广安市 Guang'an
+>>广安区 Guang'an
+>>Huayun Huayun
+>>邻水县 Linshui
+>>武胜县 Wusheng
+>>岳池县 Yuechi
+
+>甘孜藏族自治州 Garzê Tibetan
+>>白玉县 Baiyü
+>>巴塘县 Batang
+>>德格县 Dêgê
+>>得荣县 Dêrong
+>>丹巴县 Danba
+>>稻城县 Daocheng
+>>道孚县 Dawu
+>>甘孜县 Garzê
+>>九龙县 Jiulong
+>>康定县 Kangding
+>>理塘县 Litang
+>>泸定县 Luding
+>>炉霍县 Luhuo
+>>色达县 Sêrtar
+>>石渠县 Sêrxü
+>>乡城县 Xiangcheng
+>>新龙县 Xinlong
+>>雅江县 Yajiang
+
+>自贡市 Zigong
+>>富顺县 Fushun
+>>荣县 Rong
+>>Zigong Zigong
+
+>达州市 Dazhou
+>>达县 Da
+>>Daxian Daxian
+>>大竹县 Dazhu
+>>开江县 Kaijiang
+>>渠县 Qu
+>>万源市 Wanyuan
+>>宣汉县 Xuanhan
+
+>巴中市 Bazhong
+>>巴中区 Bazhong
+>>Nanjiang Nanjiang
+>>平昌县 Pingchang
+>>通江县 Tongjiang
+
+>凉山彝族自治州 Liangshan Yi
+>>布拖县 Butuo
+>>德昌县 Dechang
+>>甘洛县 Ganluo
+>>会东县 Huidong
+>>会理县 Huili
+>>旌阳区 Jingyang
+>>雷波县 Leibo
+>>美姑县 Meigu
+>>冕宁县 Mianning
+>>木里藏族自治县 Muli Tibetan
+>>宁南县 Ningnan
+>>普格县 Puge
+>>西昌市 Xichang
+>>喜德县 Xide
+>>盐源县 Yanyuan
+>>越西县 Yuexi
+>>昭觉县 Zhaojue
+
+>内江市 Neijiang]]
+>>隆昌县 Longchang
+>>资中县 Zizhong
+
+>眉山市 Meishan
+>>丹棱县 Danleng
+>>洪雅县 Hongya
+>>井研县 Jingyan
+>>Meishan Meishan
+>>彭山县 Pengshan
+>>青神县 Qingshen
+>>仁寿县 Renshou
+
+>德阳市 Deyang
+>>Deyang Deyang
+>>广汉市 Guanghan
+>>绵竹市 Mianzhu
+>>什邡市 Shifang
+>>中江县 Zhongjiang
+
+>宜宾市 Yibin
+>>长宁县 Changning
+>>高县 Gao
+>>珙县 Gong
+>>江安县 Jiang'an
+>>筠连县 Junlian
+>>南溪县 Nanxi
+>>屏山县 Pingshan
+>>兴文县 Xingwen
+>>宜宾市 Yibin Shì
+>>宜宾县 Yibin Xiàn
+
+>阿坝藏族羌族自治州 Ngawa Tibetan and Qiang
+>>Aba Aba
+>>马尔康县 Barkam
+>>Guan Guan
+>>黑水县 Heishui
+>>红原县 Hongyuan
+>>金川县 Jinchuan
+>>理县 Li
+>>茂县 Mao
+>>Nanping Nanping
+>>松潘县 Songpan
+>>汶川县 Wenchuan
+>>小金县 Xiaojin
+>>壤塘县 Zamtang
+>>若尔盖县 Zoigê
+
+>绵阳市 Mianyang
+>>安县 An
+>>北川羌族自治县 Beichuan Qiang
+>>江油市 Jiangyou
+>>Mianyang Mianyang
+>>平武县 Pingwu
+>>三台县 Santai
+>>盐亭县 Yanting
+>>梓潼县 Zitong
+
+>泸州市 Luzhou
+>>古蔺县 Gulin
+>>合江县 Hejiang
+>>泸县 Lu
+>>泸州市 Luzhou
+>>纳溪区 Nàxī
+>>叙永县 Xuyong
+
+>成都市 Chengdu
+>>成都区 Chengdu Qū
+>>成都市 Chengdu Shì
+>>Chongqing Chongqing
+>>大邑县 Dayi
+>>金堂县 Jintang
+>>Peng Peng
+>>郫县 Pi
+>>蒲江县 Pujiang
+>>邛崃市 Qionglai
+>>双流县 Shuangliu
+>>温江区 Wenjiang
+>>新都区 Xindu
+>>新津县 Xinjin
+
+
+27 Tianjin
+>天津 Tianjin
+>>宝坻区 Baodi
+>>北辰区 Beichen
+>>大港区 Dagang
+>>东丽区 Dongli
+>>汉沽区 Hangu
+>>静海县 Jinghai
+>>蓟县 Ji
+>>宁河县 Ninghe
+>>塘沽区 Tanggu
+>>Tianjin Tianjin
+>>武清区 Wuqing
+>>西青区 Xiqing
+
+
+28 Xinjiang Uygur
+>克孜勒苏柯尔克孜自治州 Kizilsu Kirghiz
+>>阿合奇县 Akqi
+>>阿克陶县 Akto
+>>阿图什市 Artux
+>>Wuqia Wuqia
+
+>石河子市 Shihezi
+>>石河子市 Shihezi
+
+>塔城地区 Tacheng
+>>额敏县 Emin
+>>和布克赛尔蒙古自治县 Hoboksar Mongol
+>>沙湾县 Shawan
+>>塔城市 Tacheng
+>>托里县 Toli
+>>Usu Usu
+>>裕民县 Yumin
+
+>阿克苏地区 Aksu
+>>阿克苏市 Aksu
+>>阿瓦提县 Awat
+>>拜城县 Baicheng
+>>柯坪县 Kalpin
+>>Kuqa Kuqa
+>>沙雅县 Shayar
+>>新和县 Toksu
+>>温宿县 Wensu
+>>Wushi Wushi
+
+>克拉玛依市 Karamay
+>>独山子区 Dushanzi
+>>克拉玛依区 Karamay
+
+>喀什地区 Kashgar
+>>巴楚县 Bachu
+>>伽师县 Jiashi
+>>喀什市 Kashgar
+>>麦盖提县 Makit
+>>泽普县 Poskam
+>>疏附县 Shufu
+>>疏勒县 Shule
+>>塔什库尔干塔吉克自治县 Taxkorgan Tajik
+>>叶城县 Yecheng
+>>英吉沙县 Yengisar
+>>岳普湖县 Yopurga
+>>泽普县 Zepu
+
+>Something Error.
+>>博乐市 Bole
+>>精河县 Jinghe
+>>温泉县 Wenquan
+
+>昌吉回族自治州 Changji Hui
+>>昌吉市 Changji
+>>阜康市 Fukang
+>>呼图壁县 Hutubi
+>>吉木萨尔县 Jimsar
+>>玛纳斯县 Manas
+>>米泉市 Miquan
+>>木垒哈萨克自治县 Mori
+>>奇台县 Qitai
+
+>伊犁哈萨克自治州 Ili Kazakh
+>>巩留县 Gongliu
+>>霍城县 Huocheng
+>>奎屯市 Kuitun
+>>尼勒克县 Nilka
+>>察布查尔锡伯自治县 Qapqal Xibe
+>>特克斯县 Tekes
+>>新源县 Xinyuan
+>>伊宁县 Yining Shì
+>>伊宁县 Yining
+>>昭苏县 Zhaosu
+
+>Something Error.
+>>Something Error.
+>>Something Error.
+
+>巴音郭愣蒙古自治州 Bayin'gholin Mongol
+>>博湖县 Bohu
+>>和静县 Hejing
+>>和硕县 Hoxud
+>>Korla Korla
+>>轮台县 Luntai
+>>且末县 Qiemo
+>>若羌县 Ruoqiang
+>>焉耆回族自治县 Yanqi Hui
+>>尉犁县 Yuli
+
+>阿勒泰地区 Altay
+>>阿勒泰市 Altay
+>>布尔津县 Burqin
+>>福海县 Fuhai
+>>富蕴县 Fuyun
+>>哈巴河县 Habahe
+>>吉木乃县 Jeminay
+>>清河县 Qinggil
+
+>吐鲁番地区 Turfan
+>>Shanshan Shanshan
+>>托克逊县 Toksun
+>>吐鲁番市 Turfan
+
+>和田地区 Khotan
+>>和田市 Khotan
+>>洛浦县 Lop
+>>民丰县 Minfeng
+>>Moyu Moyu
+>>皮山县 Pishan
+>>Qira Qira
+>>Yutian Yutian
+
+>哈密地区 Hami
+>>巴里坤哈萨克自治县阿图什市 Barkol Kazakh
+>>Hami Hami
+>>伊吾县 Yiwu
+
+
+29 Xizang
+>拉萨市 Lhasa
+>>达孜县 Dagzê
+>>当雄县 Damxung
+>>堆龙德庆县 Doilungdêqên
+>>林周县 Lhünzhub
+>>Lhasa Lhasa
+>>墨竹工卡县 Maizhokunggar
+>>尼木县 Nyêmo
+>>曲水县 Qüxü
+
+>昌都地区 Chamdo
+>>边坝县 Banbar
+>>八宿县 Baxoi
+>>丁青县 Dêngqên
+>>贡觉县 Gonjo
+>>江达县 Jomdo
+>>洛隆县 Lhorong
+>>芒康县 Markam
+>>昌都县 Qamdo
+>>类乌齐县 Riwoqê
+>>察雅县 Zhag'yab
+>>左贡县 Zogang
+
+>那曲地区 Nagchu
+>>安多县 Amdo
+>>巴青县 Baqên
+>>比如县 Biru
+>>嘉黎县 Lhari
+>>那曲县 Nagchu
+>>聂荣县 Nyainrong
+>>尼玛县 Nyima
+>>Raingoin Raingoin
+>>索县 Sog
+>>申扎县 Xainza
+
+>山南地区 Shannan
+>>措美县 Comai
+>>错那县 Cona
+>>贡嘎县 Gonggar
+>>加查县 Gyaca
+>>隆子县 Lhünzê
+>>洛扎县 Lhozhag
+>>乃东县 Nêdong
+>>浪卡子县 Nagarzê
+>>琼结县 Qonggyai
+>>曲松县 Qusum
+>>桑日县 Sangri
+>>扎囊县 Zhanang
+
+>林芝地区 Nyingtri
+>>波密县 Bomi
+>>工布江达县 Gongbo'gyamda
+>>米林县 Mainling
+>>朗县 Nang
+>>林芝县 Nyingchi
+>>察隅县 Zayü
+
+>阿里地区 Ngari
+>>普兰县 Burang
+>>措勤县 Coqên
+>>革吉县 Gê'gyai
+>>改则县 Gêrzê
+>>噶尔县 Gar
+>>日土县 Rutog
+>>札达县 Zanda
+
+>日喀则地区 Shigatse
+>>白朗县 Bainang
+>>定结县 Dinggyê
+>>岗巴县 Gamba
+>>江孜县 Gyangzê
+>>吉隆县 Gyirong
+>>康马县 Kangmar
+>>拉孜县 Lhazê
+>>南木林县 Namling
+>>昂仁县 Ngamring
+>>聂拉木县 Nyalam
+>>仁布县 Rinbung
+>>萨迦县 Sa'gya
+>>萨嘎县 Saga
+>>日喀则市 Shigatse
+>>定日县 Tingri
+>>谢通门县 Xaitongmoin
+>>亚东县 Yadong
+>>仲巴县 Zhongba
+
+
+30 Yunnan
+>曲靖市 Qujing
+>>富源县 Fuyuan
+>>会泽县 Huize
+>>陆良县 Luliang
+>>罗平县 Luoping
+>>马龙县 Malong
+>>师宗县 Shizong
+>>宣威市 Xuanwei
+>>沾益县 Zhanyi
+
+>西双版纳傣族自治州 Xishuangbanna Dai
+>>景洪市 Jinghong
+>>勐海县 Menghai
+>>勐腊县 Mengla
+
+>楚雄彝族自治州 Chuxiong Yi
+>>楚雄市 Chuxiong
+>>大姚县 Dayao
+>>禄丰县 Lufeng
+>>牟定县 Mouding
+>>南华县 Nanhua
+>>双柏县 Shuangbai
+>>武定县 Wuding
+>>姚安县 Yao'an
+>>永仁县 Yongren
+>>元谋县 Yuanmou
+
+>大理白族自治州 Dali Bai
+>>宾川县 Binchuan
+>>大理市 Dali
+>>洱源县 Eryuan
+>>鹤庆县 Heqing
+>>剑川县 Jianchuan
+>>弥渡县 Midu
+>>南涧彝族自治县 Nanjian Yi
+>>巍山彝族巍山彝族 Weishan Yi and Hui
+>>祥云县 Xiangyun
+>>漾濞彝族自治县 Yangbi Yi
+>>永平县 Yongping
+>>玉龙纳西族自治县 Yulong Naxi
+
+>昭通市 Zhaotong
+>>大关县 Daguan
+>>鲁甸县 Ludian
+>>巧家县 Qiaojia
+>>水富县 Shuifu
+>>绥江县 Suijiang
+>>维西傈僳族自治县 Weixi Lisu
+>>盐津县 Yanjin
+>>宜良县 Yiliang
+>>永善县 Yongshan
+>>Zhaotong Zhaotong
+>>镇雄县 Zhenxiong
+
+>迪庆藏族自治州 Dêqên Tibetan
+>>德钦县 Dêqên
+>>威信县 Weixin
+>>Zhongdian Zhongdian
+
+>怒江傈僳族自治州 Nujiang Lisu
+>>Bijiang Bijiang
+>>贡山独龙族怒族自治县 Gongshan Derung and Nu
+>>兰坪白族普米族自治县 Lanping Bai and Pumi
+>>泸水县 Lushui
+
+>丽江市 Lijiang
+>>华坪县 Huaping
+>>Lijiang Lijiang
+>>宁蒗彝族自治县 Ninglang Yi
+>>永胜县 Yongsheng
+
+>普洱市 Pu'er
+>>江城哈尼族彝族自治县 Jiangcheng Hani and Yi
+>>景东彝族自治县 Jingdong Yi
+>>景谷傣族彝族自治县 Jinggu Dai and Yi
+>>澜沧拉祜族自治县 Lancang Lahu
+>>孟连傣族拉祜族佤族自治县 Menglian Dai, Lahu and Va
+>>墨江哈尼族自治县 Mojiang Hani
+>>Puer Puer
+>>思茅区 Simao
+>>西盟佤族自治县 Ximeng Va
+>>镇沅彝族哈尼族拉祜族自治县 Zhenyuan Yi, Hani and Lahu
+
+>文山壮族苗族自治州 Wenshan Zhuang and Miao
+>>富宁县 Funing
+>>广南县 Guangnan
+>>马关县 Maguan
+>>麻栗坡县 Malipo
+>>丘北县 Qiubei
+>>文山县 Wenshan
+>>西畴县 Xichou
+>>砚山县 Yanshan
+
+>保山市 Baoshan
+>>Baoshan Baoshan
+>>昌宁县 Changning
+>>龙陵县 Longling
+>>施甸县 Shidian
+>>腾冲县 Tengchong
+
+>红河哈尼族彝族自治州 Honghe Hani and Yi
+>>个旧市 Gejiu
+>>河口瑶族自治县 Hekou Yao
+>>红河县 Honghe
+>>建水县 Jianshui
+>>金平苗族瑶族傣族自治县 Jinping Miao, Yao and Dai
+>>开远市 Kaiyuan
+>>绿春县 Lüchun
+>>潞西市 Luxi
+>>蒙自县 Mengzi
+>>弥勒县 Mile
+>>屏边苗族自治县 Pingbian Miao
+>>石屏县 Shiping
+>>元阳县 Yuanyang
+
+>玉溪市 Yuxi
+>>澄江县 Chengjiang
+>>峨山彝族自治县 Eshan Yi
+>>华宁县 Huaning
+>>江川县 Jiangchuan
+>>Tonghai Tonghai
+>>新平彝族傣族自治县 Xinping Yi and Dai
+>>易门县 Yimen
+>>元江哈尼族彝族傣族自治县 Yuanjiang Hani, Yi and Dai
+>>Yuxi Yuxi
+
+>昆明市 Kunming
+>>安宁市 Anning
+>>呈贡县 Chenggong
+>>东川区 Dongchuan
+>>富民县 Fumin
+>>晋宁县 Jinning
+>>昆明市 Kunming
+>>Lunan Lunan
+>>禄劝彝族苗族自治县 Luquan Yi and Miao
+>>嵩明县 Songming
+>>西山区 Xishan
+>>寻甸回族彝族自治县 Xundian Hui and Yi
+>>宜良县 Yiliang
+
+>德宏傣族景颇族自治州 Dehong Dai and Jingpo
+>>梁河县 Lianghe
+>>陇川县 Longchuan
+>>潞西市 Luxi
+>>瑞丽市 Ruili
+>>盈江县 Yingjiang
+
+>临沧市 Lincang
+>>沧源佤族自治县 Cangyuan Va
+>>凤庆县 Fengqing
+>>耿马傣族佤族自治县 Gengma Dai and Va
+>>Lincang Lincang
+>>双江拉祜族佤族布朗族傣族自治县 Shuangjiang Lahu, Va, Blang and Dai
+>>永德县 Yongde
+>>云县 Yun
+>>镇康县 Zhenkang
+
+
+31 Zhejiang
+>绍兴市 Shaoxing
+>>上虞市 Shangyu
+>>绍兴县 Shaoxing Xiàn
+>>绍兴市 Shaoxing
+>>嵊泗县 Shengsi
+>>新昌县 Xinchang
+>>诸暨市 Zhuji
+
+>杭州市 Hangzhou
+>>淳安县 Chun'an
+>>富阳市 Fuyang
+>>Hangzhou Hangzhou
+>>建德市 Jiande
+>>临安市 Lin'an
+>>桐庐县 Tonglu
+>>萧山区 Xiaoshan
+>>余杭区 Yuhang
+
+>丽水市 Lishui
+>>景宁畲族自治县 Jingning She
+>>缙云县 Jinyun
+>>Lishui Lishui
+>>龙泉市 Longquan
+>>青田县 Qingtian
+>>庆元县 Qingyuan
+>>松阳县 Songyang
+>>遂昌县 Suichang
+>>云和县 Yunhe
+
+>宁波市 Ningbo
+>>慈溪市 Cixi
+>>奉化市 Fenghua
+>>龙湾区 Longwan
+>>宁海县 Ninghai
+>>象山县 Xiangshan
+>>秀洲区 Xiuzhou
+>>余姚市 Yuyao
+>>镇海区 Zhenhai
+
+>湖州市 Huzhou
+>>安吉县 Anji
+>>长兴县 Changxing
+>>德清县 Deqing
+>>Huzhou Huzhou
+
+>台州市 Taizhou
+>>黄岩区 Huangyan
+>>临海市 Linhai
+>>三门县 Sanmen
+>>天台县 Tiantai
+>>温岭市 Wenling
+>>仙居县 Xianju
+>>玉环县 Yuhuan
+
+>嘉兴市 Jiaxing
+>>海宁市 Haining
+>>海盐县 Haiyan
+>>嘉善县 Jiashan
+>>嘉兴市 Jiaxing
+>>平湖市 Pinghu
+>>桐乡市 Tongxiang
+>>秀洲区 Xiuzhou
+
+>金华市 Jinhua
+>>东阳市 Dongyang
+>>金华市 Jinhua Shì
+>>金华县 Jinhua Xiàn
+>>兰溪市 Lanxi
+>>磐安县 Pan'an
+>>浦江县 Pujiang
+>>武义县 Wuyi
+>>义乌市 Yiwu
+>>永康市 Yongkang
+
+>温州市 Wenzhou
+>>苍南县 Cangnan
+>>瓯海区 Ouhai
+>>平阳县 Pingyang
+>>瑞安市 Ruian
+>>泰顺县 Taishun
+>>文成县 Wencheng
+>>温州市 Wenzhou
+>>永嘉县 Yongjia
+>>乐清市 Yueqing
+
+>衢州市 Quzhou
+>>常山县 Changshan
+>>江山市 Jiangshan
+>>开化县 Kaihua
+>>龙游县 Longyou
+>>衢州市 Quzhou Shì
+>>衢州县 Quzhou Xiàn
+
+>舟山市 Zhoushan
+>>岱山县 Daishan
+>>定海区 Dinghai
+>>普陀区 Putuo
+
+

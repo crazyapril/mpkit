@@ -1,0 +1,375 @@
+1 Anhui
+>合肥市 Hefei
+>黄山市 Huangshan
+>淮南市 Huainan
+>宿州市 Suzhou
+>芜湖市 Wuhu
+>阜阳市 Fuyang
+>安庆市 Anqing
+>铜陵市 Tongling
+>蚌埠市 Bengbu
+>宣城市 Xuancheng
+>马鞍山市 Ma'anshan
+>池州市 Chizhou
+>巢湖市 Chaohu
+>六安市 Lu'an
+>亳州市 Bozhou
+>滁州市 Chuzhou
+>淮北市 Huaibei
+2 Beijing
+>北京 Beijing
+3 Chongqing
+>重庆 Chongqing
+4 Fujian
+>莆田市 Putian
+>厦门市 Xiamen
+>龙岩市 Longyan
+>福州市 Fuzhou
+>宁德市 Ningde
+>泉州市 Quanzhou
+>南平市 Nanping
+>三明市 Sanming
+>漳州市 Zhangzhou
+5 Gansu
+>临夏回族自治州 Linxia Hui
+>酒泉市 Jiuquan
+>天水市 Tianshui
+>张掖市 Zhangye
+>庆阳市 Qingyang
+>平凉市 Pingliang
+>金昌市 Jinchang
+>白银市 Baiyin
+>武威市 Wuwei
+>嘉峪关市 Jiayuguan
+>陇南市 Longnan
+>甘南藏族自治州 Gannan Tibetan
+>定西市 Dingxi
+>兰州市 Lanzhou
+6 Guangdong
+>揭阳市 Jieyang
+>潮州市 Chaozhou
+>清远市 Qingyuan
+>阳江市 Yangjiang
+>河源市 Heyuan
+>珠海市 Zhuhai
+>汕尾市 Shanwei
+>江门市 Jiangmen
+>云浮市 Yunfu
+>湛江市 Zhanjiang
+>广州市 Guangzhou
+>东莞市 Dongguan
+>佛山市 Foshan
+>梅州市 Meizhou
+>韶关市 Shaoguan
+>中山市 Zhongshan
+>茂名市 Maoming
+>惠州市 Huizhou
+>汕头市 Shantou
+>深圳市 Shenzhen
+>肇庆市 Zhaoqing
+7 Guangxi
+>钦州市 Qinzhou
+>玉林市 Yulin
+>贵港市 Guigang
+>贺州市 Hezhou
+>河池市 Hechi
+>柳州市 Liuzhou
+>崇左市 Chongzuo
+>防城港市 Fangchenggang
+>百色市 Baise
+>梧州市 Wuzhou
+>南宁市 Nanning
+>北海市 Beihai
+>来宾市 Laibin
+>桂林市 Guilin
+8 Guizhou
+>六盘水市 Liupanshui
+>铜仁地区 Tongren
+>毕节地区 Bijie
+>遵义市 Zunyi
+>安顺市 Anshun
+>贵阳市 Guiyang
+>黔西南布依族苗族自治州 Qianxinan Buyei and Miao
+>黔东南苗族侗族自治州 Qiandongnan Miao and Dong
+>黔南布依族苗族自治州 Qiannan Buyei and Miao
+9 Hainan
+>海口市 Haikou
+>海南 Hainan
+>三亚市 Sanya
+10 Hebei
+>石家庄市 Shijiazhuang
+>邯郸市 Handan
+>沧州市 Cangzhou
+>秦皇岛市 Qinhuangdao
+>张家口市 Zhangjiakou
+>邢台市 Xingtai
+>衡水市 Hengshui
+>保定市 Baoding
+>廊坊市 Langfang
+>唐山市 Tangshan
+>承德市 Chengde
+11 Heilongjiang
+>绥化市 Suihua
+>双鸭山市 Shuangyashan
+>鹤岗市 Hegang
+>佳木斯市 Jiamusi
+>哈尔滨市 Harbin
+>齐齐哈尔市 Qiqihar
+>伊春市 Yichun
+>大兴安岭地区 Daxing'anling
+>黑河市 Heihe
+>大庆市 Daqing
+>七台河市 Qitaihe
+>鸡西市 Jixi
+>牡丹江市 Mudanjiang
+12 Henan
+>新乡市 Xinxiang
+>濮阳市 Puyang
+>漯河市 Luohe
+>开封市 Kaifeng
+>周口市 Zhoukou
+>鹤壁市 Hebi
+>商丘市 Shangqiu
+>郑州市 Zhengzhou
+>信阳市 Xinyang
+>三门峡市 Sanmenxia
+>驻马店市 Zhumadian
+>平顶山市 Pingdingshan
+>安阳市 Anyang
+>焦作市 Jiaozuo
+>济源市 Jiyuan shi
+>许昌市 Xuchang
+>南阳市 Nanyang
+>洛阳市 Luoyang
+13 Hubei
+>咸宁市 Xianning
+>神农架林区 Shennongjia
+>恩施土家族苗族自治州 Enshi Tujia and Miao
+>潜江市 Qianjiang
+>武汉市 Wuhan
+>宜昌市 Yichang
+>荆州市 Jingzhou
+>荆门市 Jingmen
+>襄樊市 Xiangfan
+>孝感市 Xiaogan
+>鄂州市 Ezhou
+>天门市 Tianmen
+>黄冈市 Huanggang
+>十堰市 Shiyan
+>随州市 Suizhou Shi
+>仙桃市 Xiantao
+>黄石市 Huangshi
+14 Hunan
+>長沙市 Changsha
+>湘潭市 Xiangtan
+>岳陽市 Yueyang
+>張家界市 Zhangjiajie
+>湘西土家族苗族自治州 Xiangxi Tujia and Miao
+>常德市 Changde
+>婁底市 Loudi
+>衡陽市 Hengyang
+>永州市 Yongzhou
+>株洲市 Zhuzhou
+>邵陽市 Shaoyang
+>益陽市 Yiyang
+>郴州市 Chenzhou
+>懷化市 Huaihua
+15 Jiangsu
+>泰州市 Taizhou
+>淮安市 Huai'an
+>南京市 Nanjing
+>南通市 Nantong
+>扬州市 Yangzhou
+>徐州市 Xuzhou
+>无锡市 Wuxi
+>常州市 Changzhou
+>镇江市 Zhenjiang
+>盐城市 Yancheng
+>连云港市 Lianyungang
+>宿迁市 Suqian
+>苏州市 Suzhou
+16 Jiangxi
+>南昌市 Nanchang
+>赣州市 Ganzhou
+>上饶市 Shangrao
+>抚州市 Fuzhou
+>宜春市 Yichun
+>鹰潭市 Yingtan
+>景德镇市 Jingdezhen
+>九江市 Jiujiang
+>萍乡市 Pingxiang
+>新余市 Xinyu
+>吉安市 Ji'an
+17 Jilin
+>白城市 Baicheng
+>吉林市 Jilin
+>白山市 Baishan
+>长春市 Changchun
+>延边朝鲜族自治州 Yanbian Korean
+>通化市 Tonghua
+>辽源市 Liaoyuan
+>松原市 Songyuan
+>四平市 Siping
+18 Liaoning
+>辽阳市 Liaoyang
+>本溪市 Benxi
+>丹东市 Dandong
+>沈阳市 Shenyang
+>盘锦市 Panjin
+>阜新市 Fuxin
+>大连市 Dalian
+>铁岭市 Tieling
+>朝阳市 Chaoyang
+>鞍山市 Anshan
+>葫芦岛市 Huludao
+>抚顺市 Fushun
+>锦州市 Jinzhou
+19 Nei Mongol
+>鄂尔多斯市 Ordos
+>呼和浩特市 Hohhot
+>巴彦淖尔市 Baynnur
+>包头市 Baotou
+>赤峰市 Chifeng
+>锡林郭勒盟 Xilin Gol
+>通辽市 Tongliao
+>乌海市 Wuhai
+>兴安盟 Xing'an
+>阿拉善盟 Alxa
+>乌兰察布市 Ulaan Chab
+>呼伦贝尔市 Hulunbuir
+20 Ningxia Hui
+>石嘴山市 Shizuishan
+>固原市 Guyuan
+>中卫市 Zhongwei
+>银川市 Yinchuan
+>吴忠市 Wuzhong
+21 Qinghai
+>黄南藏族自治州 Huangnan Tibetan
+>海北藏族自治州 Haibei Tibetan
+>海西蒙古族藏族自治州 Haixi Mongol and Tibetan
+>西宁市 Xining
+>海南藏族自治州 Hainan Tibetan
+>玉树藏族自治州 Gyêgu Tibetan
+>海东地区 Haidong
+>果洛藏族自治州 Golog Tibetan
+22 Shaanxi
+>延安市 Yan'an
+>榆林市 Yulin
+>铜川市 Tongchuan
+>商洛市 Shangluo
+>汉中市 Hanzhong
+>安康市 Ankang
+>渭南市 Weinan
+>西安市 Xi'an
+>宝鸡市 Baoji
+>咸阳市 Xianyang
+23 Shandong
+>泰安市 Tai'an
+>济南市 Jinan
+>菏泽市 Heze
+>青岛市 Qingdao
+>临沂市 Linyi
+>德州市 Dezhou
+>滨州 Binzhou
+>日照市 Rizhao
+>莱芜市 Laiwu
+>聊城市 Liaocheng
+>威海市 Weihai
+>烟台市 Yantai
+>淄博市 Zibo
+>枣庄市 Zaozhuang
+>济宁市 Jining
+>潍坊市 Weifang
+>东营市 Dongying
+24 Shanghai
+>上海 Shanghai
+25 Shanxi
+>运城县 Yuncheng
+>临汾市 Linfen
+>朔州市 Shuozhou
+>阳泉市 Yangquan
+>太原市 Taiyuan
+>长治市 Changzhi
+>忻州市 Xinzhou
+>晋城市 Jincheng
+>吕梁市 Luliang
+>大同市 Datong
+>晋中市 Jinzhong
+26 Sichuan
+>雅安市 Ya'an
+>眉山市 Meishan
+>甘孜藏族自治州 Garzê Tibetan
+>绵阳市 Mianyang
+>广元市 Guangyuan
+>达州市 Dazhou
+>自贡市 Zigong
+>资阳市 Ziyang
+>宜宾市 Yibin
+>阿坝藏族羌族自治州 Ngawa Tibetan and Qiang
+>攀枝花市 Panzhihua
+>乐山市 Leshan
+>内江市 Neijiang]]
+>成都市 Chengdu
+>内江市 Neijiang
+>广安市 Guang'an
+>德阳市 Deyang
+>泸州市 Luzhou
+>凉山彝族自治州 Liangshan Yi
+>遂宁市 Suining
+>南充市 Nanchong
+>巴中市 Bazhong
+27 Tianjin
+>天津 Tianjin
+28 Xinjiang Uygur
+>Something Error.
+>伊犁哈萨克自治州 Ili Kazakh
+>喀什地区 Kashgar
+>克拉玛依市 Karamay
+>吐鲁番地区 Turfan
+>和田地区 Khotan
+>塔城地区 Tacheng
+>Something Error.
+>巴音郭愣蒙古自治州 Bayin'gholin Mongol
+>石河子市 Shihezi
+>哈密地区 Hami
+>阿克苏地区 Aksu
+>昌吉回族自治州 Changji Hui
+>克孜勒苏柯尔克孜自治州 Kizilsu Kirghiz
+>阿勒泰地区 Altay
+29 Xizang
+>拉萨市 Lhasa
+>昌都地区 Chamdo
+>那曲地区 Nagchu
+>林芝地区 Nyingtri
+>山南地区 Shannan
+>日喀则地区 Shigatse
+>阿里地区 Ngari
+30 Yunnan
+>迪庆藏族自治州 Dêqên Tibetan
+>红河哈尼族彝族自治州 Honghe Hani and Yi
+>丽江市 Lijiang
+>保山市 Baoshan
+>玉溪市 Yuxi
+>昆明市 Kunming
+>楚雄彝族自治州 Chuxiong Yi
+>怒江傈僳族自治州 Nujiang Lisu
+>大理白族自治州 Dali Bai
+>文山壮族苗族自治州 Wenshan Zhuang and Miao
+>昭通市 Zhaotong
+>西双版纳傣族自治州 Xishuangbanna Dai
+>德宏傣族景颇族自治州 Dehong Dai and Jingpo
+>曲靖市 Qujing
+>普洱市 Pu'er
+>临沧市 Lincang
+31 Zhejiang
+>湖州市 Huzhou
+>衢州市 Quzhou
+>舟山市 Zhoushan
+>绍兴市 Shaoxing
+>丽水市 Lishui
+>杭州市 Hangzhou
+>金华市 Jinhua
+>宁波市 Ningbo
+>温州市 Wenzhou
+>嘉兴市 Jiaxing
+>台州市 Taizhou

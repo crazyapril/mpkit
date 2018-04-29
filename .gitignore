@@ -1,0 +1,3 @@
+wgrib/grib2/
+*.pyc
+.vscode/
