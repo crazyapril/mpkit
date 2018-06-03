@@ -379,6 +379,7 @@ class Plot:
         fontsize = kwargs.pop('fontsize', self.fontsize['marktext'])
         if stroke:
             kwargs.update(path_effects=self._get_stroke_patheffects())
+        bbox = merge_dict(bbox, {'facecolor':'none', 'edgecolor':'none'})
         xy, xytext, ha, va=dict(right=((1, 0.5), (2, 0), 'left', 'center'),
                                 left=((0, 0.5), (-2, 0), 'right', 'center'),
                                 top=((0.5, 1), (0, 1), 'center', 'bottom'),
