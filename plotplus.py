@@ -25,7 +25,7 @@ class Plot:
 
     def __init__(self, figsize=(7,5), dpi=180):
         self.mmnote = ''
-        self.family = 'Segoe UI Emoji'
+        self.family = 'Lato'
         self.dpi = dpi
         self.fig = plt.figure(figsize=figsize)
         self.ax = plt.gca()
@@ -213,10 +213,23 @@ class Plot:
         return ret
 
     def contour(self, data, clabel=True, clabeldict=dict(), ip=1, color='k', lw=0.5,
-                filter=None, **kwargs):
+                filter=None, vline=None, vlinedict=dict(), **kwargs):
         x, y, data = self.interpolation(data, ip)
         kwargs.update(colors=color, linewidths=lw)
         c = self.ax.contour(x, y, data, **kwargs)
+        if vline:
+            vlinedict = merge_dict(vlinedict, {'color':color, 'lw':lw})
+            if isinstance(vline, (int, float)):
+                vline = [vline]
+            for v in vline:
+                if not isinstance(v, (int, float)):
+                    raise ValueError('`{}` should be int or float'.format(v))
+                try:
+                    index = list(c.levels).index(v)
+                except ValueError:
+                    raise ValueError('{} not in contour levels'.format(v))
+                else:
+                    c.collections[index].set(**vlinedict)
         if clabel:
             if 'levels' in clabeldict:
                 clabellevels = clabeldict.pop('levels')
@@ -227,6 +240,11 @@ class Plot:
             labels = self.ax.clabel(c, **clabeldict)
             for l in labels:
                 l.set_family(self.family)
+                if vline:
+                    text = l.get_text()
+                    for v in vline:
+                        if str(v) == text:
+                            l.set_color(vlinedict['color'])
         if filter is not None:
             self.maxminfilter(data, res=self.res/ip, **filter)
         return c
