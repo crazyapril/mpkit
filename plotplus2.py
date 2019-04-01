@@ -520,7 +520,7 @@ class Plot:
             if d < vmax and d > vmin and x not in (0, xmax-1) and y not in (0, ymax-1):
                 textfunc(x*res+self.lonmin, y*res+self.latmin, fmt.format(d), **kwargs)
 
-    def title(self, s):
+    def title(self, s, nasdaq=False):
         self.ax.text(0, 1.04, s, transform=self.ax.transAxes, fontsize=self.fontsize['title'],
             family=self.family)
 
