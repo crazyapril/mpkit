@@ -458,7 +458,7 @@ class Plot:
         kwargs.update(color=color, linewidth=lw, length=length, transform=ccrs.PlateCarree())
         if self.trans:
             kwargs.update(regrid_shape=num)
-            nh = self.xx >= 0
+            nh = self.yy >= 0
             if np.any(nh):
                 ret = self.ax.barbs(self.xx[nh], self.yy[nh], u[nh], v[nh], **kwargs)
             else:
@@ -473,7 +473,7 @@ class Plot:
             vs = self.stepcal(num)
             x, y = self.xx[::vs, ::vs], self.yy[::vs, ::vs]
             u, v = u[::vs, ::vs], v[::vs, ::vs]
-            nh = x >= 0
+            nh = y >= 0
             if np.any(nh):
                 ret = self.ax.barbs(x[nh], y[nh], u[nh], v[nh], **kwargs)
             else:
@@ -572,14 +572,14 @@ class Plot:
         fontsize = kwargs.pop('fontsize', self.fontsize['marktext'])
         if stroke:
             kwargs.update(path_effects=self._get_stroke_patheffects())
-        kwargs.update(transform=ccrs.PlateCarree())
         bbox = merge_dict(bbox, {'facecolor':'none', 'edgecolor':'none'})
         xy, xytext, ha, va=dict(right=((1, 0.5), (2, 0), 'left', 'center'),
                                 left=((0, 0.5), (-2, 0), 'right', 'center'),
                                 top=((0.5, 1), (0, 1), 'center', 'bottom'),
                                 bottom=((0.5, 0), (0, -1), 'center', 'top')).get(textpos)
-        an_mark = self.ax.annotate(mark, xy=(x,y), xycoords='data', va='center',
-              ha='center', bbox=bbox, fontsize=markfontsize, **kwargs)
+        an_mark = self.ax.annotate(mark, xy=(x,y), va='center', ha='center', bbox=bbox,
+            xycoords=ccrs.PlateCarree()._as_mpl_transform(self.ax), fontsize=markfontsize,
+            **kwargs)
         an_text = self.ax.annotate(text, xy=xy, xycoords=an_mark, xytext=xytext,
               textcoords='offset points', va=va, ha=ha, bbox=bbox,
               fontsize=fontsize, **kwargs)
