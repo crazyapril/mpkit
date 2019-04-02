@@ -33,7 +33,7 @@ class PlotError(Exception):
 class Plot:
 
     fontsize = dict(title=6, timestamp=5, mmnote=5, clabel=5, cbar=5,
-        gridvalue=5, mmfilter=6, parameri=4, legend=6)
+        gridvalue=5, mmfilter=6, parameri=4, legend=6, marktext=6)
     linecolor = dict(coastline=_gray, country=_gray, province=_gray,
         city=_gray, county=_gray, parameri='k')
     linewidth = dict(coastline=0.3, country=0.3, province=0.2, city=0.1,
@@ -455,15 +455,34 @@ class Plot:
         return ret
 
     def barbs(self, u, v, color='k', lw=0.5, length=4, num=12, **kwargs):
-        kwargs.update(color=color, linewidth=lw, length=length, transform=ccrs.PlateCarree(),
-            regrid_shape=num)
-        nh = np.meshgrid(self.x, self.y)[1] >= 0
-        unh = np.ma.masked_where(~nh, u)
-        vnh = np.ma.masked_where(~nh, v)
-        ret = self.ax.barbs(self.x, self.y, unh, vnh, **kwargs)
-        ush = np.ma.masked_where(nh, u)
-        vsh = np.ma.masked_where(nh, v)
-        retsh = self.ax.barbs(self.x, self.y, ush, vsh, flip_barb=True, **kwargs)
+        kwargs.update(color=color, linewidth=lw, length=length, transform=ccrs.PlateCarree())
+        if self.trans:
+            kwargs.update(regrid_shape=num)
+            nh = self.xx >= 0
+            if np.any(nh):
+                ret = self.ax.barbs(self.xx[nh], self.yy[nh], u[nh], v[nh], **kwargs)
+            else:
+                ret = None
+            sh = ~nh
+            if np.any(sh):
+                retsh = self.ax.barbs(self.xx[sh], self.yy[sh], u[sh], v[sh],
+                    flip_barb=True, **kwargs)
+            else:
+                retsh = None
+        else:
+            vs = self.stepcal(num)
+            x, y = self.xx[::vs, ::vs], self.yy[::vs, ::vs]
+            u, v = u[::vs, ::vs], v[::vs, ::vs]
+            nh = x >= 0
+            if np.any(nh):
+                ret = self.ax.barbs(x[nh], y[nh], u[nh], v[nh], **kwargs)
+            else:
+                ret = None
+            sh = ~nh
+            if np.any(sh):
+                retsh = self.ax.barbs(x[sh], y[sh], u[sh], v[sh], flip_barb=True, **kwargs)
+            else:
+                retsh = None
         return ret, retsh
 
     def quiver(self, u, v, num=40, scale=500, qkey=False, qkeydict=dict(), **kwargs):
@@ -507,7 +526,7 @@ class Plot:
         import matplotlib.patheffects as mpatheffects
         return [mpatheffects.Stroke(linewidth=1, foreground='w'), mpatheffects.Normal()]
 
-    def gridvalue(self, data, num=20, fmt='{:d}', color='b', fontsize=None,
+    def gridvalue(self, data, num=20, fmt='{:.0f}', color='b', fontsize=None,
             stroke=False, **kwargs):
         if fontsize is None:
             fontsize = self.fontsize['gridvalue']
@@ -566,7 +585,7 @@ class Plot:
               fontsize=fontsize, **kwargs)
         return an_text
 
-    def maxminfilter(self, data, type='min', fmt='{:d}', weight='bold', color='b',
+    def maxminfilter(self, data, type='min', fmt='{:.0f}', weight='bold', color='b',
             fontsize=None, window=15, vmin=-1e7, vmax=1e7, stroke=False, marktext=False,
             marktextdict=dict(), **kwargs):
         '''Use res keyword or ip keyword to interpolate'''
