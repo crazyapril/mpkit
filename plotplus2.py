@@ -22,6 +22,7 @@ _CountyDir = os.path.join(_ShapeFileDir, 'CHN/CHN_adm3')
 _gray = '#222222'
 _projshort = dict(P='PlateCarree', L='LambertConformal', M='Mercator',
     N='NorthPolarStereo', G='Geostationary')
+_scaleshort = dict(l='110m', i='50m', h='10m')
 
 
 class PlotError(Exception):
@@ -38,7 +39,7 @@ class Plot:
     linewidth = dict(coastline=0.3, country=0.3, province=0.2, city=0.1,
         county=0.1, parameri=0.3)
 
-    def __init__(self, figsize=None, dpi=180):
+    def __init__(self, figsize=None, dpi=180, figure_boundary=None, inbox=False):
         self.mmnote = ''
         self.family = 'Lato'
         self.dpi = dpi
@@ -46,6 +47,10 @@ class Plot:
             figsize = 7, 5
         self.fig = plt.figure(figsize=figsize)
         self.ax = None
+        self.mpstep = 10
+        self.mapset = None
+        self.figure_boundary = figure_boundary
+        self.inbox = inbox
 
     def setfamily(self, f):
         self.family = f
@@ -59,6 +64,12 @@ class Plot:
     def setlinewidth(self, name, width):
         self.linewidth[name] = width
 
+    def setmeriparastep(self, mpstep):
+        self.mpstep = mpstep
+
+    def setparameristep(self, mpstep):
+        self.mpstep = mpstep
+
     def setdpi(self, d):
         self.dpi = d
 
@@ -69,7 +80,8 @@ class Plot:
         self.xx, self.yy = np.meshgrid(self.x, self.y)
         self.res = res
 
-    def setmap(self, key=None, proj=None, projection=None, aspect=None, **kwargs):
+    def setmap(self, key=None, proj=None, projection=None, aspect=None,
+            resolution='i', **kwargs):
         """Set underlying map for the plot.
 
         Parameters
@@ -87,15 +99,19 @@ class Plot:
             Basemap-style projection names. Only following options
             are allowed: cyl|merc|lcc|geos|npaepd (the default is
             None)
-        aspect : float, string, optional
+        aspect : string or float, optional
             Aspect ratio for lat/lon, only work in PlateCarree
             projection. If set, height of figure will be calculated
-            by (lat range / lon range) * width of figure * aspect.
+            by (lat_range / lon_range) * width_of_figure * aspect.
             This param is often used when representing data in mid-
             latitude regions in PlateCarree projection to offset
             projection distortion. (the default is None, which will
-            fix aspect. When set to 'auto', aspect will be calculated
-            to fit the image.)
+            fix aspect and change figure size. When set to 'auto',
+            aspect will be calculated to fit the figure size.)
+        resolution : string, optional
+            Default scale of features (e.g. coastlines). Should be
+            one of (l|i|h), which stands for 110m, 50m and 10m
+            respectively. The default is 'i' (50m).
 
         """
         if 'resolution' in kwargs:
@@ -116,10 +132,12 @@ class Plot:
             georange = kwargs.pop('georange')
         if key == 'NorthPolarStereo' and 'boundinglat' in kwargs:
             georange = (kwargs.pop('boundinglat'), 90, -180, 180)
-        self.proj = key
+        self.proj = _projection
+        self.trans = self.proj != 'PlateCarree'
         self.ax = plt.axes(projection=getattr(ccrs, _projection)(**kwargs))
+        self.scale = _scaleshort[resolution]
         extent = georange[2:] + georange[:2]
-        self.ax.set_extent(extent)
+        self.ax.set_extent(extent, crs=ccrs.PlateCarree())
         if aspect == 'auto':
             width, height = self.fig.get_size_inches()
             deltalon = georange[3] - georange[2]
@@ -128,7 +146,10 @@ class Plot:
             self.ax.set_aspect(aspect_ratio)
         elif aspect is not None:
             self.ax.set_aspect(aspect)
-        self.ax.outline_patch.set_linewidth(0.5)
+        if self.figure_boundary is None:
+            self.ax.outline_patch.set_linewidth(0)
+        else:
+            self.ax.outline_patch.set_linewidth(0.5)
 
     def _from_map_key(self, key):
         if key == 'chinaproper':
@@ -158,23 +179,51 @@ class Plot:
             kwargs = {'georange':(15,90,-180,180), 'central_longitude':105}
         return proj, kwargs
 
-    def usemap(self, proj, extent=None):
+    def usemap(self, session):
+        proj = session.mapproj.pop('proj')
+        georange = session.mapproj.pop('georange')
+        self.setmap(proj=proj, georange=georange, **session.mapproj)
+
+    def _usemap(self, proj, georange=None, resolution='i'):
         self.ax = plt.axes(projection=proj)
         self.proj = type(proj).__name__
-        if extent:
-            self.ax.set_extent(extent)
+        self.trans = self.proj != 'PlateCarree'
+        self.scale = _scaleshort[resolution]
+        if georange:
+            extent = georange[2:] + georange[:2]
+            self.ax.set_extent(extent, crs=ccrs.PlateCarree())
+        if self.figure_boundary is None:
+            self.ax.outline_patch.set_linewidth(0)
+        else:
+            self.ax.outline_patch.set_linewidth(0.5)
 
-    def drawcoastline(self, lw=None, color=None, res='50m'):
+    def usefeature(self, feature, facecolor=None, edgecolor=None, **kwargs):
+        feature._kwargs.update(facecolor=facecolor, edgecolor=edgecolor)
+        self.ax.add_feature(feature, **kwargs)
+
+    def usemapset(self, mapset):
+        self.mapset = mapset
+
+    def drawcoastline(self, lw=None, color=None, res=None):
         lw = self.linewidth['coastline'] if lw is None else lw
         color = self.linecolor['coastline'] if color is None else color
-        self.ax.add_feature(self.getfeature('physical', 'coastline', res,
-            facecolor='none', edgecolor=color), linewidth=lw)
+        res = res if res else self.scale
+        if self.mapset and self.mapset.coastline:
+            self.usefeature(self.mapset.coastline, edgecolor=color, linewidth=lw)
+        else:
+            self.ax.add_feature(self.getfeature('physical', 'coastline', res,
+                facecolor='none', edgecolor=color), linewidth=lw)
 
-    def drawcountry(self, lw=None, color=None, res='50m'):
+    def drawcountry(self, lw=None, color=None, res=None):
         lw = self.linewidth['country'] if lw is None else lw
         color = self.linecolor['country'] if color is None else color
-        self.ax.add_feature(self.getfeature('cultural', 'admin_0_boundary_lines_land',
-            res, facecolor='none', edgecolor=color), linewidth=lw)
+        res = res if res else self.scale
+        if self.mapset and self.mapset.country:
+            self.usefeature(self.mapset.country, edgecolor=color, linewidth=lw)
+        else:
+            self.ax.add_feature(self.getfeature('cultural',
+                'admin_0_boundary_lines_land', res, facecolor='none',
+                edgecolor=color), linewidth=lw)
 
     @functools.lru_cache(maxsize=32)
     def getfeature(self, *args, **kwargs):
@@ -183,8 +232,12 @@ class Plot:
     def drawprovince(self, lw=None, color=None):
         lw = self.linewidth['province'] if lw is None else lw
         color = self.linecolor['province'] if color is None else color
-        self.ax.add_feature(cfeature.ShapelyFeature(ciosr.Reader(_ProvinceDir).geometries(),
-            ccrs.PlateCarree(), facecolor='none', edgecolor=color), linewidth=lw)
+        if self.mapset and self.mapset.province:
+            self.usefeature(self.mapset.province, edgecolor=color, linewidth=lw)
+        else:
+            self.ax.add_feature(cfeature.ShapelyFeature(
+                ciosr.Reader(_ProvinceDir).geometries(), ccrs.PlateCarree(),
+                facecolor='none', edgecolor=color), linewidth=lw)
 
     def drawcity(self, lw=None, color=None):
         lw = self.linewidth['city'] if lw is None else lw
@@ -209,9 +262,9 @@ class Plot:
         gl = self.ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, linewidth=lw,
             color=color, linestyle='--')
         gl.xlabels_top = False
-        gl.ylabels_left = False
-        gl.xlocator = mticker.FixedLocator(np.arange(-180, 180, 10))
-        gl.ylocator = mticker.FixedLocator(np.arange(-80, 81, 10))
+        gl.ylabels_right = False
+        gl.xlocator = mticker.FixedLocator(np.arange(-180, 180, self.mpstep))
+        gl.ylocator = mticker.FixedLocator(np.arange(-80, 81, self.mpstep))
         gl.xformatter = cmgl.LONGITUDE_FORMATTER
         gl.yformatter = cmgl.LATITUDE_FORMATTER
         gl.xlabel_style = dict(size=fontsize, color=color, family=self.family)
@@ -266,8 +319,39 @@ class Plot:
         ret.get_frame().set_linewidth(lw)
         return ret
 
+    def style(self, s):
+        if s not in ('jma', 'bom'):
+            print('Unknown style name. Only support jma or bom style.')
+            return
+        if s == 'jma':
+            ocean_color = '#87A9D2'
+            land_color = '#AAAAAA'
+            self.linecolor.update(coastline='#666666', country='#666666',
+                parameri='#666666',province='#888888', city='#888888')
+        elif s == 'bom':
+            ocean_color = '#E6E6FF'
+            land_color = '#E8E1C4'
+            self.linecolor.update(coastline='#D0A85E', country='#D0A85E',
+                parameri='#D0A85E',province='#D0A85E', city='#D0A85E')
+        if self.mapset and self.mapset.ocean:
+            self.usefeature(self.mapset.ocean, color=ocean_color)
+        else:
+            self.ax.add_feature(cfeature.OCEAN.with_scale(self.scale),
+                color=ocean_color)
+        if self.mapset and self.mapset.land:
+            self.usefeature(self.mapset.land, color=land_color)
+        else:
+            self.ax.add_feature(cfeature.LAND.with_scale(self.scale),
+                color=land_color)
+
     def plot(self, *args, **kwargs):
+        kwargs.update(transform=ccrs.PlateCarree())
         ret = self.ax.plot(*args, **kwargs)
+        return ret
+
+    def scatter(self, *args, **kwargs):
+        kwargs.update(transform=ccrs.PlateCarree())
+        ret = self.ax.scatter(*args, **kwargs)
         return ret
 
     def contour(self, data, clabel=True, clabeldict=dict(), ip=1, color='k', lw=0.5,
@@ -317,8 +401,6 @@ class Plot:
                 levels = kwargs['levels']
                 step = len(levels) // 40 + 1
                 cbardict.update(ticks=levels[::step])
-            rc = dict(size='2%', pad='1%')
-            merge_dict(cbardict, rc)
             if 'extend' in kwargs:
                 cbardict.update(extend=kwargs.pop('extend'), extendfrac=0.02)
             self.colorbar(c, unit=kwargs.pop('unit', None), **cbardict)
@@ -334,6 +416,7 @@ class Plot:
 
     def colorbar(self, mappable, unit=None, **kwargs):
         from mpl_toolkits.axes_grid1 import make_axes_locatable
+        kwargs = merge_dict(kwargs, dict(size='2%', pad='1%'))
         if kwargs.pop('orientation', None) == 'horizontal':
             location = 'bottom'
             orientation = 'horizontal'
@@ -344,7 +427,7 @@ class Plot:
         divider = make_axes_locatable(self.ax)
         import cartopy.mpl.geoaxes as cmga
         cax = divider.append_axes(location, size=kwargs.pop('size'), pad=kwargs.pop('pad'),
-            map_projection=self.ax.projection)
+            axes_class=plt.Axes)
         cb = self.fig.colorbar(mappable, orientation=orientation, cax=cax, **kwargs)
         self.fig.sca(self.ax)
         cb.ax.tick_params(labelsize=self.fontsize['cbar'], length=1.5)
@@ -386,7 +469,8 @@ class Plot:
     def quiver(self, u, v, num=40, scale=500, qkey=False, qkeydict=dict(), **kwargs):
         kwargs.update(width=0.0015, headwidth=3, scale=scale, transform=ccrs.PlateCarree(),
             regrid_shape=num)
-        q = self.ax.quiver(self.x, self.y, u, v, **kwargs)
+        vs = self.stepcal(num)
+        q = self.ax.quiver(self.x[::vs], self.y[::vs], u[::vs, ::vs], v[::vs, ::vs], **kwargs)
         if qkey:
             if 'x' in qkeydict and 'y' in qkeydict:
                 x = qkeydict.pop('x')
@@ -608,3 +692,73 @@ def merge_dict(a, b):
         if k not in a:
             a[k] = v
     return a
+
+
+class MapSet:
+
+    def __init__(self, coastline=None, country=None, land=None, ocean=None,
+            province=None, city=None, county=None):
+        self.coastline = coastline
+        self.country = country
+        self.land = land
+        self.ocean = ocean
+        self.province = province
+        self.city = city
+        self.county = county
+
+    @classmethod
+    def from_natural_earth(cls, scale, extent, country=True, land=False, ocean=False):
+        ins = cls()
+        ins.coastline = PartialNaturalEarthFeature('physical', 'coastline',
+            scale, extent=extent)
+        if country:
+            ins.country = PartialNaturalEarthFeature('cultural',
+                'admin_0_boundary_lines_land', scale, extent=extent)
+        if land:
+            ins.land = PartialNaturalEarthFeature('physical', 'land', scale,
+                extent=extent)
+        if ocean:
+            ins.ocean = PartialNaturalEarthFeature('physical', 'ocean',
+                scale, extent=extent)
+        return ins
+
+    def save(self, filename):
+        import pickle
+        with open(filename, 'wb') as f:
+            pickle.dump(self, f)
+
+
+class PartialShapelyFeature(cfeature.ShapelyFeature):
+
+    def __init__(self, *args, extent=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.extent = extent
+        self.make_partial()
+
+    def intersecting_geometries(self, extent):
+        return self.geometries()
+
+    def make_partial(self):
+        self._geoms = super().intersecting_geometries(self.extent)
+
+
+class PartialNaturalEarthFeature(cfeature.NaturalEarthFeature):
+
+    def __init__(self, *args, extent=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.extent = extent
+        self._geoms = ()
+        self.make_partial()
+
+    def intersecting_geometries(self, extent):
+        return self.geometries()
+
+    def geometries(self):
+        return iter(self._geoms)
+
+    def make_partial(self):
+        path = ciosr.natural_earth(resolution=self.scale,
+            category=self.category, name=self.name)
+        self._geoms = tuple(ciosr.Reader(path).geometries())
+        self._geoms = super().intersecting_geometries(self.extent)
+
