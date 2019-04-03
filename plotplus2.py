@@ -15,10 +15,10 @@ import scipy.ndimage as snd
 __version__ = '0.2.0'
 
 _ShapeFileDir = os.path.join(os.path.split(__file__)[0], 'shapefile')
-_ProvinceDir = os.path.join(_ShapeFileDir, 'CP/ChinaProvince')
-_CityDir = os.path.join(_ShapeFileDir, 'CHN/CHN_adm2')
-_CityTWDir = os.path.join(_ShapeFileDir, 'TWN/TWN_adm2')
-_CountyDir = os.path.join(_ShapeFileDir, 'CHN/CHN_adm3')
+_ProvinceDir = os.path.join(_ShapeFileDir, 'CP/ChinaProvince.shp')
+_CityDir = os.path.join(_ShapeFileDir, 'CHN/CHN_adm2.shp')
+_CityTWDir = os.path.join(_ShapeFileDir, 'TWN/TWN_adm2.shp')
+_CountyDir = os.path.join(_ShapeFileDir, 'CHN/CHN_adm3.shp')
 
 _gray = '#222222'
 _projshort = dict(P='PlateCarree', L='LambertConformal', M='Mercator',
@@ -160,6 +160,8 @@ class Plot:
                                 'please use `proj` param instead.')
         if 'georange' in kwargs:
             georange = kwargs.pop('georange')
+        else:
+            georange = (-90, 90, -180, 180)
         if isinstance(proj, ccrs.Projection):
             _proj = proj
             self.proj = type(_proj).__name__
@@ -252,7 +254,7 @@ class Plot:
     def usemapset(self, mapset):
         self.mapset = mapset
         if self.ax is None and mapset.proj:
-            self.setmap(proj=mapset.proj, georange=mapset.extent)
+            self.setmap(proj=mapset.proj, georange=mapset.georange)
 
     def useshapefile(self, directory, encoding='utf8', color=None, lw=None, **kwargs):
         if lw is None:
@@ -266,7 +268,8 @@ class Plot:
         color = self.linecolor['coastline'] if color is None else color
         res = res if res else self.scale
         if self.mapset and self.mapset.coastline:
-            self.usefeature(self.mapset.coastline, edgecolor=color, linewidth=lw)
+            self.usefeature(self.mapset.coastline, edgecolor=color, facecolor='none',
+                linewidth=lw)
         else:
             self.ax.add_feature(self.getfeature('physical', 'coastline', res,
                 facecolor='none', edgecolor=color), linewidth=lw)
@@ -276,7 +279,8 @@ class Plot:
         color = self.linecolor['country'] if color is None else color
         res = res if res else self.scale
         if self.mapset and self.mapset.country:
-            self.usefeature(self.mapset.country, edgecolor=color, linewidth=lw)
+            self.usefeature(self.mapset.country, edgecolor=color, facecolor='none',
+                linewidth=lw)
         else:
             self.ax.add_feature(self.getfeature('cultural',
                 'admin_0_boundary_lines_land', res, facecolor='none',
@@ -290,7 +294,8 @@ class Plot:
         lw = self.linewidth['province'] if lw is None else lw
         color = self.linecolor['province'] if color is None else color
         if self.mapset and self.mapset.province:
-            self.usefeature(self.mapset.province, edgecolor=color, linewidth=lw)
+            self.usefeature(self.mapset.province, edgecolor=color, facecolor='none',
+                linewidth=lw)
         else:
             self.ax.add_feature(cfeature.ShapelyFeature(
                 ciosr.Reader(_ProvinceDir).geometries(), ccrs.PlateCarree(),
@@ -320,6 +325,7 @@ class Plot:
         lw = self.linewidth['parameri'] if lw is None else lw
         color = self.linecolor['parameri'] if color is None else color
         fontsize = self.fontsize['parameri'] if fontsize is None else fontsize
+        kwargs = merge_dict(kwargs, {'dashes': (0, (7, 7))})
         gl = self.ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, linewidth=lw,
             color=color, linestyle='--', **kwargs)
         gl.xlabels_top = False
@@ -405,12 +411,12 @@ class Plot:
             self.linecolor.update(coastline='#D0A85E', country='#D0A85E',
                 parameri='#D0A85E',province='#D0A85E', city='#D0A85E')
         if self.mapset and self.mapset.ocean:
-            self.usefeature(self.mapset.ocean, color=ocean_color)
+            self.ax.add_feature(self.mapset.ocean, color=ocean_color)
         else:
             self.ax.add_feature(cfeature.OCEAN.with_scale(self.scale),
                 color=ocean_color)
         if self.mapset and self.mapset.land:
-            self.usefeature(self.mapset.land, color=land_color)
+            self.ax.add_feature(self.mapset.land, color=land_color)
         else:
             self.ax.add_feature(cfeature.LAND.with_scale(self.scale),
                 color=land_color)
@@ -703,12 +709,12 @@ class Plot:
         if fontsize is None:
             fontsize = self.fontsize['boxtext']
         supported_positions = {
-            'upper left': (0, 1, 'left', 'top'),
-            'upper center': (0.5, 1, 'center', 'top'),
-            'upper right': (1, 1, 'right', 'top'),
-            'lower left': (0, 0, 'left', 'bottom'),
-            'lower center': (0.5, 0, 'center', 'bottom'),
-            'lower right': (1, 0, 'right', 'bottom')
+            'upper left': (0.01, 0.99, 'left', 'top'),
+            'upper center': (0.5, 0.99, 'center', 'top'),
+            'upper right': (0.01, 0.99, 'right', 'top'),
+            'lower left': (0.01, 0.01, 'left', 'bottom'),
+            'lower center': (0.5, 0.01, 'center', 'bottom'),
+            'lower right': (0.99, 0.01, 'right', 'bottom')
         }
         if position not in supported_positions:
             raise PlotError('Unsupported position {}.'.format(position))
@@ -847,10 +853,10 @@ class MapSet:
     p.usemapset(mapset)
     """
 
-    def __init__(self, proj=None, extent=None, coastline=None, country=None,
+    def __init__(self, proj=None, georange=None, coastline=None, country=None,
             land=None, ocean=None, province=None, city=None, county=None):
         self.proj = proj
-        self.extent = extent
+        self.georange = georange
         self.coastline = coastline
         self.country = country
         self.land = land
@@ -860,21 +866,21 @@ class MapSet:
         self.county = county
 
     @classmethod
-    def from_natural_earth(cls, scale, extent, proj=None, coastline=True,
+    def from_natural_earth(cls, scale, georange, proj=None, coastline=True,
             country=True, land=False, ocean=False):
-        ins = cls(proj=proj, extent=extent)
+        ins = cls(proj=proj, georange=georange)
         if coastline:
             ins.coastline = PartialNaturalEarthFeature('physical', 'coastline',
-                scale, extent=extent)
+                scale, georange=georange)
         if country:
             ins.country = PartialNaturalEarthFeature('cultural',
-                'admin_0_boundary_lines_land', scale, extent=extent)
+                'admin_0_boundary_lines_land', scale, georange=georange)
         if land:
             ins.land = PartialNaturalEarthFeature('physical', 'land', scale,
-                extent=extent)
+                georange=georange)
         if ocean:
             ins.ocean = PartialNaturalEarthFeature('physical', 'ocean',
-                scale, extent=extent)
+                scale, georange=georange)
         return ins
 
     @classmethod
@@ -889,23 +895,29 @@ class MapSet:
 
 class PartialShapelyFeature(cfeature.ShapelyFeature):
 
-    def __init__(self, *args, extent=None, **kwargs):
+    def __init__(self, *args, georange=None, **kwargs):
         super().__init__(*args, **kwargs)
-        self.extent = extent
+        self.extent = georange[2:] + georange[:2]
         self.make_partial()
 
     def intersecting_geometries(self, extent):
         return self.geometries()
 
     def make_partial(self):
-        self._geoms = super().intersecting_geometries(self.extent)
+        self._geoms = list(super().intersecting_geometries(self.extent))
+
+    @classmethod
+    def from_shp(cls, directory, georange=None, **kwargs):
+        feature = cls(ciosr.Reader(directory).geometries(),
+            ccrs.PlateCarree(), georange=georange, **kwargs)
+        return feature
 
 
 class PartialNaturalEarthFeature(cfeature.NaturalEarthFeature):
 
-    def __init__(self, *args, extent=None, **kwargs):
+    def __init__(self, *args, georange=None, **kwargs):
         super().__init__(*args, **kwargs)
-        self.extent = extent
+        self.extent = georange[2:] + georange[:2]
         self._geoms = ()
         self.make_partial()
 
@@ -919,4 +931,4 @@ class PartialNaturalEarthFeature(cfeature.NaturalEarthFeature):
         path = ciosr.natural_earth(resolution=self.scale,
             category=self.category, name=self.name)
         self._geoms = tuple(ciosr.Reader(path).geometries())
-        self._geoms = super().intersecting_geometries(self.extent)
+        self._geoms = list(super().intersecting_geometries(self.extent))
