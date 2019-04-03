@@ -41,7 +41,7 @@ class Plot:
     linewidth = dict(coastline=0.3, country=0.3, province=0.2, city=0.1,
         county=0.1, parameri=0.3)
 
-    def __init__(self, figsize=None, dpi=180, aspect=None, inbox=False,
+    def __init__(self, figsize=None, dpi=180, aspect=None, inside_axis=False,
             boundary=None):
         """Init the plot.
 
@@ -61,7 +61,7 @@ class Plot:
             projection distortion. (the default is None, which will
             fix aspect and change figure size. When set to 'auto',
             aspect will be calculated to fit the figure size.)
-        inbox : boolean, optional
+        inside_axis : boolean, optional
             Whether all figure artists are placed inside the bounding
             box. If True, title/colorbar method is ignored, gridline
             labels are placed inside. Padding will be set to zero.
@@ -84,7 +84,7 @@ class Plot:
         self.mapset = None
         self.aspect = aspect
         self.boundary = boundary
-        self.inbox = inbox
+        self.inside_axis = inside_axis
 
     def setfamily(self, f):
         self.family = f
@@ -179,6 +179,11 @@ class Plot:
             self.ax.set_aspect(aspect_ratio)
         elif self.aspect is not None:
             self.ax.set_aspect(self.aspect)
+        else:
+            width, height = self.fig.get_size_inches()
+            deltalon = georange[3] - georange[2]
+            deltalat = georange[1] - georange[0]
+            self.fig.set_size_inches(width, width * deltalat / deltalon)
         if self.boundary is None:
             self.ax.outline_patch.set_linewidth(0)
         elif self.boundary == 'rect':
@@ -316,7 +321,7 @@ class Plot:
         color = self.linecolor['parameri'] if color is None else color
         fontsize = self.fontsize['parameri'] if fontsize is None else fontsize
         gl = self.ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, linewidth=lw,
-            color=color, linestyle='--')
+            color=color, linestyle='--', **kwargs)
         gl.xlabels_top = False
         gl.ylabels_right = False
         gl.xlocator = mticker.FixedLocator(np.arange(-180, 180, self.mpstep))
@@ -325,9 +330,12 @@ class Plot:
         gl.yformatter = cmgl.LATITUDE_FORMATTER
         gl.xlabel_style = dict(size=fontsize, color=color, family=self.family)
         gl.ylabel_style = dict(size=fontsize, color=color, family=self.family)
-        if self.proj == 'PlateCarree' or self.proj == 'Mercator':
+        if not lw and (self.proj == 'PlateCarree' or self.proj == 'Mercator'):
             gl.xlines = False
             gl.ylines = False
+        if self.inside_axis:
+            gl.xpadding = -8
+            gl.ypadding = -12
 
     def draw(self, cmd):
         cmd = cmd.lower()
@@ -790,8 +798,12 @@ class Plot:
         self.ax.text(1, 1.01, self.mmnote, ha='right', transform=self.ax.transAxes,
             fontsize=self.fontsize['mmnote'], family=self.family)
         self.ax.axis('off')
-        self.fig.savefig(path, dpi=self.dpi, bbox_inches='tight', edgecolor='none',
-            pad_inches=0.05)
+        if self.inside_axis:
+            self.fig.subplots_adjust(bottom=0, top=1, left=0, right=1)
+            self.fig.savefig(path, dpi=self.dpi, pad_inches=0.)
+        else:
+            self.fig.savefig(path, dpi=self.dpi, bbox_inches='tight', edgecolor='none',
+                pad_inches=0.05)
 
 def merge_dict(a, b):
     '''Merge B into A without overwriting A'''
