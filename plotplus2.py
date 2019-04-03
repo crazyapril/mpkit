@@ -1,6 +1,7 @@
 import functools
 import mpkit.gpf as gpf
 import os
+import pickle
 import warnings
 from datetime import datetime, timedelta
 
@@ -33,13 +34,45 @@ class PlotError(Exception):
 class Plot:
 
     fontsize = dict(title=6, timestamp=5, mmnote=5, clabel=5, cbar=5,
-        gridvalue=5, mmfilter=6, parameri=4, legend=6, marktext=6)
+        gridvalue=5, mmfilter=6, parameri=4, legend=6, marktext=6,
+        boxtext=6)
     linecolor = dict(coastline=_gray, country=_gray, province=_gray,
         city=_gray, county=_gray, parameri='k')
     linewidth = dict(coastline=0.3, country=0.3, province=0.2, city=0.1,
         county=0.1, parameri=0.3)
 
-    def __init__(self, figsize=None, dpi=180, figure_boundary=None, inbox=False):
+    def __init__(self, figsize=None, dpi=180, aspect=None, inbox=False,
+            boundary=None):
+        """Init the plot.
+
+        Parameters
+        ---------------
+        figsize : tuple, optional
+            Tuple of (width, height) in inches. (the default is
+            (7, 5).)
+        dpi : int, optional
+            DPI for figure. (the default is 180.)
+        aspect : string or float, optional
+            Aspect ratio for lat/lon, only work in PlateCarree
+            projection. If set, height of figure will be calculated
+            by (lat_range / lon_range) * width_of_figure * aspect.
+            This param is often used when representing data in mid-
+            latitude regions in PlateCarree projection to offset
+            projection distortion. (the default is None, which will
+            fix aspect and change figure size. When set to 'auto',
+            aspect will be calculated to fit the figure size.)
+        inbox : boolean, optional
+            Whether all figure artists are placed inside the bounding
+            box. If True, title/colorbar method is ignored, gridline
+            labels are placed inside. Padding will be set to zero.
+            (the default is False.)
+        boundary : string, optional
+            Should be one of (None|round|rect). If None, no boundary
+            will be drew. If set as `round`, a round boundary will be
+            plotted, which is often used in polar-centric projections.
+            If set as `rect`, a rectangle boundary will be drew. (the
+            default is None)
+        """
         self.mmnote = ''
         self.family = 'Lato'
         self.dpi = dpi
@@ -49,7 +82,8 @@ class Plot:
         self.ax = None
         self.mpstep = 10
         self.mapset = None
-        self.figure_boundary = figure_boundary
+        self.aspect = aspect
+        self.boundary = boundary
         self.inbox = inbox
 
     def setfamily(self, f):
@@ -79,9 +113,15 @@ class Plot:
         self.y = np.arange(self.latmin, self.latmax+res, res)
         self.xx, self.yy = np.meshgrid(self.x, self.y)
         self.res = res
+        self.uneven_xy = False
 
-    def setmap(self, key=None, proj=None, projection=None, aspect=None,
-            resolution='i', **kwargs):
+    def _setxy(self, x, y):
+        self.xx = x
+        self.yy = y
+        self.uneven_xy = True
+
+    def setmap(self, key=None, proj=None, projection=None, resolution='i',
+            **kwargs):
         """Set underlying map for the plot.
 
         Parameters
@@ -90,24 +130,15 @@ class Plot:
             Shortcut key for built-in maps. Available options:
             chinaproper|chinamerc|chinalambert|euroasia|europe|
             northamerica|northpole (the default is None)
-        proj : string, optional
-            Cartopy-style projection names or shortcut names.
-            Available shortcut options: P - PlateCarree|L -
-            LambertConformal|M - Mercator|N - NorthPolarStereo|
-            G - Geostationary (the default is None)
+        proj : string, instance of ccrs, optional
+            Cartopy-style projection names or shortcut names or
+            cartopy crs instance. Available shortcut options:
+            P - PlateCarree|L - LambertConformal|M - Mercator|
+            N - NorthPolarStereo|G - Geostationary
         projection : string, optional
             Basemap-style projection names. Only following options
             are allowed: cyl|merc|lcc|geos|npaepd (the default is
             None)
-        aspect : string or float, optional
-            Aspect ratio for lat/lon, only work in PlateCarree
-            projection. If set, height of figure will be calculated
-            by (lat_range / lon_range) * width_of_figure * aspect.
-            This param is often used when representing data in mid-
-            latitude regions in PlateCarree projection to offset
-            projection distortion. (the default is None, which will
-            fix aspect and change figure size. When set to 'auto',
-            aspect will be calculated to fit the figure size.)
         resolution : string, optional
             Default scale of features (e.g. coastlines). Should be
             one of (l|i|h), which stands for 110m, 50m and 10m
@@ -127,29 +158,41 @@ class Plot:
                 raise PlotError('Only cyl/merc/lcc/geos/npaeqd are allowed in `projection` '
                                 'param. If you want to use cartopy-style projection names, '
                                 'please use `proj` param instead.')
-        _projection = _projshort.get(proj.upper(), proj)
         if 'georange' in kwargs:
             georange = kwargs.pop('georange')
-        if key == 'NorthPolarStereo' and 'boundinglat' in kwargs:
-            georange = (kwargs.pop('boundinglat'), 90, -180, 180)
-        self.proj = _projection
+        if isinstance(proj, ccrs.Projection):
+            _proj = proj
+            self.proj = type(_proj).__name__
+        else:
+            self.proj = _projshort.get(proj.upper(), proj)
+            _proj = getattr(ccrs, self.proj)(**kwargs)
         self.trans = self.proj != 'PlateCarree'
-        self.ax = plt.axes(projection=getattr(ccrs, _projection)(**kwargs))
+        self.ax = plt.axes(projection=_proj)
         self.scale = _scaleshort[resolution]
         extent = georange[2:] + georange[:2]
         self.ax.set_extent(extent, crs=ccrs.PlateCarree())
-        if aspect == 'auto':
+        if self.aspect == 'auto':
             width, height = self.fig.get_size_inches()
             deltalon = georange[3] - georange[2]
             deltalat = georange[1] - georange[0]
             aspect_ratio = (height * deltalat) / (width * deltalon)
             self.ax.set_aspect(aspect_ratio)
-        elif aspect is not None:
-            self.ax.set_aspect(aspect)
-        if self.figure_boundary is None:
+        elif self.aspect is not None:
+            self.ax.set_aspect(self.aspect)
+        if self.boundary is None:
             self.ax.outline_patch.set_linewidth(0)
-        else:
+        elif self.boundary == 'rect':
             self.ax.outline_patch.set_linewidth(0.5)
+        elif self.boundary == 'round':
+            # For north polar stereo projection
+            import matplotlib.path as mpath
+            theta = np.linspace(0, 2*np.pi, 100)
+            center, radius = [0.5, 0.5], 0.5
+            verts = np.vstack([np.sin(theta), np.cos(theta)]).T
+            circle = mpath.Path(verts * radius + center)
+            self.ax.set_boundary(circle, transform=self.ax.transAxes, linewidth=0.5)
+        else:
+            raise PlotError('Unknown boundary type.')
 
     def _from_map_key(self, key):
         if key == 'chinaproper':
@@ -192,7 +235,7 @@ class Plot:
         if georange:
             extent = georange[2:] + georange[:2]
             self.ax.set_extent(extent, crs=ccrs.PlateCarree())
-        if self.figure_boundary is None:
+        if self.boundary is None:
             self.ax.outline_patch.set_linewidth(0)
         else:
             self.ax.outline_patch.set_linewidth(0.5)
@@ -203,6 +246,15 @@ class Plot:
 
     def usemapset(self, mapset):
         self.mapset = mapset
+        if self.ax is None and mapset.proj:
+            self.setmap(proj=mapset.proj, georange=mapset.extent)
+
+    def useshapefile(self, directory, encoding='utf8', color=None, lw=None, **kwargs):
+        if lw is None:
+            lw = self.linewidth['province']
+        kwargs.update(linewidth=lw)
+        self.ax.add_feature(cfeature.ShapelyFeature(ciosr.Reader(directory).geometries(),
+            ccrs.PlateCarree(), facecolor='none', edgecolor=color), **kwargs)
 
     def drawcoastline(self, lw=None, color=None, res=None):
         lw = self.linewidth['coastline'] if lw is None else lw
@@ -254,6 +306,10 @@ class Plot:
             ccrs.PlateCarree(), facecolor='none', edgecolor=color), linewidth=lw)
 
     def drawparameri(self, lw=None, color=None, fontsize=None, **kwargs):
+        if self.proj not in ('PlateCarree', 'Mercator'):
+            print('We are still waiting for Cartopy to implement gridline feature on'
+                ' non-cylindrical projections...')
+            return
         import cartopy.mpl.gridliner as cmgl
         import matplotlib.ticker as mticker
         lw = self.linewidth['parameri'] if lw is None else lw
@@ -295,8 +351,12 @@ class Plot:
                 print('Illegal draw command: %s' % (cmd))
 
     def interpolation(self, data, ip=1):
-        if ip <= 1:
-            return self.x, self.y, data
+        if self.uneven_xy:
+            if ip > 1:
+                print('Uneven x/y are not prepared for interpolation.')
+            return self.xx, self.yy, data
+        elif ip <= 1:
+            return self.xx, self.yy, data
         else:
             nx = np.arange(self.lonmin, self.lonmax+self.res/ip, self.res/ip)
             ny = np.arange(self.latmin, self.latmax+self.res/ip, self.res/ip)
@@ -305,9 +365,12 @@ class Plot:
             ycoords = (len(self.y)-1)*(newy-self.y[0])/(self.y[-1]-self.y[0])
             coords = [ycoords, xcoords]
             ndata = snd.map_coordinates(data, coords, order=3, mode='nearest')
-            return nx, ny, ndata
+            return newx, newy, ndata
 
     def stepcal(self, num, ip=1):
+        if self.uneven_xy:
+            # Meaningless for uneven x/y.
+            return 1
         totalpt = (self.lonmax - self.lonmin) / self.res * ip
         return int(totalpt / num)
 
@@ -393,6 +456,7 @@ class Plot:
             vline=None, vlinedict=dict(), **kwargs):
         if gpfcmap:
             kwargs = merge_dict(kwargs, gpf.cmap(gpfcmap))
+        unit = kwargs.pop('unit', None)
         x, y, data = self.interpolation(data, ip)
         kwargs.update(transform=ccrs.PlateCarree())
         c = self.ax.contourf(x, y, data, **kwargs)
@@ -403,7 +467,7 @@ class Plot:
                 cbardict.update(ticks=levels[::step])
             if 'extend' in kwargs:
                 cbardict.update(extend=kwargs.pop('extend'), extendfrac=0.02)
-            self.colorbar(c, unit=kwargs.pop('unit', None), **cbardict)
+            self.colorbar(c, unit=unit, **cbardict)
         if vline is not None:
             if 'color' not in vlinedict:
                 vlinedict.update(colors='w')
@@ -411,6 +475,7 @@ class Plot:
                 vlinedict.update(linewidths=0.6)
             else:
                 vlinedict.update(linewidths=vlinedict.pop('lw'))
+            vlinedict.update(transform=ccrs.PlateCarree())
             self.ax.contour(x, y, data, levels=[vline], **vlinedict)
         return c
 
@@ -449,9 +514,9 @@ class Plot:
         plt.sca(self.ax)
         return cb
 
-    def streamplot(self, u, v, color='w', lw=0.3, density=2, **kwargs):
+    def streamplot(self, u, v, color='w', lw=0.3, density=1, **kwargs):
         kwargs.update(color=color, linewidth=lw, density=density, transform=ccrs.PlateCarree())
-        ret = self.ax.streamplot(self.x, self.y, u, v, **kwargs)
+        ret = self.ax.streamplot(self.xx, self.yy, u, v, **kwargs)
         return ret
 
     def barbs(self, u, v, color='k', lw=0.5, length=4, num=12, **kwargs):
@@ -489,7 +554,8 @@ class Plot:
         kwargs.update(width=0.0015, headwidth=3, scale=scale, transform=ccrs.PlateCarree(),
             regrid_shape=num)
         vs = self.stepcal(num)
-        q = self.ax.quiver(self.x[::vs], self.y[::vs], u[::vs, ::vs], v[::vs, ::vs], **kwargs)
+        q = self.ax.quiver(self.xx[::vs, ::vs], self.yy[::vs, ::vs], u[::vs, ::vs],
+            v[::vs, ::vs], **kwargs)
         if qkey:
             if 'x' in qkeydict and 'y' in qkeydict:
                 x = qkeydict.pop('x')
@@ -581,9 +647,11 @@ class Plot:
             xycoords=ccrs.PlateCarree()._as_mpl_transform(self.ax), fontsize=markfontsize,
             **kwargs)
         an_text = self.ax.annotate(text, xy=xy, xycoords=an_mark, xytext=xytext,
-              textcoords='offset points', va=va, ha=ha, bbox=bbox,
-              fontsize=fontsize, **kwargs)
-        return an_text
+            textcoords='offset points', va=va, ha=ha, bbox=bbox, fontsize=fontsize,
+            **kwargs)
+        an_mark.set_clip_path(self.ax.outline_patch)
+        an_text.set_clip_path(self.ax.outline_patch)
+        return an_mark, an_text
 
     def maxminfilter(self, data, type='min', fmt='{:.0f}', weight='bold', color='b',
             fontsize=None, window=15, vmin=-1e7, vmax=1e7, stroke=False, marktext=False,
@@ -623,12 +691,32 @@ class Plot:
             if d < vmax and d > vmin and x not in (0, xmax-1) and y not in (0, ymax-1):
                 textfunc(x*res+self.lonmin, y*res+self.latmin, fmt.format(d), **kwargs)
 
+    def boxtext(self, s, position='upper left', bbox={}, color='k', fontsize=None, **kwargs):
+        if fontsize is None:
+            fontsize = self.fontsize['boxtext']
+        supported_positions = {
+            'upper left': (0, 1, 'left', 'top'),
+            'upper center': (0.5, 1, 'center', 'top'),
+            'upper right': (1, 1, 'right', 'top'),
+            'lower left': (0, 0, 'left', 'bottom'),
+            'lower center': (0.5, 0, 'center', 'bottom'),
+            'lower right': (1, 0, 'right', 'bottom')
+        }
+        if position not in supported_positions:
+            raise PlotError('Unsupported position {}.'.format(position))
+        x, y, ha, va = supported_positions[position]
+        bbox = merge_dict(bbox, {'boxstyle':'round', 'facecolor':'w', 'pad':0.4,
+            'edgecolor':'none'})
+        t = self.ax.text(x, y, s, bbox=bbox, va=va, ha=ha, fontsize=fontsize,
+            color=color, family=self.family, transform=self.ax.transAxes)
+        return t
+
     def title(self, s, nasdaq=False):
         self.ax.text(0, 1.04, s, transform=self.ax.transAxes, fontsize=self.fontsize['title'],
             family=self.family)
 
     def timestamp(self, basetime, fcsthour, duration=0, nearest=None):
-        stdfmt = '%Y/%m/%d %HZ'
+        stdfmt = '%Y/%m/%d %a %HZ'
         if isinstance(basetime, str):
             basetime = datetime.strptime(basetime, '%Y%m%d%H')
         if duration:
@@ -668,17 +756,17 @@ class Plot:
         self.ax.text(1.05, 1.01, s, transform=self.ax.transAxes, ha='right',
             fontsize=self.fontsize['timestamp'], family=self.family)
 
-    def maxminnote(self, data, name, unit, type='max', fmt='{:.1f}'):
+    def maxminnote(self, data, name, unit='', type='max', fmt='{:.1f}'):
         type = type.lower()
         if type == 'max':
             typestr = 'Max.'
-            notevalue = np.amax(data)
+            notevalue = np.nanmax(data)
         elif type == 'min':
             typestr = 'Min.'
-            notevalue = np.amin(data)
+            notevalue = np.nanmin(data)
         elif type == 'mean':
             typestr = 'Mean'
-            notevalue = np.mean(data)
+            notevalue = np.nanmean(data)
         else:
             raise PlotError('Unsupported type!')
         notestr = '{:s} {:s}: '.format(typestr, name) + fmt.format(notevalue) + ' ' + unit
@@ -714,9 +802,43 @@ def merge_dict(a, b):
 
 
 class MapSet:
+    """Portable mapset for small area and high resolution data plotting.
 
-    def __init__(self, coastline=None, country=None, land=None, ocean=None,
-            province=None, city=None, county=None):
+    The default Cartopy features (e.g. coastlines, borders) are not scalable
+    geographically. If we want to plot something in a small georange,
+    naturally we need high-res features to avoid coarseness. Also, every time
+    when we add features on a plot, Cartopy will calculate which geometries
+    are in the given georange and can be plotted, which cost noticeable time.
+    As a result if we plot many figures on the same small georange, many time
+    and computing power are wasted.
+
+    To address this problem I create a reusable mapset for Cartopy. It will
+    calculate desired geometries upon initiating, which is reusable and fully
+    compatible with Cartopy functions. It can also be saved as a file by
+    pickle, further reducing overhead time.
+
+    Example code:
+    ```
+    extent = 15, 35, 110, 135
+    mapset = MapSet(proj=ccrs.PlateCarree(), extent=extent)
+    mapset.coastline = PartialNaturalEarthFeature('physical', 'coastline',
+        '10m', extent=extent)
+    p = Plot()
+    p.usemapset(mapset)
+    p.drawcoastlines()
+    ```
+
+    or, more easily:
+    ```
+    extent = 15, 35, 110, 135
+    mapset = MapSet.from_natural_earth(proj='P', extent=extent)
+    p.usemapset(mapset)
+    """
+
+    def __init__(self, proj=None, extent=None, coastline=None, country=None,
+            land=None, ocean=None, province=None, city=None, county=None):
+        self.proj = proj
+        self.extent = extent
         self.coastline = coastline
         self.country = country
         self.land = land
@@ -726,10 +848,12 @@ class MapSet:
         self.county = county
 
     @classmethod
-    def from_natural_earth(cls, scale, extent, country=True, land=False, ocean=False):
-        ins = cls()
-        ins.coastline = PartialNaturalEarthFeature('physical', 'coastline',
-            scale, extent=extent)
+    def from_natural_earth(cls, scale, extent, proj=None, coastline=True,
+            country=True, land=False, ocean=False):
+        ins = cls(proj=proj, extent=extent)
+        if coastline:
+            ins.coastline = PartialNaturalEarthFeature('physical', 'coastline',
+                scale, extent=extent)
         if country:
             ins.country = PartialNaturalEarthFeature('cultural',
                 'admin_0_boundary_lines_land', scale, extent=extent)
@@ -741,8 +865,12 @@ class MapSet:
                 scale, extent=extent)
         return ins
 
+    @classmethod
+    def load(cls, filename):
+        with open(filename, 'rb') as f:
+            return pickle.load(f)
+
     def save(self, filename):
-        import pickle
         with open(filename, 'wb') as f:
             pickle.dump(self, f)
 
@@ -780,4 +908,3 @@ class PartialNaturalEarthFeature(cfeature.NaturalEarthFeature):
             category=self.category, name=self.name)
         self._geoms = tuple(ciosr.Reader(path).geometries())
         self._geoms = super().intersecting_geometries(self.extent)
-
