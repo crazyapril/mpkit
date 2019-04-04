@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.ndimage as snd
 
-__version__ = '0.2.0'
+__version__ = '0.3.0'
 
 _ShapeFileDir = os.path.join(os.path.split(__file__)[0], 'shapefile')
 _ProvinceDir = os.path.join(_ShapeFileDir, 'CP/ChinaProvince.shp')
@@ -167,6 +167,9 @@ class Plot:
             self.proj = type(_proj).__name__
         else:
             self.proj = _projshort.get(proj.upper(), proj)
+            if self.proj in ('PlateCarree', 'Mercator') and \
+                    georange[2] < 180 < georange[3]:
+                kwargs.update(central_longitude=180.0)
             _proj = getattr(ccrs, self.proj)(**kwargs)
         self.trans = self.proj != 'PlateCarree'
         self.ax = plt.axes(projection=_proj)
@@ -234,27 +237,15 @@ class Plot:
         georange = session.mapproj.pop('georange')
         self.setmap(proj=proj, georange=georange, **session.mapproj)
 
-    def _usemap(self, proj, georange=None, resolution='i'):
-        self.ax = plt.axes(projection=proj)
-        self.proj = type(proj).__name__
-        self.trans = self.proj != 'PlateCarree'
-        self.scale = _scaleshort[resolution]
-        if georange:
-            extent = georange[2:] + georange[:2]
-            self.ax.set_extent(extent, crs=ccrs.PlateCarree())
-        if self.boundary is None:
-            self.ax.outline_patch.set_linewidth(0)
-        else:
-            self.ax.outline_patch.set_linewidth(0.5)
-
     def usefeature(self, feature, facecolor=None, edgecolor=None, **kwargs):
         feature._kwargs.update(facecolor=facecolor, edgecolor=edgecolor)
         self.ax.add_feature(feature, **kwargs)
 
-    def usemapset(self, mapset):
+    def usemapset(self, mapset, proj=None):
         self.mapset = mapset
-        if self.ax is None and mapset.proj:
-            self.setmap(proj=mapset.proj, georange=mapset.georange)
+        projection = proj or mapset.proj
+        if self.ax is None and projection:
+            self.setmap(proj=projection, georange=mapset.georange)
 
     def useshapefile(self, directory, encoding='utf8', color=None, lw=None, **kwargs):
         if lw is None:
@@ -330,7 +321,7 @@ class Plot:
             color=color, linestyle='--', **kwargs)
         gl.xlabels_top = False
         gl.ylabels_right = False
-        gl.xlocator = mticker.FixedLocator(np.arange(-180, 180, self.mpstep))
+        gl.xlocator = mticker.FixedLocator(np.arange(-180, 181, self.mpstep))
         gl.ylocator = mticker.FixedLocator(np.arange(-80, 81, self.mpstep))
         gl.xformatter = cmgl.LONGITUDE_FORMATTER
         gl.yformatter = cmgl.LATITUDE_FORMATTER
@@ -405,11 +396,13 @@ class Plot:
             land_color = '#AAAAAA'
             self.linecolor.update(coastline='#666666', country='#666666',
                 parameri='#666666',province='#888888', city='#888888')
+            self.style_colors = (ocean_color, land_color, '#666666', '#888888')
         elif s == 'bom':
             ocean_color = '#E6E6FF'
             land_color = '#E8E1C4'
             self.linecolor.update(coastline='#D0A85E', country='#D0A85E',
-                parameri='#D0A85E',province='#D0A85E', city='#D0A85E')
+                parameri='#D0A85E', province='#D0A85E', city='#D0A85E')
+            self.style_colors = (ocean_color, land_color, '#D0A85E')
         if self.mapset and self.mapset.ocean:
             self.ax.add_feature(self.mapset.ocean, color=ocean_color)
         else:
@@ -705,7 +698,7 @@ class Plot:
             if d < vmax and d > vmin and x not in (0, xmax-1) and y not in (0, ymax-1):
                 textfunc(x*res+self.lonmin, y*res+self.latmin, fmt.format(d), **kwargs)
 
-    def boxtext(self, s, position='upper left', bbox={}, color='k', fontsize=None, **kwargs):
+    def boxtext(self, s, textpos='upper left', bbox={}, color='k', fontsize=None, **kwargs):
         if fontsize is None:
             fontsize = self.fontsize['boxtext']
         supported_positions = {
@@ -716,9 +709,9 @@ class Plot:
             'lower center': (0.5, 0.01, 'center', 'bottom'),
             'lower right': (0.99, 0.01, 'right', 'bottom')
         }
-        if position not in supported_positions:
-            raise PlotError('Unsupported position {}.'.format(position))
-        x, y, ha, va = supported_positions[position]
+        if textpos not in supported_positions:
+            raise PlotError('Unsupported position {}.'.format(textpos))
+        x, y, ha, va = supported_positions[textpos]
         bbox = merge_dict(bbox, {'boxstyle':'round', 'facecolor':'w', 'pad':0.4,
             'edgecolor':'none'})
         t = self.ax.text(x, y, s, bbox=bbox, va=va, ha=ha, fontsize=fontsize,
@@ -811,6 +804,10 @@ class Plot:
             self.fig.savefig(path, dpi=self.dpi, bbox_inches='tight', edgecolor='none',
                 pad_inches=0.05)
 
+    def clear(self):
+        plt.clf()
+
+
 def merge_dict(a, b):
     '''Merge B into A without overwriting A'''
     for k, v in b.items():
@@ -837,10 +834,10 @@ class MapSet:
 
     Example code:
     ```
-    extent = 15, 35, 110, 135
-    mapset = MapSet(proj=ccrs.PlateCarree(), extent=extent)
+    georange = 15, 35, 110, 135
+    mapset = MapSet(proj=ccrs.PlateCarree(), georange=georange)
     mapset.coastline = PartialNaturalEarthFeature('physical', 'coastline',
-        '10m', extent=extent)
+        '10m', georange=georange)
     p = Plot()
     p.usemapset(mapset)
     p.drawcoastlines()
@@ -848,15 +845,17 @@ class MapSet:
 
     or, more easily:
     ```
-    extent = 15, 35, 110, 135
-    mapset = MapSet.from_natural_earth(proj='P', extent=extent)
+    georange = 15, 35, 110, 135
+    mapset = MapSet.from_natural_earth(proj='P', georange=georange)
     p.usemapset(mapset)
     """
 
     def __init__(self, proj=None, georange=None, coastline=None, country=None,
-            land=None, ocean=None, province=None, city=None, county=None):
+            land=None, ocean=None, province=None, city=None, county=None,
+            scale=None):
         self.proj = proj
         self.georange = georange
+        self.scale = scale
         self.coastline = coastline
         self.country = country
         self.land = land
@@ -866,9 +865,9 @@ class MapSet:
         self.county = county
 
     @classmethod
-    def from_natural_earth(cls, scale, georange, proj=None, coastline=True,
-            country=True, land=False, ocean=False):
-        ins = cls(proj=proj, georange=georange)
+    def from_natural_earth(cls, georange=None, scale='50m', proj='P',
+            coastline=True, country=True, land=False, ocean=False):
+        ins = cls(proj=proj, georange=georange, scale=scale)
         if coastline:
             ins.coastline = PartialNaturalEarthFeature('physical', 'coastline',
                 scale, georange=georange)
