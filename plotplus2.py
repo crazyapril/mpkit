@@ -35,14 +35,6 @@ class PlotError(Exception):
 
 class Plot:
 
-    fontsize = dict(title=6, timestamp=5, mmnote=5, clabel=5, cbar=5,
-        gridvalue=5, mmfilter=6, parameri=4, legend=6, marktext=6,
-        boxtext=6)
-    linecolor = dict(coastline=_gray, country=_gray, province=_gray,
-        city=_gray, county=_gray, parameri='k')
-    linewidth = dict(coastline=0.3, country=0.3, province=0.2, city=0.1,
-        county=0.1, parameri=0.3)
-
     def __init__(self, figsize=None, dpi=180, aspect=None, inside_axis=False,
             boundary=None):
         """Init the plot.
@@ -87,6 +79,13 @@ class Plot:
         self.aspect = aspect
         self.boundary = boundary
         self.inside_axis = inside_axis
+        self.fontsize = dict(title=6, timestamp=5, mmnote=5, clabel=5, cbar=5,
+            gridvalue=5, mmfilter=6, parameri=4, legend=6, marktext=6,
+            boxtext=6)
+        self.linecolor = dict(coastline=_gray, country=_gray, province=_gray,
+            city=_gray, county=_gray, parameri='k')
+        self.linewidth = dict(coastline=0.3, country=0.3, province=0.2, city=0.1,
+            county=0.1, parameri=0.3)
 
     def setfamily(self, f):
         self.family = f
@@ -315,6 +314,8 @@ class Plot:
             return
         import cartopy.mpl.gridliner as cmgl
         import matplotlib.ticker as mticker
+        no_dashes = lw is not None and (self.proj == 'PlateCarree' or \
+            self.proj == 'Mercator')
         lw = self.linewidth['parameri'] if lw is None else lw
         color = self.linecolor['parameri'] if color is None else color
         fontsize = self.fontsize['parameri'] if fontsize is None else fontsize
@@ -329,7 +330,7 @@ class Plot:
         gl.yformatter = cmgl.LATITUDE_FORMATTER
         gl.xlabel_style = dict(size=fontsize, color=color, family=self.family)
         gl.ylabel_style = dict(size=fontsize, color=color, family=self.family)
-        if not lw and (self.proj == 'PlateCarree' or self.proj == 'Mercator'):
+        if no_dashes:
             gl.xlines = False
             gl.ylines = False
         if self.inside_axis:
@@ -515,7 +516,6 @@ class Plot:
     def sidebar(self, mappable, unit=None, **kwargs):
         ticks = kwargs.pop('ticks')
         ticks = [ticks[0], ticks[-1]]
-        del kwargs['size'], kwargs['pad']
         cax = self.fig.add_axes([0.18, 0.13, 0.01, 0.05])
         cb = self.fig.colorbar(mappable, cax=cax, ticks=ticks, **kwargs)
         cb.ax.tick_params(labelsize=self.fontsize['cbar'], length=0)
