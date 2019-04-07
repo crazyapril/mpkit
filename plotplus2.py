@@ -489,6 +489,8 @@ class Plot:
         return c
 
     def colorbar(self, mappable, unit=None, **kwargs):
+        if kwargs.pop('sidebar', False):
+            return self.sidebar(mappable, unit, **kwargs)
         from mpl_toolkits.axes_grid1 import make_axes_locatable
         kwargs = merge_dict(kwargs, dict(size='2%', pad='1%'))
         if kwargs.pop('orientation', None) == 'horizontal':
