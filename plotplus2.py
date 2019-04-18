@@ -52,9 +52,17 @@ class Plot:
             by (lat_range / lon_range) * width_of_figure * aspect.
             This param is often used when representing data in mid-
             latitude regions in PlateCarree projection to offset
-            projection distortion. (the default is None, which will
-            fix aspect and change figure size. When set to 'auto',
-            aspect will be calculated to fit the figure size.)
+            projection distortion.
+            If set to 'auto', aspect will be calculated to fit the
+            figure size.
+            If set to None, aspect would be fixed to 1, figure size
+            will be re-calculated to reflect the aspect ratio of
+            georange.
+            If set to 'cos', aspect would be fixed to
+            1 / cos(avg(latmin, latmax)) and figure size will be
+            re-calculated accordingly. This option is to
+            automatically reduce distortion in mid-latitude regions.
+            (the default is None.)
         inside_axis : boolean, optional
             Whether all figure artists are placed inside the bounding
             box. If True, title/colorbar method is ignored, gridline
@@ -163,6 +171,11 @@ class Plot:
             georange = kwargs.pop('georange')
         else:
             georange = (-90, 90, -180, 180)
+        self.georange = georange
+        if 'map_georange' in kwargs:
+            self.map_georange = kwargs.pop('map_georange')
+        else:
+            self.map_georange = self.georange
         if isinstance(proj, ccrs.Projection):
             _proj = proj
             self.proj = type(_proj).__name__
@@ -175,20 +188,21 @@ class Plot:
         self.trans = self.proj != 'PlateCarree'
         self.ax = plt.axes(projection=_proj)
         self.scale = _scaleshort[resolution]
-        extent = georange[2:] + georange[:2]
+        extent = self.map_georange[2:] + self.map_georange[:2]
         self.ax.set_extent(extent, crs=ccrs.PlateCarree())
+        width, height = self.fig.get_size_inches()
+        deltalon = self.map_georange[3] - self.map_georange[2]
+        deltalat = self.map_georange[1] - self.map_georange[0]
         if self.aspect == 'auto':
-            width, height = self.fig.get_size_inches()
-            deltalon = georange[3] - georange[2]
-            deltalat = georange[1] - georange[0]
-            aspect_ratio = (height * deltalat) / (width * deltalon)
+            aspect_ratio = (height * deltalon) / (width * deltalat)
             self.ax.set_aspect(aspect_ratio)
+        elif self.aspect == 'cos':
+            midlat = (self.map_georange[0] + self.map_georange[1]) / 2
+            aspect_ratio = 1 / np.cos(np.deg2rad(midlat))
+            self.fig.set_size_inches(width, width * deltalat / deltalon * aspect_ratio)
         elif self.aspect is not None:
             self.ax.set_aspect(self.aspect)
         else:
-            width, height = self.fig.get_size_inches()
-            deltalon = georange[3] - georange[2]
-            deltalat = georange[1] - georange[0]
             self.fig.set_size_inches(width, width * deltalat / deltalon)
         if self.boundary is None:
             self.ax.outline_patch.set_linewidth(0)
@@ -246,7 +260,11 @@ class Plot:
         self.mapset = mapset
         projection = proj or mapset.proj
         if self.ax is None and projection:
-            self.setmap(proj=projection, georange=mapset.georange)
+            if mapset.proj_params:
+                proj_params = mapset.proj_params
+            else:
+                proj_params = {}
+            self.setmap(proj=projection, georange=mapset.georange, **proj_params)
 
     def useshapefile(self, directory, encoding='utf8', color=None, lw=None, **kwargs):
         if lw is None:
@@ -314,7 +332,7 @@ class Plot:
             return
         import cartopy.mpl.gridliner as cmgl
         import matplotlib.ticker as mticker
-        no_dashes = lw is not None and (self.proj == 'PlateCarree' or \
+        no_dashes = lw is None and (self.proj == 'PlateCarree' or \
             self.proj == 'Mercator')
         lw = self.linewidth['parameri'] if lw is None else lw
         color = self.linecolor['parameri'] if color is None else color
@@ -324,7 +342,18 @@ class Plot:
             color=color, linestyle='--', **kwargs)
         gl.xlabels_top = False
         gl.ylabels_right = False
-        gl.xlocator = mticker.FixedLocator(np.arange(-180, 181, self.mpstep))
+        # Temporary fix for a strange bug in cartopy. Remember **REMOVE** them after
+        # a new version of cartopy is released!
+        lon1, lon2 = self.map_georange[2:]
+        if lon1 < 180 < lon2:
+            lon1 = np.ceil(lon1 / self.mpstep) * self.mpstep
+            lon2 = np.floor(lon2 / self.mpstep) * self.mpstep
+            xticks = np.arange(lon1, lon2+self.mpstep, self.mpstep)
+            xticks[xticks>180] -= 360
+            xticks = np.append(xticks, -180)
+        else:
+            xticks = np.arange(-180, 181, self.mpstep)
+        gl.xlocator = mticker.FixedLocator(xticks)
         gl.ylocator = mticker.FixedLocator(np.arange(-80, 81, self.mpstep))
         gl.xformatter = cmgl.LONGITUDE_FORMATTER
         gl.yformatter = cmgl.LATITUDE_FORMATTER
@@ -450,8 +479,7 @@ class Plot:
                 clabellevels = clabeldict.pop('levels')
             else:
                 clabellevels = kwargs['levels']
-            clabeldict.update(fmt='%d', fontsize=self.fontsize['clabel'])
-            #labels = self.ax.clabel(c, clabellevels, **clabeldict)
+            merge_dict(clabeldict, {'fmt': '%d', 'fontsize': self.fontsize['clabel']})
             labels = self.ax.clabel(c, **clabeldict)
             for l in labels:
                 l.set_family(self.family)
@@ -856,7 +884,7 @@ class MapSet:
 
     def __init__(self, proj=None, georange=None, coastline=None, country=None,
             land=None, ocean=None, province=None, city=None, county=None,
-            scale=None):
+            scale=None, proj_params=None):
         self.proj = proj
         self.georange = georange
         self.scale = scale
@@ -867,11 +895,12 @@ class MapSet:
         self.province = province
         self.city = city
         self.county = county
+        self.proj_params = proj_params
 
     @classmethod
     def from_natural_earth(cls, georange=None, scale='50m', proj='P',
-            coastline=True, country=True, land=False, ocean=False):
-        ins = cls(proj=proj, georange=georange, scale=scale)
+            coastline=True, country=True, land=False, ocean=False, proj_params=None):
+        ins = cls(proj=proj, georange=georange, scale=scale, proj_params=proj_params)
         if coastline:
             ins.coastline = PartialNaturalEarthFeature('physical', 'coastline',
                 scale, georange=georange)
@@ -907,7 +936,14 @@ class PartialShapelyFeature(cfeature.ShapelyFeature):
         return self.geometries()
 
     def make_partial(self):
-        self._geoms = list(super().intersecting_geometries(self.extent))
+        if self.extent[0] < 180 < self.extent[1]:
+            extent1 = self.extent[0], 180., self.extent[2], self.extent[3]
+            extent2 = (-180., self.extent[1] - 360.,
+                self.extent[2], self.extent[3])
+            self._geoms = list(super().intersecting_geometries(extent1)) +\
+                list(super().intersecting_geometries(extent2))
+        else:
+            self._geoms = list(super().intersecting_geometries(self.extent))
 
     @classmethod
     def from_shp(cls, directory, georange=None, **kwargs):
@@ -934,4 +970,11 @@ class PartialNaturalEarthFeature(cfeature.NaturalEarthFeature):
         path = ciosr.natural_earth(resolution=self.scale,
             category=self.category, name=self.name)
         self._geoms = tuple(ciosr.Reader(path).geometries())
-        self._geoms = list(super().intersecting_geometries(self.extent))
+        if self.extent[0] < 180 < self.extent[1]:
+            extent1 = self.extent[0], 180., self.extent[2], self.extent[3]
+            extent2 = (-180., self.extent[1] - 360.,
+                self.extent[2], self.extent[3])
+            self._geoms = list(super().intersecting_geometries(extent1)) +\
+                list(super().intersecting_geometries(extent2))
+        else:
+            self._geoms = list(super().intersecting_geometries(self.extent))
