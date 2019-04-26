@@ -200,6 +200,7 @@ class Plot:
             midlat = (self.map_georange[0] + self.map_georange[1]) / 2
             aspect_ratio = 1 / np.cos(np.deg2rad(midlat))
             self.fig.set_size_inches(width, width * deltalat / deltalon * aspect_ratio)
+            self.ax.set_aspect(aspect_ratio)
         elif self.aspect is not None:
             self.ax.set_aspect(self.aspect)
         else:
@@ -530,9 +531,16 @@ class Plot:
             orientation = 'vertical'
             self._colorbar_unit(unit)
         divider = make_axes_locatable(self.ax)
-        import cartopy.mpl.geoaxes as cmga
-        cax = divider.append_axes(location, size=kwargs.pop('size'), pad=kwargs.pop('pad'),
-            axes_class=plt.Axes)
+        aspect = self.ax.get_aspect()
+        if isinstance(aspect, (int, float)):
+            # `axes_grid1` would fail when source axe has aspect set. The colorbar
+            # would remain at the same place as aspect isn't set. So we use `pad`
+            # param to explicitly re-position the colorbar. Yes, it looks hacky.
+            pad_num = int(kwargs['pad'].strip('%')) / 100
+            pad_num = pad_num - (1 - 1 / aspect) / 2
+            kwargs['pad'] = '{:.02%}'.format(pad_num)
+        cax = divider.append_axes(location, size=kwargs.pop('size'),
+            pad=kwargs.pop('pad'), axes_class=plt.Axes)
         cb = self.fig.colorbar(mappable, orientation=orientation, cax=cax, **kwargs)
         self.fig.sca(self.ax)
         cb.ax.tick_params(labelsize=self.fontsize['cbar'], length=1.5)
@@ -560,33 +568,18 @@ class Plot:
 
     def barbs(self, u, v, color='k', lw=0.5, length=4, num=12, **kwargs):
         kwargs.update(color=color, linewidth=lw, length=length, transform=ccrs.PlateCarree())
-        if self.trans:
-            kwargs.update(regrid_shape=num)
-            nh = self.yy >= 0
-            if np.any(nh):
-                ret = self.ax.barbs(self.xx[nh], self.yy[nh], u[nh], v[nh], **kwargs)
-            else:
-                ret = None
-            sh = ~nh
-            if np.any(sh):
-                retsh = self.ax.barbs(self.xx[sh], self.yy[sh], u[sh], v[sh],
-                    flip_barb=True, **kwargs)
-            else:
-                retsh = None
+        kwargs.update(regrid_shape=num)
+        nh = self.yy >= 0
+        if np.any(nh):
+            ret = self.ax.barbs(self.xx[nh], self.yy[nh], u[nh], v[nh], **kwargs)
         else:
-            vs = self.stepcal(num)
-            x, y = self.xx[::vs, ::vs], self.yy[::vs, ::vs]
-            u, v = u[::vs, ::vs], v[::vs, ::vs]
-            nh = y >= 0
-            if np.any(nh):
-                ret = self.ax.barbs(x[nh], y[nh], u[nh], v[nh], **kwargs)
-            else:
-                ret = None
-            sh = ~nh
-            if np.any(sh):
-                retsh = self.ax.barbs(x[sh], y[sh], u[sh], v[sh], flip_barb=True, **kwargs)
-            else:
-                retsh = None
+            ret = None
+        sh = ~nh
+        if np.any(sh):
+            retsh = self.ax.barbs(self.xx[sh], self.yy[sh], u[sh], v[sh],
+                flip_barb=True, **kwargs)
+        else:
+            retsh = None
         return ret, retsh
 
     def quiver(self, u, v, num=40, scale=500, qkey=False, qkeydict=dict(), **kwargs):
