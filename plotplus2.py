@@ -366,6 +366,9 @@ class Plot:
         if self.inside_axis:
             gl.xpadding = -8
             gl.ypadding = -12
+        else:
+            gl.xpadding = 3
+            gl.ypadding = 2
 
     def draw(self, cmd):
         cmd = cmd.lower()
@@ -457,6 +460,26 @@ class Plot:
         ret = self.ax.scatter(*args, **kwargs)
         return ret
 
+    def imshow(self, im, gpfcmap=None, extent=None, **kwargs):
+        kwargs.update(transform=ccrs.PlateCarree(), interpolation='nearest')
+        if extent is None:
+            kwargs.update(extent=self.map_georange[2:]+self.map_georange[:2])
+        if gpfcmap:
+            cmapdict = gpf.cmap(gpfcmap)
+            levels = cmapdict['levels']
+            vmin = levels.min()
+            vmax = levels.max()
+            kwargs.update(cmap=cmapdict['cmap'], vmin=vmin, vmax=vmax)
+        ret = self.ax.imshow(im, **kwargs)
+        return ret
+
+    def text(self, *args, **kwargs):
+        return self.ax.text(*args, **kwargs)
+
+    def reltext(self, *args, **kwargs):
+        kwargs.update(transform=self.ax.transAxes)
+        return self.ax.text(*args, **kwargs)
+
     def contour(self, data, clabel=True, clabeldict=dict(), ip=1, color='k', lw=0.5,
             vline=None, vlinedict=dict(), **kwargs):
         x, y, data = self.interpolation(data, ip)
@@ -543,7 +566,7 @@ class Plot:
             pad=kwargs.pop('pad'), axes_class=plt.Axes)
         cb = self.fig.colorbar(mappable, orientation=orientation, cax=cax, **kwargs)
         self.fig.sca(self.ax)
-        cb.ax.tick_params(labelsize=self.fontsize['cbar'], length=1.5)
+        cb.ax.tick_params(labelsize=self.fontsize['cbar'], length=0, pad=2)
         cb.outline.set_linewidth(0.3)
         for l in cb.ax.yaxis.get_ticklabels():
             l.set_family(self.family)
@@ -739,12 +762,13 @@ class Plot:
         x, y, ha, va = supported_positions[textpos]
         bbox = merge_dict(bbox, {'boxstyle':'round', 'facecolor':'w', 'pad':0.4,
             'edgecolor':'none'})
+        kwargs = merge_dict(kwargs, {'family':self.family})
         t = self.ax.text(x, y, s, bbox=bbox, va=va, ha=ha, fontsize=fontsize,
-            color=color, family=self.family, transform=self.ax.transAxes)
+            color=color, transform=self.ax.transAxes, **kwargs)
         return t
 
     def title(self, s, nasdaq=False):
-        self.ax.text(0, 1.04, s, transform=self.ax.transAxes, fontsize=self.fontsize['title'],
+        self.ax.text(0, 1.035, s, transform=self.ax.transAxes, fontsize=self.fontsize['title'],
             family=self.family)
 
     def timestamp(self, basetime, fcsthour, duration=0, nearest=None):
@@ -818,16 +842,16 @@ class Plot:
             self.latmax, self.lonmin, self.lonmax))
         self.save(path)
 
-    def save(self, path):
+    def save(self, path, **kwargs):
         self.ax.text(1, 1.01, self.mmnote, ha='right', transform=self.ax.transAxes,
             fontsize=self.fontsize['mmnote'], family=self.family)
         self.ax.axis('off')
         if self.inside_axis:
             self.fig.subplots_adjust(bottom=0, top=1, left=0, right=1)
-            self.fig.savefig(path, dpi=self.dpi, pad_inches=0.)
+            self.fig.savefig(path, dpi=self.dpi, pad_inches=0., **kwargs)
         else:
             self.fig.savefig(path, dpi=self.dpi, bbox_inches='tight', edgecolor='none',
-                pad_inches=0.05)
+                pad_inches=0.03, **kwargs)
 
     def clear(self):
         plt.clf()
