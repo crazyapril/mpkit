@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.ndimage as snd
 
-__version__ = '0.3.0'
+__version__ = '0.4.0'
 
 _ShapeFileDir = os.path.join(os.path.split(__file__)[0], 'shapefile')
 _ProvinceDir = os.path.join(_ShapeFileDir, 'CP/ChinaProvince.shp')
@@ -327,10 +327,6 @@ class Plot:
             ccrs.PlateCarree(), facecolor='none', edgecolor=color), linewidth=lw)
 
     def drawparameri(self, lw=None, color=None, fontsize=None, **kwargs):
-        if self.proj not in ('PlateCarree', 'Mercator'):
-            print('We are still waiting for Cartopy to implement gridline feature on'
-                ' non-cylindrical projections...')
-            return
         import cartopy.mpl.gridliner as cmgl
         import matplotlib.ticker as mticker
         no_dashes = lw is None and (self.proj == 'PlateCarree' or \
@@ -341,25 +337,17 @@ class Plot:
         kwargs = merge_dict(kwargs, {'dashes': (0, (7, 7))})
         gl = self.ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, linewidth=lw,
             color=color, linestyle='--', **kwargs)
-        gl.xlabels_top = False
-        gl.ylabels_right = False
-        # Temporary fix for a strange bug in cartopy. Remember **REMOVE** them after
-        # a new version of cartopy is released!
-        lon1, lon2 = self.map_georange[2:]
-        if lon1 < 180 < lon2:
-            lon1 = np.ceil(lon1 / self.mpstep) * self.mpstep
-            lon2 = np.floor(lon2 / self.mpstep) * self.mpstep
-            xticks = np.arange(lon1, lon2+self.mpstep, self.mpstep)
-            xticks[xticks>180] -= 360
-            xticks = np.append(xticks, -180)
-        else:
-            xticks = np.arange(-180, 181, self.mpstep)
-        gl.xlocator = mticker.FixedLocator(xticks)
+        gl.top_labels = False
+        gl.right_labels = False
+        gl.xlocator = mticker.FixedLocator(np.arange(-180, 181, self.mpstep))
         gl.ylocator = mticker.FixedLocator(np.arange(-80, 81, self.mpstep))
         gl.xformatter = cmgl.LONGITUDE_FORMATTER
         gl.yformatter = cmgl.LATITUDE_FORMATTER
         gl.xlabel_style = dict(size=fontsize, color=color, family=self.family)
         gl.ylabel_style = dict(size=fontsize, color=color, family=self.family)
+        gl.x_inline = False
+        gl.y_inline = False
+        gl.rotate_labels = False
         if no_dashes:
             gl.xlines = False
             gl.ylines = False
@@ -407,6 +395,17 @@ class Plot:
             coords = [ycoords, xcoords]
             ndata = snd.map_coordinates(data, coords, order=3, mode='nearest')
             return newx, newy, ndata
+
+    def transform_data(self, data, ip=1):
+        xx, yy, data = self.interpolation(data, ip=ip)
+        if not self.trans:
+            return xx, yy, data
+        ret = self.ax.projection.transform_points(ccrs.PlateCarree(),
+            xx, yy, data)
+        xx = ret[..., 0]
+        yy = ret[..., 1]
+        data = ret[..., 2]
+        return xx, yy, data
 
     def stepcal(self, num, ip=1):
         if self.uneven_xy:
@@ -480,11 +479,13 @@ class Plot:
         kwargs.update(transform=self.ax.transAxes)
         return self.ax.text(*args, **kwargs)
 
-    def contour(self, data, clabel=True, clabeldict=dict(), ip=1, color='k', lw=0.5,
-            vline=None, vlinedict=dict(), **kwargs):
-        x, y, data = self.interpolation(data, ip)
-        kwargs.update(colors=color, linewidths=lw, transform=ccrs.PlateCarree())
-        c = self.ax.contour(x, y, data, **kwargs)
+    def contour(self, data, clabel=True, clabeldict=None, ip=1, color='k', lw=0.5,
+            vline=None, vlinedict=None, **kwargs):
+        clabeldict = clabeldict or {}
+        vlinedict = vlinedict or {}
+        xx, yy, data = self.transform_data(data, ip)
+        kwargs.update(colors=color, linewidths=lw, transform=self.ax.projection)
+        c = self.ax.contour(xx, yy, data, **kwargs)
         if vline:
             vlinedict = merge_dict(vlinedict, {'color':color, 'lw':lw})
             if isinstance(vline, (int, float)):
@@ -495,7 +496,7 @@ class Plot:
                 try:
                     index = list(c.levels).index(v)
                 except ValueError:
-                    raise ValueError('{} not in contour levels'.format(v))
+                    pass
                 else:
                     c.collections[index].set(**vlinedict)
         if clabel:
@@ -505,23 +506,30 @@ class Plot:
                 clabellevels = kwargs['levels']
             merge_dict(clabeldict, {'fmt': '%d', 'fontsize': self.fontsize['clabel']})
             labels = self.ax.clabel(c, **clabeldict)
+            if not labels:
+                return c
+            zorder = clabeldict.pop('zorder', 2)
             for l in labels:
                 l.set_family(self.family)
-                if vline:
-                    text = l.get_text()
-                    for v in vline:
-                        if str(v) == text:
-                            l.set_color(vlinedict['color'])
+                l.set_zorder(zorder)
+                if not vline:
+                    continue
+                text = l.get_text()
+                for v in vline:
+                    if str(v) == text:
+                        l.set_color(vlinedict['color'])
         return c
 
-    def contourf(self, data, gpfcmap=None, cbar=False, cbardict=dict(), ip=1,
-            vline=None, vlinedict=dict(), **kwargs):
+    def contourf(self, data, gpfcmap=None, cbar=False, cbardict=None, ip=1,
+            vline=None, vlinedict=None, **kwargs):
+        cbardict = cbardict or {}
+        vlinedict = vlinedict or {}
         if gpfcmap:
             kwargs = merge_dict(kwargs, gpf.cmap(gpfcmap))
         unit = kwargs.pop('unit', None)
-        x, y, data = self.interpolation(data, ip)
-        kwargs.update(transform=ccrs.PlateCarree())
-        c = self.ax.contourf(x, y, data, **kwargs)
+        xx, yy, data = self.transform_data(data, ip)
+        kwargs.update(transform=self.ax.projection)
+        c = self.ax.contourf(xx, yy, data, **kwargs)
         if cbar:
             if 'ticks' not in cbardict:
                 levels = kwargs['levels']
@@ -537,8 +545,8 @@ class Plot:
                 vlinedict.update(linewidths=0.6)
             else:
                 vlinedict.update(linewidths=vlinedict.pop('lw'))
-            vlinedict.update(transform=ccrs.PlateCarree())
-            self.ax.contour(x, y, data, levels=[vline], **vlinedict)
+            vlinedict.update(transform=self.ax.projection)
+            self.ax.contour(xx, yy, data, levels=[vline], **vlinedict)
         return c
 
     def colorbar(self, mappable, unit=None, **kwargs):
@@ -589,9 +597,9 @@ class Plot:
         ret = self.ax.streamplot(self.xx, self.yy, u, v, **kwargs)
         return ret
 
-    def barbs(self, u, v, color='k', lw=0.5, length=4, num=12, **kwargs):
-        kwargs.update(color=color, linewidth=lw, length=length, transform=ccrs.PlateCarree())
-        kwargs.update(regrid_shape=num)
+    def barbs(self, u, v, color='k', lw=0.5, length=3.5, num=12, **kwargs):
+        kwargs.update(color=color, linewidth=lw, length=length,
+            transform=ccrs.PlateCarree(), regrid_shape=num)
         nh = self.yy >= 0
         if np.any(nh):
             ret = self.ax.barbs(self.xx[nh], self.yy[nh], u[nh], v[nh], **kwargs)
@@ -605,7 +613,8 @@ class Plot:
             retsh = None
         return ret, retsh
 
-    def quiver(self, u, v, num=40, scale=500, qkey=False, qkeydict=dict(), **kwargs):
+    def quiver(self, u, v, num=40, scale=500, qkey=False, qkeydict=None, **kwargs):
+        qkeydict = qkeydict or {}
         kwargs.update(width=0.0015, headwidth=3, scale=scale, transform=ccrs.PlateCarree(),
             regrid_shape=num)
         vs = self.stepcal(num)
@@ -622,7 +631,8 @@ class Plot:
                               fontproperties=dict(family=self.family, size=8))
         return q
 
-    def pcolormesh(self, data, gpfcmap=None, cbar=False, cbardict=dict(), ip=1, **kwargs):
+    def pcolormesh(self, data, gpfcmap=None, cbar=False, cbardict=None, ip=1, **kwargs):
+        cbardict = cbardict or {}
         if gpfcmap:
             import matplotlib.colors as mclr
             gpfdict = gpf.cmap(gpfcmap)
@@ -634,7 +644,6 @@ class Plot:
         ret = self.ax.pcolormesh(x, y, data, **kwargs)
         if cbar:
             if 'ticks' not in cbardict:
-                levels = gpfdict['levels']
                 step = len(levels) // 40 + 1
                 cbardict.update(ticks=levels[::step])
             cbardict.update(size='2%', pad='1%')
@@ -648,14 +657,15 @@ class Plot:
         return [mpatheffects.Stroke(linewidth=1, foreground='w'), mpatheffects.Normal()]
 
     def gridvalue(self, data, num=20, fmt='{:.0f}', color='b', fontsize=None,
-            stroke=False, **kwargs):
+            stroke=False, zorder=4, **kwargs):
         if fontsize is None:
             fontsize = self.fontsize['gridvalue']
         if stroke:
             kwargs.update(path_effects=self._get_stroke_patheffects())
         step = self.stepcal(num)
         kwargs.update(color=color, fontsize=fontsize, ha='center', va='center',
-                      family=self.family, transform=ccrs.PlateCarree())
+                      family=self.family, transform=ccrs.PlateCarree(),
+                      zorder=zorder)
         if self.proj == 'PlateCarree':
             meri, para = len(self.y), len(self.x)
             for i in range(1, meri-1, step):
@@ -683,7 +693,8 @@ class Plot:
                     self.ax.text(lon, lat, fmt.format(value), **kwargs)
 
     def marktext(self, x, y, text='', mark='×', textpos='right', stroke=False,
-            bbox=dict(), family='plotplus', markfontsize=None, **kwargs):
+            bbox=None, family='plotplus', markfontsize=None, **kwargs):
+        bbox = bbox or {}
         if family == 'plotplus':
             kwargs.update(family=self.family)
         elif family is not None:
@@ -693,6 +704,8 @@ class Plot:
         fontsize = kwargs.pop('fontsize', self.fontsize['marktext'])
         if stroke:
             kwargs.update(path_effects=self._get_stroke_patheffects())
+        if 'zorder' not in kwargs:
+            kwargs.update(zorder=4)
         bbox = merge_dict(bbox, {'facecolor':'none', 'edgecolor':'none'})
         xy, xytext, ha, va=dict(right=((1, 0.5), (2, 0), 'left', 'center'),
                                 left=((0, 0.5), (-2, 0), 'right', 'center'),
@@ -710,15 +723,16 @@ class Plot:
 
     def maxminfilter(self, data, type='min', fmt='{:.0f}', weight='bold', color='b',
             fontsize=None, window=15, vmin=-1e7, vmax=1e7, stroke=False, marktext=False,
-            marktextdict=dict(), **kwargs):
+            marktextdict=None, zorder=4, **kwargs):
         '''Use res keyword or ip keyword to interpolate'''
+        marktextdict = marktextdict or {}
         if fontsize is None:
             fontsize = self.fontsize['mmfilter']
         if stroke:
             kwargs.update(path_effects=self._get_stroke_patheffects())
         textfunc = self.ax.text
         kwargs.update(fontweight=weight, color=color, fontsize=fontsize, ha='center',
-            va='center', transform=ccrs.PlateCarree())
+            va='center', transform=ccrs.PlateCarree(), zorder=zorder)
         if marktext:
             argsdict = dict(fontsize=fontsize, weight=weight, color=color, stroke=stroke,
                 markfontsize=8, family=None, textpos='bottom')
@@ -851,7 +865,7 @@ class Plot:
             self.fig.savefig(path, dpi=self.dpi, pad_inches=0., **kwargs)
         else:
             self.fig.savefig(path, dpi=self.dpi, bbox_inches='tight', edgecolor='none',
-                pad_inches=0.03, **kwargs)
+                pad_inches=0.04, **kwargs)
 
     def clear(self):
         plt.clf()
