@@ -398,8 +398,6 @@ class Plot:
 
     def transform_data(self, data, ip=1):
         xx, yy, data = self.interpolation(data, ip=ip)
-        if not self.trans:
-            return xx, yy, data
         ret = self.ax.projection.transform_points(ccrs.PlateCarree(),
             xx, yy, data)
         xx = ret[..., 0]
@@ -717,8 +715,8 @@ class Plot:
         an_text = self.ax.annotate(text, xy=xy, xycoords=an_mark, xytext=xytext,
             textcoords='offset points', va=va, ha=ha, bbox=bbox, fontsize=fontsize,
             **kwargs)
-        an_mark.set_clip_path(self.ax.outline_patch)
-        an_text.set_clip_path(self.ax.outline_patch)
+        an_mark.set_clip_path(self.ax.patch)
+        an_text.set_clip_path(self.ax.patch)
         return an_mark, an_text
 
     def maxminfilter(self, data, type='min', fmt='{:.0f}', weight='bold', color='b',
